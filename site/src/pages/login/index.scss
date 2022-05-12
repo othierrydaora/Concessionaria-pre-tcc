@@ -1,0 +1,123 @@
+
+
+
+.pagina-login{
+
+        /* Conteudo principal */
+    .tela-login {
+        display: flex;
+        align-items: center;
+        width: 100vw;
+        height: 100vh;
+        justify-content: center;
+    }
+
+    // CAIXA DE LOGIN
+
+    .login-box {
+        margin-bottom: 20vh;
+        display: flex;
+        flex-direction: column;
+        background-color: #ffffff;
+        width: fit-content;
+        align-items: center;
+        justify-content: center;
+        padding: 4em 8em;
+        border-radius: .5em;
+        overflow:hidden;
+        box-shadow: 1px 2px 8px #00000054;
+    }
+
+
+    .login-box-title {
+        color: #357AE2;
+        font-family: 'Roboto', sans-serif;
+        font-size: 1.5em;
+        font-weight: 600;
+        text-decoration: underline;
+        text-transform: uppercase;
+    }
+
+    .forms {
+        margin-top: 1em;
+    }
+
+    .forms > div {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin-bottom: .7em;
+    }
+
+    .input-field {
+        border: none;
+        outline: none;
+        background-color: #70798b46;
+        color: #3b3b3b;
+        border-radius: 2px;
+        padding: 5px 10px;
+        font-size: 16px;
+        font-family: 'Roboto', sans-serif;
+    }
+
+    .form-image {
+        margin-left: 10px;
+    }
+
+    .login-button {
+        background-color: #c9c7c7;
+        border-radius: 3em;
+        font-size: 18px;
+        font-family: 'Roboto', sans-serif;
+        color: #303030;
+        padding: .4em 1.7em;
+        margin-top: .5em;
+        cursor: pointer;
+        transition: .15s;
+    }
+
+    .login-button:hover {
+        transform: scale(1.1);
+        background-color: #3787ff;
+        color: #fff;
+    }
+
+    /* Celular - landscape */
+    @media all and (min-width: 480px) and (max-width: 550px) {
+
+        Main {
+            height: 90vh;
+        }
+
+        .login-box {
+            width: 350px;
+            margin-top: 8em;
+            padding: 4em 0em;
+        }
+
+        .login-box-title {
+            color: #357AE2;
+            font-family: 'Roboto', sans-serif;
+            font-size: 23px;
+        }
+        
+
+        .input-field {
+            border-radius: 3px;
+            font-size: 12px;
+        }
+
+        .form-image {
+            height: 28px;
+        }
+
+        .login-button {
+            background-color: #a49fbc;
+            font-size: 15px;
+            margin-top: .8em;
+        }
+    }
+    
+}
+
+

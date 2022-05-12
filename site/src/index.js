@@ -6,7 +6,7 @@ import './index.css'
 import Home from './pages/home/index.js'
 import Menu from './pages/menu/index.js'
 import Gerenciamento from './pages/gerenciamento/index.js'
-import Cadastro from './pages/cadastro/index.js';
+import Login from './pages/login/index.js'
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -18,6 +18,7 @@ root.render(
         <Route path='/menu' element={ <Menu/> }/>
         <Route path='/gerenciamento' element={ <Gerenciamento/> }/>
         <Route path='/cadastro' element={ <Cadastro/> }/>
+        <Route path='/login' element={ <Login/>} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>

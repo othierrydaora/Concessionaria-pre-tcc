@@ -1,6 +1,7 @@
 /* HEADER */
 .cm-header {
-    background-color: #000000c0;
+    background-color: #272727;
+    color: #fff;
     display: flex;
     flex-wrap: nowrap;
     justify-content: space-between;
@@ -9,10 +10,9 @@
     width: 100vw;
     padding: 0 30px;
     transition: .3s;
-}
-
-.cm-header * {
-    color: #fff;
+    position: fixed;
+    top: 0;
+    z-index: 1;
 }
 
 .header-logo {
