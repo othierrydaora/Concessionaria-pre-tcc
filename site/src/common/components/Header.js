@@ -2,7 +2,7 @@ import './Header.sass';
 
 export default function Header(props) {
     return (
-        <div classNameName='cm-header'>
+        <div className='cm-header'>
             <header>
                 <div className="header-fonts header-logo">SIGMA</div>
             </header>

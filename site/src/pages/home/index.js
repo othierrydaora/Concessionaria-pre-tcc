@@ -1,10 +1,11 @@
 import Header from '../../common/components/Header'
+import { Link } from 'react-router-dom';
 
 export default function Home() {
     return (
         <div className="hm-home">
             <Header />
-            <h1>Teste</h1>
+            <Link to='/menu'>Teste</Link>
         </div>
     );
 }
