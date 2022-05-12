@@ -5,7 +5,6 @@ export default function Home() {
     return (
         <div className="hm-home">
             <Header />
-            <Link to='/menu'>Teste</Link>
         </div>
     );
 }

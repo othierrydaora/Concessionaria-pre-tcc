@@ -1,16 +1,13 @@
-import './Header.sass';
+import './Header.scss';
 
 export default function Header(props) {
     return (
         <div className='cm-header'>
-            <header>
-                <div className="header-fonts header-logo">SIGMA</div>
-            </header>
-            <nav className="menu-nav header-item">
-                <ul>
-                    <li><div className="header-fonts">Voltar</div></li>
-                </ul>
-            </nav>
+            <div className="header-logo">SIGMA</div>
+            <div className="header-menu">
+                <div className="header-menu-item">Contato</div>
+                <div className="header-menu-item">Voltar</div>
+            </div>
         </div>
     );
 }
