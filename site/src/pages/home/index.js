@@ -9,7 +9,7 @@ export default function Home() {
     return (
         <div>
         <div className="hm-home">
-            <Header />
+            <Header login="show" info="show" contact="show" />
 
             <main>
                 <section className="inicial" id="inicial">
