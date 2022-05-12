@@ -1,0 +1,499 @@
+/* MAIN */
+main{
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+section {
+    width: 95vw;
+}
+
+    /* INICIAL */
+.inicial {
+    width: 100vw;
+    height: 700px;
+/*
+    background: url(../../assets/images/bmw-backt.jpg) no-repeat;
+*/
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.card {
+    margin-left: 2vw;
+    width: 34.5vw;
+    height: fit-content;
+}
+
+.inicial-title {
+    color: #fff;
+    font-family: 'Roboto', sans-serif;
+    font-size: 37px;
+    font-weight: 500;
+    padding: .7em 0em;
+}
+
+.presentation-text {
+    color: #fff;
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    margin-top: 1jem;
+    font-weight: 400;
+}
+
+.presentation-btn {
+    color: #fff;
+    background-color: #00000013;
+    font-family: 'Roboto';
+    font-size: 25px;
+    border: none;
+    border-radius: 60px;
+    border: 2.5px white solid;
+    padding: .3em 1.2em;
+    margin: 1em 0em;
+    transition: .2s;
+    margin-bottom: 2em;
+    cursor: pointer;
+}
+
+.presentation-btn:hover {
+    transform: scale(1.08);
+    background-color: #fff;
+    color: #0952f0;
+    box-shadow: -4px 6px 20px #ffffff0c;
+}
+
+    /* PAGE ONE */
+.page-one{
+    height: fit-content;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    padding: 6.5em 0em;
+}
+
+.titles{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.titles h1{
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 6vw;
+    width: 7em;
+    color: #5e72e4;
+}
+
+.p1-subtitles {
+    text-align: center;
+    color: #7f818b;
+    font-family: sans-serif;
+    font-size: 25px;
+}
+
+.p1-para{
+    font-family: 'Roboto', sans-serif;
+    color: #7f818b;
+    font-size: 17px;
+}
+
+.p1-text {
+    margin: .2em 0;
+    color: #0952f0;
+    font-family: sans-serif;
+}
+
+.car{
+    /*background-image: url(../../assets/images/Group\ 2.png);*/
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 39vw;
+}
+
+.redes-sociais{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 30%;
+    margin-top: 20px;
+}
+
+.fa{
+    font-size: 30px;
+    display: inherit;
+    align-items: center;
+    justify-content: center;
+    width: 35px;
+    height: 35px;
+    color: #424242;
+    background-color: #e0e0e0;
+    border-radius: 100%;
+    transition: .1s ease-in-out;
+    cursor: pointer;
+}
+
+.fa:hover {
+    transform: scale(1.1);
+}
+
+
+    /* PAGE TWO */
+.page-two{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: nowrap;
+    height: fit-content;
+    padding: 3em 0;
+}
+
+.items-page-two{
+    display: flex;
+    flex-direction: row;
+}
+
+.pg2-paraph{
+    width: 36vw;
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+}
+
+.car2 {
+    width: auto;
+    max-height: 18em;
+    margin-bottom: 1em;
+}
+
+.pg2-title{
+    font-family: sans-serif;
+    font-size: 45px;
+    font-weight: 800;
+    width:40vw;
+    color: black;
+}
+
+.pg2-btn {
+    margin-top: 30px;
+    background-color: #5e72e4;
+    border: none;
+    border-radius: 3px;
+    padding: 15px 40px;
+    color: #ffffff;
+    font-family: sans-serif;
+    font-size: 1em;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+    /* CONTACT PAGE */
+.page-contato {
+    width: 100vw;
+    height: 700px;
+    /*background: url(../../assets/images/bmw-left.png) no-repeat;*/
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-form{
+    background-color: #0000007a;
+    width: fit-content;
+    height: fit-content;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2em;
+}
+
+.hm-form-title {
+    color: #fff;
+    font-size: 24px;
+    font-family: 'Roboto', sans-serif;
+    margin-bottom: 20px;
+}
+
+.email{
+    width: 100%;
+    max-width: 550px;
+    min-width: 150px;
+    background: #fff;
+    font-size: 16px;
+    height: 40px;
+    padding-left: 10px;
+    border: 2.5px white solid;
+    margin-bottom: 13px;
+    outline: none;
+    font-family: 'Roboto', sans-serif;
+    resize: none;
+}
+
+.msg-form { height: 80px; }
+
+.contact-btn {
+    margin-top: .4em;
+    width: 100%;
+    max-width: 550px;
+    font-family: 'Roboto' sans-serif;
+    font-size: 25px;
+    transition: .15s;
+    box-shadow: -4px 6px 20px #000000b2;
+    background-color: #5e72e4;
+    padding: 10px 0;
+    color: #ffffff;
+    cursor: pointer;
+}
+
+.contact-btn:hover {
+    transform: scale(1.02);
+    color: #ffffff;
+    background-color: #5e72e4;
+}
+
+
+/* FOOTER */
+.page-end{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background-color: black;
+}
+
+.row-items{
+    margin-top: 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-bottom: 50px;
+}
+
+.items-1{
+    display: flex;
+    flex-direction: column;
+    margin-left: 40px;
+
+}
+
+.items-1 h4{
+    text-align: center;
+    font-family: sans-serif;
+    color: #ebebeb;
+    margin-bottom: 5px;
+    margin-top: 10px;
+}
+
+.dev-names {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.items-1 li{
+    text-align: center;
+    color: #a9a7a7;
+    font-size: 15px;
+    font-family: sans-serif;
+    margin-bottom: 20px;
+    margin-top: 5px;
+    cursor: default;
+}
+
+.items-1 li:hover{
+    color: #ffffff;
+    text-decoration: underline;
+}
+
+/* Celular - landscape */
+@media all and (min-width: 480px) and (max-width: 550px) {
+
+
+    main {
+        width: 40em;
+    }
+
+
+    header {
+        width: 100%;
+    }
+
+    .inicial {
+        width: 40em;
+        margin-right: 16em;
+    }
+
+    .inicial-title {
+        font-size: 28px;
+        padding: .5em;
+    }
+
+    .presentation-text {
+        font-size: 16px;
+        line-height: 20px;
+        margin-left: 1em;
+    }
+
+    .presentation-btn {
+        display: none;
+    }
+
+    .p1-subtitles {
+        display: none;
+    }
+
+    .page-one {
+        width: 30em;
+        margin-left: 3em;
+    }
+
+    .page-two {
+        width: 29em;
+        margin: 0em 10em 1em 0em;
+    }
+
+    .pg2-title {
+        font-size: 22px;
+    }
+
+    .pg2-paraph {
+        width: 15em;
+    }
+
+    .car2 {
+        height: 40vw;
+        width: 75vw;
+        margin-left: 9em;
+    }
+
+    .formulario.card-form {
+        height: 5em;
+    }
+
+    .page-contato {
+        height: 28em;
+        width: 40em;
+    }
+
+    .card-form {
+        margin-left: 3em;
+    }
+
+    .contact-btn {
+        font-size: 20px;
+        height: 2em;
+    }
+
+    .page-end {
+        width: 40em;
+    }
+
+    .row-items {
+        margin-right: 2em;
+    }
+}
+
+/* Tablet */
+@media all and (max-width: 767px) {
+
+    main {
+        width: 40em;
+    }
+
+    #header {
+        width: 120vw;
+    }
+
+    .inicial {
+        height: 550px;
+        width: 125.1vw;
+        margin-left: 15em;
+    }
+
+    .card {
+        margin-left: 4em;
+        width: 90vh;
+    }
+
+    .inicial-title {
+        font-size: 33px;
+    }
+
+    .presentation-text {
+        font-size: 18px;
+    }
+
+    .presentation-btn {
+        padding: .2em .9em;
+        font-size: 20px;
+    }
+}
+
+/* Tablet - portrait */
+@media all and (max-width: 1024px) and (min-width: 768px) {
+    .inicial {
+        height: 550px;
+    }
+
+    .card {
+        width: 44vh;
+    }
+
+    .inicial-title {
+        font-size: 33px;
+    }
+
+    .presentation-text {
+        font-size: 18px;
+    }
+
+    .presentation-btn {
+        padding: .2em .9em;
+        font-size: 20px;
+    }
+
+    .items-page-one{
+        flex-direction: column;
+    }
+
+    .items-page-two{
+        flex-direction: column;
+    }
+
+    .page-three{
+        display: none;
+    }
+
+    .btn{
+        margin-top: 20px;
+    }
+
+    .car2 img{
+        height: 300px;
+        width: 350px;
+    }
+
+    .title-two{
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .car{
+        margin-left: 4em;
+    }
+
+    .listra-fundo{
+        display: none;
+    }
+}
