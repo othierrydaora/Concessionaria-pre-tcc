@@ -1,5 +1,5 @@
 import Header from '../../common/components/Header';
-
+import Footer from '../../common/components/Footer';
 
 import './index.scss';
 
@@ -67,42 +67,7 @@ export default function Home() {
                 </section>
                 </main>
 
-
-                <footer className="page-end">
-                <div className="row-items">
-                    <div className="items-1">
-                        <h1>Desenvolvedores</h1>
-                        <ul className="dev-names">
-                            <a href="https://github.com/othierrydaora"><li>Thierry</li></a>
-                            <a href="https://github.com/eoqthiago"><li>Thiago</li></a>
-                        </ul>
-                        <ul className="dev-names">
-                            <a href="https://github.com/Mr-auskye"><li>Nicholas</li></a>
-                            <li>Matheus</li>
-                        </ul>
-                        <ul className="dev-names">
-                            <li>Vinicius</li>
-                            <li>Rodrigo</li>
-                        </ul>
-                    </div>
-                    <div className="items-1">
-                        <h4>Contato</h4>
-                        <ul>
-                            <li>contato@sigma.com</li>
-                            <li>Tel: (11) 9999-999</li>
-                            <li>Av. Constelar, 401</li>
-                        </ul>
-                    </div>
-                    <div className="items-1">
-                        <h4>Mais</h4>
-                        <ul>
-                            <li>Sobre</li>
-                            <li>Segurança</li>
-                            <li>Ajuda</li>
-                        </ul>
-                    </div>
-                </div>
-                </footer>
+                <Footer />
         </div>
     );
 }
