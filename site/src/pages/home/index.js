@@ -5,6 +5,7 @@ import './index.scss';
 
 export default function Home() {
     return (
+        <div>
         <div className="hm-home">
             <Header />
 
@@ -68,6 +69,8 @@ export default function Home() {
                 </main>
 
                 <Footer />
+        </div>
+        <Link to='/menu'>MENU AQUI THIERRY</Link>
         </div>
     );
 }

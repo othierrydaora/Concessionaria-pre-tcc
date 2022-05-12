@@ -5,6 +5,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import './index.css'
 import Home from './pages/home/index.js'
 import Menu from './pages/menu/index.js'
+import Gerenciamento from './pages/gerenciamento/index.js'
 import Login from './pages/login/index.js'
 
 
@@ -15,6 +16,8 @@ root.render(
       <Routes>
         <Route path="/" element={ <Home/> } />
         <Route path='/menu' element={ <Menu/> }/>
+        <Route path='/gerenciamento' element={ <Gerenciamento/> }/>
+        <Route path='/cadastro' element={ <Cadastro/> }/>
         <Route path='/login' element={ <Login/>} />
       </Routes>
     </BrowserRouter>
