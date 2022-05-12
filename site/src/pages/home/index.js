@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 import Header from '../../common/components/Header';
 import Footer from '../../common/components/Footer';
 
@@ -62,7 +64,7 @@ export default function Home() {
                         <input className="email" id="nome" type="text" name="name" placeholder="Digite Seu Nome" />
                         <input className="email" id="useremail" type="email" name="email" placeholder="Insira seu melhor email" />
                         <textarea className="email msg-form" name="message" id="message" placeholder="Mensagem" ></textarea>
-                        <button id="button-contact" className="contact-btn" href="">Enviar</button>
+                        <button id="button-contact" className="contact-btn" href="#">Enviar</button>
                     </form>
 
                 </section>

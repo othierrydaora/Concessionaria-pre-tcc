@@ -1,7 +1,7 @@
-import './/index.scss';
+import './index.scss';
 import { Link } from 'react-router-dom';
 
-export default function() {
+export default function Cadastro() {
     return (
             <main className='main'>
                 <div className='main-cont'>

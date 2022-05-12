@@ -17,7 +17,6 @@ root.render(
         <Route path="/" element={ <Home/> } />
         <Route path='/menu' element={ <Menu/> }/>
         <Route path='/gerenciamento' element={ <Gerenciamento/> }/>
-        <Route path='/cadastro' element={ <Cadastro/> }/>
         <Route path='/login' element={ <Login/>} />
       </Routes>
     </BrowserRouter>
