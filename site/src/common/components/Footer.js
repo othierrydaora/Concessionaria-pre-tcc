@@ -22,7 +22,7 @@ export default function Footer() {
                 <div class="footer-column">
                     <div className="footer-column-name">Contato</div>
                     <ul>
-                        <a href="mailto:sigmacarros@gmail.com"><li>contato@sigma.com</li></a>
+                        <a href="mailto:sigmacarros@outlook.com"><li>sigmacarros@outlook.com</li></a>
                         <li>Tel: (11) 9999-99999</li>
                         <li>Av. Constelar, 401</li>
                     </ul>
