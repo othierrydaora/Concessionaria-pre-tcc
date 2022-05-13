@@ -7,7 +7,7 @@ import './index.scss';
 export default function Login() {
     return (
         <div className='pagina-login'>
-            <Header />
+            <Header initial="show" />
             <main className='tela-login'>
                 <div className="login-box">
                     <div className="login-box-title"> Faça seu login </div>
@@ -22,7 +22,7 @@ export default function Login() {
                             <img src='/images/users-icons.png' alt='' className="form-image"/>
                         </div>
                     </form>
-                    <Link to='/menu'><div className="login-button">Entrar</div></Link>
+                    <Link to='/menu-admin'><div className="login-button">Entrar</div></Link>
                 </div>
             </main>
         </div>

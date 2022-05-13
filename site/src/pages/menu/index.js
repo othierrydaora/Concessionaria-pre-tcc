@@ -1,19 +1,11 @@
 import { Link } from 'react-router-dom';
+import Header from '../../common/components/Header';
 import './index.scss';
 
 export default function Menu() {
     return (
         <div className='main'>
-            <header>
-                <div>
-                        <Link to='/' className='fonts-p1' id='header-logo' href="#">SIGMA</Link>
-                </div>
-                <nav className='menu-nav' id='header-item'>
-                    <ul>
-                        <li><Link to='/' className='fonts-p1'>Inicio</Link></li>
-                    </ul>
-                </nav>
-            </header>
+            <Header initial="show" />
 
         <section className='cards-menu'>
                 <div className='card'>

@@ -6,7 +6,7 @@ import './Header.scss';
 const Login = () => {
     return (
         <div className="header-menu-item">
-            <Link to="/admin" ><i class="fa-light fa-user fa fb"></i></Link>
+            <Link to="/admin" ><i class="fa-light fa-user fa user"></i></Link>
         </div>
     );
 }
@@ -22,7 +22,7 @@ const BackToInitial = () => {
 const Back = () => {
     return (
         <div className="header-menu-item">
-            <Link to="/menu"><div>Voltar</div></Link>
+            <Link to="/menu-admin"><div>Voltar</div></Link>
         </div>
     );
 }

@@ -1,9 +1,12 @@
 import './index.scss';
 import { Link } from 'react-router-dom';
+import Header from '../../common/components/Header';
 
 export default function Cadastro() {
     return (
             <main className='main'>
+                <Header back="show" />
+
                 <div className='main-cont'>
                         <div>
                             <h1 className='tittle'>CADASTRO</h1>

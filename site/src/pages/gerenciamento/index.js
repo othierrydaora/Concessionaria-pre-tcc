@@ -1,9 +1,12 @@
 import { Link } from 'react-router-dom';
+import Header from '../../common/components/Header';
 import './/index.scss';
 
 export default function gerenciamento() {
     return (
         <main className='main'>
+        <Header back="show" />
+
         <div className='adm-top-bar'>
             <div className='adm-top-bar-title'>Gerenciamento</div>
 
