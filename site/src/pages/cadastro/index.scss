@@ -4,54 +4,59 @@
     width: 100vw;
     height: 100vh;
     justify-content: center;
+}
 
-    .main-cont {
-        display: flex;
-        flex-direction: column;
-        height: fit-content;
-        width: fit-content;
-        text-align: center;
-        background-color: #ffffff;
-        margin-bottom: 17vh;
-    }
+.main-cont {
+    display: flex;
+    flex-direction: column;
+    height: fit-content;
+    width: fit-content;
+    text-align: center;
+    background-color: #ffffff;
+}
 
-    .tittle {
-        font-family: 'Roboto';
-        font-size: 28px;
-        text-decoration: underline;
-        color: #3d44bd;
-    }
+.title {
+    font-family: 'Roboto', sans-serif;
+    font-size: 24px;
+    text-decoration: underline;
+    color: #3d44bd;
+}
 
-    .forms-cont {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        height: 28em;
-        width: 32em;
-        padding: .6em;
-        background-color: #dadada;
-        border-radius: .5em;
-        text-align: center;
-    }
+.forms-cont {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 28em;
+    width: 32em;
+    padding: .6em;
+    background-color: #dadada;
+    border-radius: .5em;
+    text-align: center;
+}
 
-    .main-cont input {
-        height: 2.5em;
-        width: 16.7em;
-        margin: 2em 0em 0em .7em;
-        padding: .5em;
-        outline: none;
-    }
+.main-cont input {
+    height: 2.5em;
+    width: 16.7em;
+    margin: 2em 0em 0em .7em;
+    padding: .5em;
+    outline: none;
+    border: none;
+}
 
-    .sending-btn {
-        font-family: 'ubuntu';
-        height: 3em;
-        width: 12em;
-        margin-top: 2em;
-        padding: .8em;
-        border-radius: 2em;
+.sending-btn {
+    font-family: 'Roboto', sans-serif;
+    height: 3em;
+    width: 12em;
+    margin-top: 2em;
+    padding: .8em;
+    border-radius: 2em;
+    text-align: center;
+    background-color: #3e3ee0;
+    color: #ffffff;
+    transition: .15s;
+    cursor: pointer;
 
-        text-align: center;
-        background-color: #3d44bd;
-        color: #ffffff;
+    &:hover {
+        background-color: #4949e9;
     }
 }

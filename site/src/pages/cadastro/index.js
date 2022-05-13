@@ -1,40 +1,39 @@
 import './index.scss';
-import { Link } from 'react-router-dom';
 import Header from '../../common/components/Header';
 
 export default function Cadastro() {
     return (
-            <main className='main'>
-                <Header back="show" />
+        <main className='main'>
+            <Header back="show" />
 
-                <div className='main-cont'>
+            <div className='main-cont'>
+                    <div>
+                        <div className='title'>CADASTRO</div>
+                        <div className='forms-cont'>
+                            <div>
+                                <input type='text' placeholder='Nome'></input>
+                                <input type='text' placeholder='Nascimento'></input>
+                            </div>
                         <div>
-                            <h1 className='tittle'>CADASTRO</h1>
-                            <div className='forms-cont'>
-                                <div>
-                                    <input type='text' placeholder='NOME'></input>
-                                    <input type='text' placeholder='NASCIMENTO'></input>
-                                </div>
-                            <div>
-                                <input type='text' placeholder='CPF'></input>
-                                <input type='text' placeholder='EMAIL'></input>
-                            </div>
-                            <div>
-                                <input type='text' placeholder='ENDEREÇO'></input>
-                                    <input type='text' placeholder='TELEFONE'></input>
-                            </div>
-                            <div>
-                                <input type='text' placeholder='VEÍCULO'></input>
-                                <input type='text' placeholder='PRECO'></input>
-                            </div>
-                            <div>
-                                <input type='text' placeholder='PLACA'></input>
-                                <input type='text' placeholder='DATA'></input>
-                            </div>
-                            <a className='sending-btn' href=''>ENVIAR</a>
+                            <input type='text' placeholder='CPF'></input>
+                            <input type='text' placeholder='Email'></input>
                         </div>
+                        <div>
+                            <input type='text' placeholder='Endereço'></input>
+                                <input type='text' placeholder='Telefone'></input>
+                        </div>
+                        <div>
+                            <input type='text' placeholder='Veículo'></input>
+                            <input type='text' placeholder='Preço'></input>
+                        </div>
+                        <div>
+                            <input type='text' placeholder='Placa'></input>
+                            <input type='text' placeholder='Data do registro'></input>
+                        </div>
+                        <button className='sending-btn'>ENVIAR</button>
                     </div>
                 </div>
-            </main>
+            </div>
+        </main>
     );
 }
