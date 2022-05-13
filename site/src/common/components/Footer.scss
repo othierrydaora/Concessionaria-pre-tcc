@@ -15,8 +15,6 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
-
-
 .dev-names {
     display: flex;
     flex-direction: row;
@@ -41,4 +39,16 @@
 .footer-column li:hover {
     color: #e2e2e2;
     text-decoration: underline;
+}
+
+@media screen and (max-width: 768px) {
+    .footer-column-name {
+        font-size: 17px;
+    }
+}
+
+@media screen and (max-width:550px) {
+    .cm-footer {
+        flex-wrap: wrap;
+    }
 }

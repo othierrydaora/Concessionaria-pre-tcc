@@ -16,7 +16,7 @@ section {
     height: 700px;
     background: url(./../../../public/images/bmw-backt.jpg) no-repeat;
     background-attachment: fixed;
-    background-size: contain;
+    background-size: cover;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -41,7 +41,6 @@ section {
     color: #fff;
     font-family: 'Roboto', sans-serif;
     font-size: 20px;
-    margin-top: 1jem;
     font-weight: 400;
 }
 
@@ -112,7 +111,7 @@ section {
 }
 
 .car{
-    /*background-image: url(../../assets/images/Group\ 2.png);*/
+    background-image: url(../../../public/images/faixa-bg.png);
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -168,7 +167,8 @@ section {
 }
 
 .car2 {
-    width: auto;
+    width: 39vw;
+    min-width: 300px;
     max-height: 18em;
     margin-bottom: 1em;
 }
@@ -199,8 +199,8 @@ section {
     width: 100vw;
     height: 700px;
     background: url(./../../../public/images/bmw-rigth.jpg) no-repeat;
-    background-position: 10 50;
-    background-size: 100%;
+    background-position: center center;
+    background-size: cover;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -265,182 +265,188 @@ section {
 
 
 
-/* Celular - landscape */
-@media all and (min-width: 480px) and (max-width: 550px) {
-    main {
-        width: 40em;
-    }
-
-
-    header {
-        width: 100%;
-    }
-
+@media screen and (max-width: 1024px) {
     .inicial {
-        width: 40em;
-        margin-right: 16em;
+        height: 450px;
     }
-
     .inicial-title {
-        font-size: 28px;
-        padding: .5em;
+        font-size: 25px;
     }
-
     .presentation-text {
-        font-size: 16px;
-        line-height: 20px;
-        margin-left: 1em;
+        font-size: 18px;
     }
-
     .presentation-btn {
-        display: none;
+        padding: 5px 10px;
+        font-size: 20px;
     }
-
     .p1-subtitles {
-        display: none;
+        font-size: 20px;
+    }
+    .titles > h1 {
+        font-size: 35px;
     }
 
-    .page-one {
-        width: 30em;
-        margin-left: 3em;
-    }
-
-    .page-two {
-        width: 29em;
-        margin: 0em 10em 1em 0em;
-    }
 
     .pg2-title {
-        font-size: 22px;
+        font-size: 28px;
     }
-
     .pg2-paraph {
-        width: 15em;
-    }
-
-    .car2 {
-        height: 40vw;
-        width: 75vw;
-        margin-left: 9em;
-    }
-
-    .formulario.card-form {
-        height: 5em;
-    }
-
-    .page-contato {
-        height: 28em;
-        width: 40em;
+        font-size: 18px;
     }
 
     .card-form {
-        margin-left: 3em;
+        width: 400px;
     }
-
+    .hm-form-title {
+        font-size: 20px;
+    }
+    .email {
+        font-size: 16px;
+    }
     .contact-btn {
-        font-size: 20px;
-        height: 2em;
-    }
-
-    .page-end {
-        width: 40em;
-    }
-
-    .row-items {
-        margin-right: 2em;
+        padding: 10px 5px;
+        font-size: 18px;
     }
 }
 
-/* Tablet */
-@media all and (max-width: 767px) {
 
-    main {
-        width: 40em;
-    }
-
-    #header {
-        width: 120vw;
-    }
-
+@media screen and (max-width: 768px) {
     .inicial {
         height: 550px;
-        width: 125.1vw;
-        margin-left: 15em;
     }
-
     .card {
-        margin-left: 4em;
-        width: 90vh;
+        width: 45vw;
     }
-
     .inicial-title {
-        font-size: 33px;
+        font-size: 25px;
     }
-
     .presentation-text {
         font-size: 18px;
     }
-
     .presentation-btn {
-        padding: .2em .9em;
+        padding: 5px 10px;
         font-size: 20px;
+    }
+    .p1-subtitles {
+        font-size: 20px;
+    }
+    .titles > h1 {
+        font-size: 35px;
+    }
+
+
+    .page-two {
+        flex-direction: column-reverse;
+        align-items: center;
+    }
+    .pg2-title {
+        font-size: 28px;
+        width: 60vw;
+    }
+    .pg2-paraph {
+        font-size: 18px;
+        width: 60vw;
+    }
+    .pg2-btn {
+        font-size: 16px;
+        padding: 5px 7px;
+    }
+    .car2 {
+        max-width: 400px;
+        width: 80vw;
+        min-width: 200px;
+    }
+
+    .card-form {
+        width: 400px;
+    }
+    .hm-form-title {
+        font-size: 20px;
+    }
+    .email {
+        font-size: 16px;
+    }
+    .contact-btn {
+        padding: 10px 5px;
+        font-size: 18px;
     }
 }
 
-/* Tablet - portrait */
-@media all and (max-width: 1024px) and (min-width: 768px) {
+@media screen and (max-width: 550px) {
     .inicial {
         height: 550px;
     }
-
     .card {
-        width: 44vh;
+        width: 75vw;
     }
-
     .inicial-title {
-        font-size: 33px;
+        font-size: 22px;
     }
-
     .presentation-text {
+        font-size: 16px;
+    }
+    .presentation-btn {
+        padding: 5px 10px;
         font-size: 18px;
     }
 
-    .presentation-btn {
-        padding: .2em .9em;
-        font-size: 20px;
-    }
 
-    .items-page-one{
+    .page-one {
         flex-direction: column;
     }
-
-    .items-page-two{
-        flex-direction: column;
+    .p1-subtitles {
+        font-size: 16px;
+    }
+    .titles > h1 {
+        font-size: 28px;
+    }
+    .hm-social-icons {
+        margin-bottom: 20px;
+    }
+    .car {
+        width: 75vw;
     }
 
-    .page-three{
-        display: none;
+
+    .page-two {
+        flex-direction: column-reverse;
+        align-items: center;
+    }
+    .pg2-title {
+        font-size: 28px;
+        width: 60vw;
+    }
+    .pg2-paraph {
+        font-size: 18px;
+        width: 60vw;
+    }
+    .pg2-btn {
+        font-size: 16px;
+        padding: 5px 7px;
+    }
+    .car2 {
+        max-width: 400px;
+        width: 80vw;
+        min-width: 200px;
     }
 
-    .btn{
-        margin-top: 20px;
+    .page-contato {
+        height: 400px;
     }
-
-    .car2 img{
-        height: 300px;
-        width: 350px;
+    .card-form {
+        width: 270px;
+        padding: 10px;
     }
-
-    .title-two{
-        display: flex;
-        flex-wrap: wrap;
+    .hm-form-title {
+        font-size: 18px;
     }
-
-    .car{
-        margin-left: 4em;
+    .email {
+        font-size: 15px;
+        padding: 2px;
     }
-
-    .listra-fundo{
-        display: none;
+    .contact-btn {
+        padding: 10px 5px;
+        font-size: 15px;
+        border-radius: 10px;
     }
 }

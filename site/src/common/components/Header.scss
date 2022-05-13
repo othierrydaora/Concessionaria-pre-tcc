@@ -75,3 +75,10 @@
         color: #6b85f7;
     }
 }
+
+@media screen and (max-width: 550px) {
+    .header-logo-img {
+        display: none;
+        visibility: hidden;
+    }
+}
