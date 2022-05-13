@@ -5,7 +5,7 @@ import './Header.scss';
 
 const Login = () => {
     return (
-        <div className="header-menu-item">
+        <div>
             <Link to="/admin" ><i class="fa-light fa-user fa user"></i></Link>
         </div>
     );

@@ -33,9 +33,9 @@ export default function Home() {
                         <a className="p1-text" href="https://en.wikipedia.org/wiki/BMW_M6">Saiba mais</a>
 
                         <div className="redes-sociais">
-                            <i className="fa fa-instagram"></i>
-                            <i className="fa fa-facebook"></i>
-                            <i className="fa fa-twitter"></i>
+                            <i className="hm-social-icons fa fa-instagram"></i>
+                            <i className="hm-social-icons fa fa-facebook"></i>
+                            <i className="hm-social-icons fa fa-twitter"></i>
                         </div>
                     </div>
                         
