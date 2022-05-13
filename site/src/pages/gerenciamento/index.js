@@ -4,15 +4,13 @@ import './/index.scss';
 
 export default function gerenciamento() {
     return (
-        <main className='main'>
+        <div className="gerenciamento">
         <Header back="show" />
-
-        <div className='adm-top-bar'>
+        <div className='adm-top-bar '>
             <div className='adm-top-bar-title'>Gerenciamento</div>
-
             <div className='adm-search-field'>
                 <input type='text' placeholder='Pesquisar'/>
-                <Link to=''><img src='./images/search-icon'/></Link>
+                <Link to=''><img src="/Icons/search-icon.svg" style={{width: "17px"}} alt="Pesquisar" /></Link>
             </div>
         </div>
 
@@ -205,8 +203,7 @@ export default function gerenciamento() {
                 <td></td>
                 <td></td>
             </tr>
-
         </table>
-    </main>
-    )
+    </div>
+    );
 }
