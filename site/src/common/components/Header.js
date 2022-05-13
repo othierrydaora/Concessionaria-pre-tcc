@@ -55,7 +55,9 @@ export default function Header(props) {
 
     return (
         <div className='cm-header'>
-            <div className="header-logo">SIGMA</div>
+            <div className="header-logo"><div className="header-logo-txt">SIGMA</div>
+            <img src="/images/logo.png" className="header-logo-img" alt="Logo" />
+        </div>
             <div className="header-menu">
                 {info && <Info/>}
                 {cnt && <Contact/>}

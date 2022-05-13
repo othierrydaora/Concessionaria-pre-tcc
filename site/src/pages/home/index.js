@@ -1,5 +1,3 @@
-import { Link } from 'react-router-dom';
-
 import Header from '../../common/components/Header';
 import Footer from '../../common/components/Footer';
 
@@ -9,17 +7,15 @@ export default function Home() {
     return (
         <div>
         <div className="hm-home">
-            <Header login="show" contact="show" info="show" />
+            <Header login="show" contact="show" info="show"/>
 
             <main>
                 <section className="inicial" id="inicial">
                     <div className="card">
                         <div className="inicial-title">Conheça a Concessionária Sigma</div>
-
                         <div className="presentation-text">
                             Aqui na Sigma, você encontra vendedores totalmente preparados para te ajudar com todas as etapas da compra de um carro de luxo, desde a escolha até a papelada, além de uma ótima gama de marcas e modelos.
                         </div>
-                        
                         <a href="#info"><button className="presentation-btn">Descobrir</button></a>
                     </div>
                 </section>
@@ -38,14 +34,12 @@ export default function Home() {
                             <i className="hm-social-icons fa fa-twitter"></i>
                         </div>
                     </div>
-                        
-                    <img src="./images/hm-car" />           
-
+                    <img src="/images/hm-car.png" className="car" alt="Bmw M6" />
                 </section>
 
+
                 <section className="page-two">
-
-
+                    <img src="/images/hm-car2.png" className="car2" alt="Bmw M6" />
 
                     <div className="title-two">
                         <div className="pg2-title">
@@ -57,8 +51,8 @@ export default function Home() {
                     </div>
                 </section>
 
-                <section className="page-contato" id="contato">
 
+                <section className="page-contato" id="contato">
                     <form action="" id="formulario" className="card-form">
                         <div className="hm-form-title">Nos envie uma mensagem!</div>
                         <input className="email" id="nome" type="text" name="name" placeholder="Digite Seu Nome" />
@@ -66,13 +60,11 @@ export default function Home() {
                         <textarea className="email msg-form" name="message" id="message" placeholder="Mensagem" ></textarea>
                         <button id="button-contact" className="contact-btn" href="#">Enviar</button>
                     </form>
-
+                    
                 </section>
-                </main>
-
-                <Footer />
+            </main>
+            <Footer/>
         </div>
-        <Link to='/menu'>MENU AQUI THIERRY</Link>
-        </div>
+    </div>
     );
 }

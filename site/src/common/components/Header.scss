@@ -16,11 +16,24 @@
 }
 
 .header-logo {
+    display: flex;
+    flex-direction: row;
+    width: max-content;
+    align-items: center;
+    justify-content: center;
+}
+
+.header-logo-txt {
     font-family: 'Roboto', sans-serif;
     font-size: 1.75em;
     font-weight: bold;
     text-decoration: none;
     cursor: default;
+}
+
+.header-logo-img {
+    margin-top: 7px; /* tem que arrumar o altura da imagem */
+    width: 100px;
 }
 
 .header-menu {
