@@ -77,6 +77,9 @@
 }
 
 @media screen and (max-width: 550px) {
+    .cm-header {
+        padding: 0 10px;
+    }
     .header-logo-txt {
         font-size: 18px;
     }
@@ -86,9 +89,9 @@
     }
     .header-menu-item {
         font-size: 16px;
-        margin-left: 10px;
+        margin-left: 6px;
     }
     .user {
-        margin-left: 10px;
+        margin-left: 6px;
     }
 }

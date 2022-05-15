@@ -27,14 +27,6 @@ export default function Footer() {
                         <li>Av. Constelar, 401</li>
                     </ul>
                 </div>
-                <div class="footer-column">
-                    <div className="footer-column-name">Mais</div>
-                    <ul>
-                        <li>Sobre</li>
-                        <li>Segurança</li>
-                        <li>Ajuda</li>
-                    </ul>
-                </div>
         </footer>
     );
 }
