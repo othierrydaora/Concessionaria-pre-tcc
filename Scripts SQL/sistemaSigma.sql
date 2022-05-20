@@ -4,7 +4,7 @@ USE sistemaSigmaDB;
 CREATE TABLE TB_Cliente (
         ID_Cliente      INT PRIMARY KEY auto_increment,
         NM_Cliente      VARCHAR(100),
-        DS_Cpf          VARCHAR(11),
+        DS_Cpf          VARCHAR(14),
         DT_Nascimento   DATE,
         DS_Email        VARCHAR(100),
         DS_Endereco     VARCHAR(100),
@@ -28,7 +28,7 @@ CREATE TABLE TB_Funcionario (
         NM_NOME         VarChar(100),
         DS_EMAIL        VarChar(100),
         NR_SENHA        VarChar(20),
-        DS_CPF          VARCHAR(11),
+        DS_CPF          VARCHAR(14),
         FOREIGN KEY (ID_Venda) REFERENCES TB_Venda (ID_Venda)
 );
 
