@@ -25,7 +25,7 @@ CREATE TABLE TB_Venda (
 
 );
 
-CREATE TABLE TB_Fyncionario (
+CREATE TABLE TB_Funcionario (
         
         ID_FUNCIONARIO    INT PRIMARY KEY,
         NM_NOME           VarChar(100),
