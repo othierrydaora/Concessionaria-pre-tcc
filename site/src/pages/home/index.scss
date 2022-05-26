@@ -14,7 +14,7 @@ section {
 .inicial {
     width: 100vw;
     height: 700px;
-    background: url(./../../../public/images/bmw-backt.jpg) no-repeat;
+    background: url(./../../../public/assets/images/bmw-backt.jpg) no-repeat;
     background-attachment: fixed;
     background-size: cover;
     display: flex;
@@ -111,7 +111,7 @@ section {
 }
 
 .car{
-    background-image: url(../../../public/images/faixa-bg.png);
+    background-image: url(../../../public/assets/images/faixa-bg.png);
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -194,11 +194,116 @@ section {
     cursor: pointer;
 }
 
+.page-three {
+    background-image: url(../../../public/assets/images/image-carro-cinza.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 400px;
+    width: 95vw;
+    margin: 7em 0;
+
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    
+
+    .pg3-texts {
+        margin-right: 4em;
+        width: 30vw;
+        height: 200px;
+
+        .pg3-texts-title {
+            color: #ebebeb;
+            font-family: Bebas;
+            font-size: 45px;
+            text-shadow: 0px 1px 5px rgba(0, 0, 0, 0.555);
+        }
+
+        .pg3-texts-button {
+            font-family: 'Roboto', sans-serif;
+            font-size: 18px;
+            text-transform: uppercase;
+            color: whitesmoke;
+            background: none;
+            backdrop-filter: blur(3px);
+            padding: 13px 18px;
+            border: 1.2px solid #818181;
+            border-radius: 10px;
+            margin: 1em 0;
+            transition: .13s;
+
+            &:hover {
+                transform: scale(1.04);
+                cursor: pointer;
+            }
+        }
+    }
+ // backdrop-filter: blur(3px);
+}
+
+.page-four {
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-bottom: 5em;
+
+    .pg4-card {
+        width: 38vw;
+        height: fit-content;
+        background: #357AE2;
+        border-radius: 2px;
+        padding: 2em;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        transition: .2s ease-in-out;
+
+        &:hover {
+            transform: scale(1.05);
+            box-shadow: none;
+        }
+
+        .pg4-texts {
+            color: whitesmoke;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+    
+            .pg4-texts-title {
+                text-align: center;
+                font-family: Staat;
+                font-size: 45px;
+            }
+            .pg4-texts-lbl {
+                text-align: center;
+                margin-top: 15px;
+                font-family: 'Roboto', sans-serif;
+                font-size: 19px;
+                width: 350px;
+            }
+        }
+    }
+
+    .pg4-left-img {
+        margin-top: 3em;
+        width: 400px;
+    }
+    
+    .pg4-right-img {
+        width: 400px;
+        margin-bottom: 3em;
+    }
+}
+
+
+
     /* CONTACT PAGE */
 .page-contato {
     width: 100vw;
     height: 700px;
-    background: url(./../../../public/images/bmw-rigth.jpg) no-repeat;
+    background: url(./../../../public/assets/images/bmw-rigth.jpg) no-repeat;
     background-position: center center;
     background-size: cover;
     display: flex;
@@ -211,11 +316,11 @@ section {
     background-color: #0000007a;
     width: 550px;
     height: fit-content;
-    border-radius: 20px;
+    border-radius: 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 2em;
+    padding: 1em;
     backdrop-filter: blur(3px);
 }
 
@@ -239,6 +344,7 @@ section {
     outline: none;
     font-family: 'Roboto', sans-serif;
     resize: none;
+    border-radius: 2px;
 }
 
 .msg-form { height: 80px; }
@@ -255,14 +361,14 @@ section {
     padding: 10px 0;
     color: #ffffff;
     cursor: pointer;
-}
+    border-radius: 2px;
 
-.contact-btn:hover {
-    transform: scale(1.02);
-    color: #ffffff;
-    background-color: #5e72e4;
+    &:hover {
+        transform: scale(1.02);
+        color: #ffffff;
+        background-color: #5e72e4;
+    }
 }
-
 
 
 @media screen and (max-width: 1024px) {

@@ -9,7 +9,7 @@ export default function gerenciamento() {
             <div className='adm-top-bar-title'>Controle de vendas</div>
             <div className='adm-search-field'>
                 <input type='text' placeholder='Pesquisar por CPF'/>
-                <img src="/Icons/search-icon.svg" style={{width: "17px", cursor: "pointer"}} alt="Pesquisar" />
+                <img src="/assets/Icons/search-icon.svg" style={{width: "17px", cursor: "pointer"}} alt="Pesquisar" />
             </div>
         </div>
 
@@ -38,7 +38,7 @@ export default function gerenciamento() {
                     <td>GTE-2332</td>
                     <td>06/05/2022</td>
                     <td>72.300</td>
-                    <td><div><img src="/Icons/edit.png" alt='' /> <img src="/Icons/trash.png" alt='' /></div></td>
+                    <td><div><img src="assets/Icons/edit.png" alt='' /> <img src="/assets/Icons/trash.png" alt='' /></div></td>
                 </tr>
 
                 <tr>
@@ -51,7 +51,7 @@ export default function gerenciamento() {
                     <td></td>
                     <td></td>
                     <td></td>
-                    <td><div><img src="/Icons/edit.png" alt='' /> <img src="/Icons/trash.png" alt='' /></div></td>
+                    <td><div><img src="assets/Icons/edit.png" alt='' /> <img src="/assets/Icons/trash.png" alt='' /></div></td>
                 </tr>
                 <tr>
                     <td></td>
@@ -63,7 +63,7 @@ export default function gerenciamento() {
                     <td></td>
                     <td></td>
                     <td></td>
-                    <td><div><img src="/Icons/edit.png" alt='' /> <img src="/Icons/trash.png" alt='' /></div></td>
+                    <td><div><img src="assets/Icons/edit.png" alt='' /> <img src="/assets/Icons/trash.png" alt='' /></div></td>
                 </tr>
                 <tr>
                     <td></td>
@@ -75,7 +75,7 @@ export default function gerenciamento() {
                     <td></td>
                     <td></td>
                     <td></td>
-                    <td><div><img src="/Icons/edit.png" alt='' /> <img src="/Icons/trash.png" alt='' /></div></td>
+                    <td><div><img src="assets/Icons/edit.png" alt='' /> <img src="/assets/Icons/trash.png" alt='' /></div></td>
                 </tr>
                 <tr>
                     <td></td>
@@ -87,7 +87,7 @@ export default function gerenciamento() {
                     <td></td>
                     <td></td>
                     <td></td>
-                    <td><div><img src="/Icons/edit.png" alt='' /> <img src="/Icons/trash.png" alt='' /></div></td>
+                    <td><div><img src="assets/Icons/edit.png" alt='' /> <img src="/assets/Icons/trash.png" alt='' /></div></td>
                 </tr>
                 <tr>
                     <td></td>
@@ -99,7 +99,7 @@ export default function gerenciamento() {
                     <td></td>
                     <td></td>
                     <td></td>
-                    <td><div><img src="/Icons/edit.png" alt='' /> <img src="/Icons/trash.png" alt='' /></div></td>
+                    <td><div><img src="assets/Icons/edit.png" alt='' /> <img src="/assets/Icons/trash.png" alt='' /></div></td>
                 </tr>
                 <tr>
                     <td></td>
@@ -111,7 +111,7 @@ export default function gerenciamento() {
                     <td></td>
                     <td></td>
                     <td></td>
-                    <td><div><img src="/Icons/edit.png" alt='' /> <img src="/Icons/trash.png" alt='' /></div></td>
+                    <td><div><img src="assets/Icons/edit.png" alt='' /> <img src="/assets/Icons/trash.png" alt='' /></div></td>
                 </tr>
                 <tr>
                     <td></td>
@@ -123,7 +123,7 @@ export default function gerenciamento() {
                     <td></td>
                     <td></td>
                     <td></td>
-                    <td><div><img src="/Icons/edit.png" alt='' /> <img src="/Icons/trash.png" alt='' /></div></td>
+                    <td><div><img src="assets/Icons/edit.png" alt='' /> <img src="/assets/Icons/trash.png" alt='' /></div></td>
                 </tr>
                 <tr>
                     <td></td>
@@ -135,7 +135,7 @@ export default function gerenciamento() {
                     <td></td>
                     <td></td>
                     <td></td>
-                    <td><div><img src="/Icons/edit.png" alt='' /> <img src="/Icons/trash.png" alt='' /></div></td>
+                    <td><div><img src="assets/Icons/edit.png" alt='' /> <img src="/assets/Icons/trash.png" alt='' /></div></td>
                 </tr>
                 <tr>
                     <td></td>
@@ -147,7 +147,7 @@ export default function gerenciamento() {
                     <td></td>
                     <td></td>
                     <td></td>
-                    <td><div><img src="/Icons/edit.png" alt='' /> <img src="/Icons/trash.png" alt='' /></div></td>
+                    <td><div><img src="assets/Icons/edit.png" alt='' /> <img src="/assets/Icons/trash.png" alt='' /></div></td>
                 </tr>
                 <tr>
                     <td></td>
@@ -159,7 +159,7 @@ export default function gerenciamento() {
                     <td></td>
                     <td></td>
                     <td></td>
-                    <td><div><img src="/Icons/edit.png" alt='' /> <img src="/Icons/trash.png" alt='' /></div></td>
+                    <td><div><img src="assets/Icons/edit.png" alt='' /> <img src="/assets/Icons/trash.png" alt='' /></div></td>
                 </tr>
                 <tr>
                     <td></td>
@@ -171,7 +171,7 @@ export default function gerenciamento() {
                     <td></td>
                     <td></td>
                     <td></td>
-                    <td><div><img src="/Icons/edit.png" alt='' /> <img src="/Icons/trash.png" alt='' /></div></td>
+                    <td><div><img src="assets/Icons/edit.png" alt='' /> <img src="/assets/Icons/trash.png" alt='' /></div></td>
                 </tr>
                 <tr>
                     <td></td>
@@ -183,7 +183,7 @@ export default function gerenciamento() {
                     <td></td>
                     <td></td>
                     <td></td>
-                    <td><div><img src="/Icons/edit.png" alt='' /> <img src="/Icons/trash.png" alt='' /></div></td>
+                    <td><div><img src="assets/Icons/edit.png" alt='' /> <img src="/assets/Icons/trash.png" alt='' /></div></td>
                 </tr>
                 <tr>
                     <td></td>
@@ -195,7 +195,7 @@ export default function gerenciamento() {
                     <td></td>
                     <td></td>
                     <td></td>
-                    <td><div><img src="/Icons/edit.png" alt='' /> <img src="/Icons/trash.png" alt='' /></div></td>
+                    <td><div><img src="assets/Icons/edit.png" alt='' /> <img src="/assets/Icons/trash.png" alt='' /></div></td>
                 </tr>
                 <tr>
                     <td></td>
@@ -207,7 +207,7 @@ export default function gerenciamento() {
                     <td></td>
                     <td></td>
                     <td></td>
-                    <td><div><img src="/Icons/edit.png" alt='' /> <img src="/Icons/trash.png" alt='' /></div></td>
+                    <td><div><img src="assets/Icons/edit.png" alt='' /> <img src="/assets/Icons/trash.png" alt='' /></div></td>
                 </tr>
                 <tr>
                     <td></td>
@@ -219,7 +219,7 @@ export default function gerenciamento() {
                     <td></td>
                     <td></td>
                     <td></td>
-                    <td><div><img src="/Icons/edit.png" alt='' /> <img src="/Icons/trash.png" alt='' /></div></td>
+                    <td><div><img src="assets/Icons/edit.png" alt='' /> <img src="/assets/Icons/trash.png" alt='' /></div></td>
                 </tr>
                 <tr>
                     <td></td>
@@ -231,7 +231,7 @@ export default function gerenciamento() {
                     <td></td>
                     <td></td>
                     <td></td>
-                    <td><div><img src="/Icons/edit.png" alt='' /> <img src="/Icons/trash.png" alt='' /></div></td>
+                    <td><div><img src="assets/Icons/edit.png" alt='' /> <img src="/assets/Icons/trash.png" alt='' /></div></td>
                 </tr>
                 <tr>
                     <td></td>
@@ -243,7 +243,7 @@ export default function gerenciamento() {
                     <td></td>
                     <td></td>
                     <td></td>
-                    <td><div><img src="/Icons/edit.png" alt='' /> <img src="/Icons/trash.png" alt='' /></div></td>
+                    <td><div><img src="assets/Icons/edit.png" alt='' /> <img src="/assets/Icons/trash.png" alt='' /></div></td>
                 </tr>
                 <tr>
                     <td></td>
@@ -255,7 +255,7 @@ export default function gerenciamento() {
                     <td></td>
                     <td></td>
                     <td></td>
-                    <td><div><img src="/Icons/edit.png" alt='' /> <img src="/Icons/trash.png" alt='' /></div></td>
+                    <td><div><img src="assets/Icons/edit.png" alt='' /> <img src="/assets/Icons/trash.png" alt='' /></div></td>
                 </tr>
                 <tr>
                     <td></td>
@@ -267,7 +267,7 @@ export default function gerenciamento() {
                     <td></td>
                     <td></td>
                     <td></td>
-                    <td><div><img src="/Icons/edit.png" alt='' /> <img src="/Icons/trash.png" alt='' /></div></td>
+                    <td><div><img src="assets/Icons/edit.png" alt='' /> <img src="/assets/Icons/trash.png" alt='' /></div></td>
                 </tr>
                 <tr>
                     <td></td>
@@ -279,7 +279,7 @@ export default function gerenciamento() {
                     <td></td>
                     <td></td>
                     <td></td>
-                    <td><div><img src="/Icons/edit.png" alt='' /> <img src="/Icons/trash.png" alt='' /></div></td>
+                    <td><div><img src="assets/Icons/edit.png" alt='' /> <img src="/assets/Icons/trash.png" alt='' /></div></td>
                 </tr>
                 <tr>
                     <td></td>
@@ -291,7 +291,7 @@ export default function gerenciamento() {
                     <td></td>
                     <td></td>
                     <td></td>
-                    <td><div><img src="/Icons/edit.png" alt='' /> <img src="/Icons/trash.png" alt='' /></div></td>
+                    <td><div><img src="assets/Icons/edit.png" alt='' /> <img src="/assets/Icons/trash.png" alt='' /></div></td>
                 </tr>
                 <tr>
                     <td></td>
@@ -303,7 +303,7 @@ export default function gerenciamento() {
                     <td></td>
                     <td></td>
                     <td></td>
-                    <td><div><img src="/Icons/edit.png" alt='' /> <img src="/Icons/trash.png" alt='' /></div></td>
+                    <td><div><img src="assets/Icons/edit.png" alt='' /> <img src="/assets/Icons/trash.png" alt='' /></div></td>
                 </tr>
                 <tr>
                     <td></td>
@@ -315,7 +315,7 @@ export default function gerenciamento() {
                     <td></td>
                     <td></td>
                     <td></td>
-                    <td><div><img src="/Icons/edit.png" alt='' /> <img src="/Icons/trash.png" alt='' /></div></td>
+                    <td><div><img src="assets/Icons/edit.png" alt='' /> <img src="/assets/Icons/trash.png" alt='' /></div></td>
                 </tr>
                 <tr>
                     <td></td>
@@ -327,7 +327,7 @@ export default function gerenciamento() {
                     <td></td>
                     <td></td>
                     <td></td>
-                    <td><div><img src="/Icons/edit.png" alt='' /> <img src="/Icons/trash.png" alt='' /></div></td>
+                    <td><div><img src="assets/Icons/edit.png" alt='' /> <img src="/assets/Icons/trash.png" alt='' /></div></td>
                 </tr>
                 <tr>
                     <td></td>
@@ -339,7 +339,7 @@ export default function gerenciamento() {
                     <td></td>
                     <td></td>
                     <td></td>
-                    <td><div><img src="/Icons/edit.png" alt='' /> <img src="/Icons/trash.png" alt='' /></div></td>
+                    <td><div><img src="assets/Icons/edit.png" alt='' /> <img src="/assets/Icons/trash.png" alt='' /></div></td>
                 </tr>
                 <tr>
                     <td></td>
@@ -351,7 +351,7 @@ export default function gerenciamento() {
                     <td></td>
                     <td></td>
                     <td></td>
-                    <td><div><img src="/Icons/edit.png" alt='' /> <img src="/Icons/trash.png" alt='' /></div></td>
+                    <td><div><img src="assets/Icons/edit.png" alt='' /> <img src="/assets/Icons/trash.png" alt='' /></div></td>
                 </tr>
                 <tr>
                     <td></td>
@@ -363,7 +363,7 @@ export default function gerenciamento() {
                     <td></td>
                     <td></td>
                     <td></td>
-                    <td><div><img src="/Icons/edit.png" alt='' /> <img src="/Icons/trash.png" alt='' /></div></td>
+                    <td><div><img src="assets/Icons/edit.png" alt='' /> <img src="/assets/Icons/trash.png" alt='' /></div></td>
                 </tr>
                 <tr>
                     <td></td>
@@ -375,7 +375,7 @@ export default function gerenciamento() {
                     <td></td>
                     <td></td>
                     <td></td>
-                    <td><div><img src="/Icons/edit.png" alt='' /> <img src="/Icons/trash.png" alt='' /></div></td>
+                    <td><div><img src="assets/Icons/edit.png" alt='' /> <img src="/assets/Icons/trash.png" alt='' /></div></td>
                 </tr>
                 <tr>
                     <td></td>
@@ -387,7 +387,7 @@ export default function gerenciamento() {
                     <td></td>
                     <td></td>
                     <td></td>
-                    <td><div><img src="/Icons/edit.png" alt='' /> <img src="/Icons/trash.png" alt='' /></div></td>
+                    <td><div><img src="assets/Icons/edit.png" alt='' /> <img src="/assets/Icons/trash.png" alt='' /></div></td>
                 </tr>
                 <tr>
                     <td></td>
@@ -399,7 +399,7 @@ export default function gerenciamento() {
                     <td></td>
                     <td></td>
                     <td></td>
-                    <td><div><img src="/Icons/edit.png" alt='' /> <img src="/Icons/trash.png" alt='' /></div></td>
+                    <td><div><img src="assets/Icons/edit.png" alt='' /> <img src="/assets/Icons/trash.png" alt='' /></div></td>
                 </tr>
                 <tr>
                     <td></td>
@@ -411,7 +411,7 @@ export default function gerenciamento() {
                     <td></td>
                     <td></td>
                     <td></td>
-                    <td><div><img src="/Icons/edit.png" alt='' /> <img src="/Icons/trash.png" alt='' /></div></td>
+                    <td><div><img src="assets/Icons/edit.png" alt='' /> <img src="/assets/Icons/trash.png" alt='' /></div></td>
                 </tr>
             </table>
         </div>
