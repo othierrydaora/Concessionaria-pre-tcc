@@ -72,17 +72,17 @@ SELECT id_funcionario	id,
 
 -->  consultar vendas por cpf
 
-SELECT id_funcionario			cpf,
+SELECT id_funcionario    cpf,
 	  nm_cliente        cliente,
-      ds_cpf            cpf,
-      ds_endereco       endereco,
-      ds_email          email,
-      ds_telefone       telefone,
-      dt_nascimento     nascimento,
-      ds_placa          placa,
-	  nm_modelo			nome,
-       vl_preco		    preco,
-       dt_compra	    compra
+       ds_cpf            cpf,
+       ds_endereco       endereco,
+       ds_email          email,
+       ds_telefone       telefone,
+       dt_nascimento     nascimento,
+       ds_placa          placa,
+	  nm_modelo	     nome,
+       vl_preco	     preco,
+       dt_compra	     compra
   FROM tb_venda
  WHERE ds_cpf			like '%%';
 

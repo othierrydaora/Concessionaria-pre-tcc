@@ -18,13 +18,13 @@ CREATE TABLE TB_Venda (
         DS_EMAIL      VarChar(100) NOT NULL,
         VL_PRECO      DECIMAL(10, 2) NOT NULL,
         DT_COMPRA     DATETIME NOT NULL,
-        CONSTRAINT FK_ClienteVenda      FOREIGN KEY (ID_Cliente)        REFERENCES TB_Cliente(ID_Cliente),
-        CONSTRAINT FK_FuncionarioVenda  FOREIGN KEY (ID_Funcionario)    REFERENCES TB_Funcionario(ID_Funcionario)
+        CONSTRAINT    FK_ClienteVenda        FOREIGN KEY (ID_Cliente)        REFERENCES TB_Cliente(ID_Cliente),
+        CONSTRAINT    FK_FuncionarioVenda    FOREIGN KEY (ID_Funcionario)    REFERENCES TB_Funcionario(ID_Funcionario)
 );
 
 CREATE TABLE tb_funcionario (
-        id_funcionario  INT PRIMARY KEY,
-        nm_funcionario         VarChar(100) NOT NULL,
-        ds_email        VarChar(100) NOT NULL,
-        ds_senha        VarChar(20) NOT NULL
+        id_funcionario       INT PRIMARY KEY,
+        nm_funcionario       VarChar(100) NOT NULL,
+        ds_email             VarChar(100) NOT NULL,
+        ds_senha             VarChar(20) NOT NULL
 );
