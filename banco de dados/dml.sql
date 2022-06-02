@@ -87,5 +87,6 @@ SELECT id_funcionario    cpf,
  WHERE ds_cpf			like '%%';
 
 --> remover venda
-DELETE FROM tb_venda 
-      WHERE id_funcionario = 1;
+DELETE FROM     tb_venda 
+       WHERE    id_funcionario = 1
+       AND      id_venda = 1;

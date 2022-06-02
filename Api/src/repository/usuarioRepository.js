@@ -9,6 +9,6 @@ export async function logar(email, passwd) {
         WHERE   ds_email 		   = ?
         AND     ds_senha		   = ? `;
 
-    const read = await connection.query(comando, [email, passwd]);
+    const [read] = await connection.query(comando, [email, passwd]);
     return read[0];
 }
