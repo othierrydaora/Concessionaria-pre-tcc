@@ -1,4 +1,4 @@
-import mysql from "mysql2/promise"
+import mysql from "mysql2/promise";
 
 const connection = await mysql.createConnection({
     host: process.env.MYSQL_HOST,
@@ -6,13 +6,12 @@ const connection = await mysql.createConnection({
     password: process.env.MYSQL_PWD,
     database: process.env.MYSQL_DB,
     typeCast: function (field, next) {
-         if (field.type == 'TINY' && field.length === 1) {
-             return (field.string() === '1')
-         } else {
-         return next();
-         }
+        if (field.type == 'TINY' && field.length === 1) {
+            return (field.string() === '1');
+        } else {
+            return next();
+        }
     }
-})
+});
 
-console.log('Database sucessfully running');
-export { connection }
+export { connection };
