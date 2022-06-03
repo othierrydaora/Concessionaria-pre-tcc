@@ -1,14 +1,14 @@
-import { connection } from "./connection.js"
+import { con } from "./connection.js"
 
-export async function login(email, senha) {
-    const comando =
-        `SELECT  id_funcionario    id,
-                 nm_funcionario	   nome,
-                 ds_email	       email
-           FROM  tb_funcionario
-          WHERE  ds_email 		   = ?
-            AND  ds_senha		   = ?`;
+export async function logar(email, passwd) {
+    const comando = `
+        SELECT  id_funcionario  id,
+                nm_funcionario  nome,
+                ds_email        email
+        FROM    tb_funcionario
+        WHERE   ds_email 		   = ?
+        AND     ds_senha		   = ? `;
 
-    const read = await connection.query(comando, [email, senha]);
+    const [read] = await con.query(comando, [email, passwd]);
     return read[0];
 }

@@ -4,7 +4,7 @@ USE sistemaSigmaDB;
 
 -- carga inicial ADM
 INSERT INTO tb_funcionario (nm_funcionario, ds_email, ds_senha)
-     VALUES ('admin', 'sigma@contato.com.br', '1234');
+     VALUES ('admin', 'adm@sigma.com.br', '1234');
 
 
 
@@ -12,9 +12,9 @@ INSERT INTO tb_funcionario (nm_funcionario, ds_email, ds_senha)
 --> efetuar login
 select id_funcionario 		id,
        nm_funcionario		nome,
-       ds_email			    email
+       ds_email			email
   from tb_funcionario
- where ds_email 		= 'sigma@contato.com.br'
+ where ds_email 		= 'adm@sigma.com.br'
    and ds_senha			= '1234';
 
 
@@ -87,5 +87,6 @@ SELECT id_funcionario    cpf,
  WHERE ds_cpf			like '%%';
 
 --> remover venda
-DELETE FROM tb_venda 
-      WHERE id_funcionario = 1;
+DELETE FROM     tb_venda 
+       WHERE    id_funcionario = 1
+       AND      id_venda = 1;
