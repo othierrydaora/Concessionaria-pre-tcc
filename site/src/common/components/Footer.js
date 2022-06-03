@@ -12,7 +12,6 @@ export default function Footer() {
                     </ul>
                     <ul class="dev-names">
                         <a href="https://github.com/Mr-auskye"><li>Nicholas</li></a>
-                        <li>Matheus</li>
                     </ul>
                     <ul class="dev-names">
                         <a href="https://github.com/DOLK2K"><li>Vinicius</li></a>

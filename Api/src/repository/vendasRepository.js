@@ -2,7 +2,7 @@ import { con } from "./connection.js"
 
 
 
-// --> cadastrar nova venda
+// cadastrar nova venda
 
 export async function cadastrarVenda(venda) {
     const comando = `
@@ -16,30 +16,31 @@ export async function cadastrarVenda(venda) {
 }
 
 
-// -> consultar vendas
+// consultar vendas
 
 export async function listagemTotalVendas () {
     const comando = `
-    SELECT id_funcionario	id,
-	  nm_cliente        cliente,
-      ds_cpf            cpf,
-      ds_endereco       endereco,
-      ds_email          email,
-      ds_telefone       telefone,
-      dt_nascimento     nascimento,
-      ds_placa          placa,
-	  nm_modelo			modelo,
-      vl_preco		    preco,
-      dt_compra	        compra
-       
-  FROM tb_venda`
+    SELECT 
+        id_venda        venda,
+	    nm_cliente      cliente,
+        ds_cpf          cpf,
+        ds_endereco     endereco,
+        ds_email        email,
+        ds_telefone     telefone,
+        dt_nascimento   nascimento,
+        ds_placa        placa,
+	    nm_modelo		modelo,
+        vl_preco		preco,
+        dt_compra	    compra,
+        id_funcionario  funcionario
+    FROM tb_venda`;
 
-  const [resposta] = await con.query(comando)
-  return resposta
+    const [resposta] = await con.query(comando);
+    return resposta;
 }
 
 
-// -> parte de alterar venda
+// parte de alterar venda
 
 export async function alterarVenda (id, venda) {
     const comando = `
@@ -54,7 +55,7 @@ export async function alterarVenda (id, venda) {
         nm_modelo	  = ?,
         vl_preco	  = ?,
         dt_compra	  = ?
-    WHERE id_funcionario = ?`
+    WHERE id_funcionario = ?`;
 
     const [resposta] = await con.query(comando, [venda.cliente, venda.cpf, venda.endereco, venda.email, venda.telefone, venda.nascimento, venda.placa, venda.modelo, venda.preco, venda.compra, id]);
     return resposta.affectedRows;

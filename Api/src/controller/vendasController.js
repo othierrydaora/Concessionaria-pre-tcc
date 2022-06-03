@@ -1,11 +1,11 @@
 import { Router } from "express";
-import { alterarVenda, cadastrarVenda, listagemTotalVendas } from "../repository/carroRepository.js";
+import { alterarVenda, cadastrarVenda, listagemTotalVendas } from "../repository/vendasRepository.js";
 
 const server = Router();
 
 //cadastrar
 
-server.post('/cadastrar/venda', async (req, resp) => {
+server.post('/venda', async (req, resp) => {
     try {
         const adicionarVenda = req.body;
 
@@ -32,33 +32,32 @@ server.post('/cadastrar/venda', async (req, resp) => {
 
 
 // listagem
-
-server.get('/vendas', async (req, resp) => {
+server.get('/vendas', async (req, res) => {
     try {
-        const listagem = listagemTotalVendas();
-        resp.send(listagem);
-    } catch (error) {
-        resp.status(400).send({
-            error: error.message
+        const listagem = await listagemTotalVendas();
+        if (!listagem) throw new Error('Não encontrado');
+        res.send(listagem);
+    } catch (err) {
+        res.status(400).send({
+            error: err.message
         });
     }
 });
 
 //alterar
 
-server.put('/venda/alterar/:id', async (req, resp) => {
-
+server.put('/venda/:id', async (req, res) => {
     try {
         const { id } = req.params;
         const alterar = req.body;
         const alterandoVenda = alterarVenda(id, alterar);
         
-        if (alterandoVenda != 1) throw new Error('não pode ser alterado');
+        if (alterandoVenda != 1) throw new Error('Não foi possível alterar a venda');
         
-        resp.status(204).send();
-    } catch (error) {
-        resp.status(400).send({
-            error: error.message
+        res.status(204).send();
+    } catch (err) {
+        res.status(400).send({
+            error: err.message
         });
     }
 });
