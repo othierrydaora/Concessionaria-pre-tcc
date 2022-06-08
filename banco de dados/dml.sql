@@ -1,7 +1,5 @@
 USE sistemaSigmaDB;
 
-
-
 -- carga inicial ADM
 INSERT INTO tb_funcionario (nm_funcionario, ds_email, ds_senha)
      VALUES ('admin', 'adm@sigma.com.br', '1234');
@@ -23,9 +21,6 @@ select id_funcionario 		id,
 
 INSERT INTO tb_venda (id_funcionario, nm_cliente,ds_cpf, dt_nascimento,ds_email, ds_endereco,ds_telefone ,nm_modelo, ds_placa, vl_preco, dt_compra)
      VALUES (1, 'pedro', '915.302.009-01','2000-02-04', 'emial@gmail.com','av brasil','11900206111','civic si', 'abc-1234', '70.000', '2012-02-11');
-
-
-
 
 
 
@@ -63,9 +58,6 @@ SELECT id_funcionario	id,
       dt_compra	        compra
        
   FROM tb_venda;
-
-
-
 
 
 
