@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { alterarVenda, cadastrarVenda, filtrocpf, listagemTotalVendas } from "../repository/vendasRepository.js";
+import { alterarVenda, cadastrarVenda, deletar, filtrocpf, listagemTotalVendas } from "../repository/vendasRepository.js";
 
 const server = Router();
 
@@ -61,11 +61,12 @@ server.put('/venda/alterar/:id', async (req, resp) => {
     }
 });
 
+//filtro por CPF
 server.post('/venda/filtro', async (req, resp) => {
     try {
-        const cpf = req.body;
-        const snd = await filtrocpf(cpf);
-        if (!snd || !cpf) throw new Error("O item não existe em nosso banco de dados");
+        const filtro = req.body;
+        const snd = await filtrocpf(filtro);
+        if (!snd || !filtro) throw new Error("O item não existe em nosso banco de dados");
         resp.send(snd);
     } catch (err)
     {
@@ -74,5 +75,21 @@ server.post('/venda/filtro', async (req, resp) => {
         });
     }
 });
+
+//Deletar um campo
+server.delete('/vendas/:id', async (req, resp) => {
+    try {
+        const { id } = req.params;
+        const snd = await deletar(id);
+        if (snd != 1) throw new Error('Não foi possível deletar o campo');
+        else {
+            resp.status(204).send();
+        }
+    } catch (err) {
+        resp.status(404).send({
+            erro: err.message
+        });
+    }
+}); 
 
 export default server;

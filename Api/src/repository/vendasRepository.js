@@ -2,7 +2,7 @@ import { con } from "./connection.js"
 
 
 
-// --> cadastrar nova venda
+// nova venda
 
 export async function cadastrarVenda(venda) {
     const comando = `
@@ -15,7 +15,7 @@ export async function cadastrarVenda(venda) {
 }
 
 
-// -> consultar vendas
+// consultar vendas
 
 export async function listagemTotalVendas () {
     const comando = `
@@ -37,7 +37,7 @@ export async function listagemTotalVendas () {
 }
 
 
-// -> parte de alterar venda
+// alterar venda
 
 export async function alterarVenda (id, venda) {
     const comando = `
@@ -58,7 +58,7 @@ export async function alterarVenda (id, venda) {
     return resposta.affectedRows;
 }
 
-// -> parte de filtrar por cpf
+// filtrar por cpf
 
 export async function filtrocpf(filtro) {
     const comando = `SELECT id_funcionario    id,
@@ -76,4 +76,12 @@ export async function filtrocpf(filtro) {
                     WHERE   ds_cpf			= ?`;
     const [resposta] = await con.query(comando, [filtro.cpf]);
     return resposta;
+}
+
+//deletar venda
+export async function deletar(id) {
+    const comando = `DELETE FROM     tb_venda 
+                            WHERE    id_venda = ?`;
+    const [resposta] = await con.query(comando, [id]);
+    return resposta.affectedRows;
 }
