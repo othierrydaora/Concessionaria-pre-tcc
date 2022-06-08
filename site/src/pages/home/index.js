@@ -47,7 +47,6 @@ export default function Home() {
                             GRAND COUPE
                         </div>
                         <div className='pg2-paraph'>O BMW M6 é uma versão de alto desempenho do coupé / conversível da Série 6, projetado e desenvolvido pela divisão de automobilismo da BMW.</div>
-                        <button className='pg2-btn'><a href='https://en.wikipedia.org/wiki/BMW_M6'>Saiba Mais</a></button>
                     </div>
                 </section>
 
