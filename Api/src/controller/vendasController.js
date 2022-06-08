@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { alterarVenda, cadastrarVenda, listagemTotalVendas } from "../repository/carroRepository.js";
+import { alterarVenda, cadastrarVenda, filtrocpf, listagemTotalVendas } from "../repository/vendasRepository.js";
 
 const server = Router();
 
@@ -8,7 +8,6 @@ const server = Router();
 server.post('/cadastrar/venda', async (req, resp) => {
     try {
         const adicionarVenda = req.body;
-
         if (!adicionarVenda.funcionario) throw new Error('O funcionário é obrigatorio');
         else if (!adicionarVenda.cliente) throw new Error('O cliente é obrigatorio');
         else if (!adicionarVenda.cpf) throw new Error('O cpf é obrigatorio');
@@ -20,7 +19,6 @@ server.post('/cadastrar/venda', async (req, resp) => {
         else if (!adicionarVenda.placa) throw new Error('A placa é obrigatoria');
         else if (!adicionarVenda.preco) throw new Error('O preco é obrigatorio');
         else if (!adicionarVenda.compra) throw new Error('A compra é obrigatoria');
-
         const vendaInserida = await cadastrarVenda(adicionarVenda);
         resp.send(vendaInserida);
     } catch (err) {
@@ -35,7 +33,7 @@ server.post('/cadastrar/venda', async (req, resp) => {
 
 server.get('/vendas', async (req, resp) => {
     try {
-        const listagem = listagemTotalVendas();
+        const listagem = await listagemTotalVendas();
         resp.send(listagem);
     } catch (error) {
         resp.status(400).send({
@@ -51,7 +49,7 @@ server.put('/venda/alterar/:id', async (req, resp) => {
     try {
         const { id } = req.params;
         const alterar = req.body;
-        const alterandoVenda = alterarVenda(id, alterar);
+        const alterandoVenda = await alterarVenda(id, alterar);
         
         if (alterandoVenda != 1) throw new Error('não pode ser alterado');
         
@@ -59,6 +57,20 @@ server.put('/venda/alterar/:id', async (req, resp) => {
     } catch (error) {
         resp.status(400).send({
             error: error.message
+        });
+    }
+});
+
+server.post('/venda/filtro', async (req, resp) => {
+    try {
+        const cpf = req.body;
+        const snd = await filtrocpf(cpf);
+        if (!snd || !cpf) throw new Error("O item não existe em nosso banco de dados");
+        resp.send(snd);
+    } catch (err)
+    {
+        resp.status(404).send({
+            error: err.message
         });
     }
 });

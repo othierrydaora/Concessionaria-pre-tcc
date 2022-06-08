@@ -8,8 +8,7 @@ INSERT INTO tb_funcionario (nm_funcionario, ds_email, ds_senha)
 
 
 
-
---> efetuar login
+-- efetuar login
 select id_funcionario 		id,
        nm_funcionario		nome,
        ds_email			email
@@ -20,7 +19,7 @@ select id_funcionario 		id,
 
 
 
---> cadastrar nova venda
+-- cadastrar nova venda
 
 INSERT INTO tb_venda (id_funcionario, nm_cliente,ds_cpf, dt_nascimento,ds_email, ds_endereco,ds_telefone ,nm_modelo, ds_placa, vl_preco, dt_compra)
      VALUES (1, 'pedro', '915.302.009-01','2000-02-04', 'emial@gmail.com','av brasil','11900206111','civic si', 'abc-1234', '70.000', '2012-02-11');
@@ -31,7 +30,7 @@ INSERT INTO tb_venda (id_funcionario, nm_cliente,ds_cpf, dt_nascimento,ds_email,
 
 
 
---> alterar venda
+-- alterar venda
 
 UPDATE tb_venda 
    SET nm_cliente   =   'cholas',
@@ -49,7 +48,7 @@ UPDATE tb_venda
 
 
 
---> consultar todos as vendas  
+-- consultar todos as vendas  
 
 SELECT id_funcionario	id,
 	  nm_cliente        cliente,
@@ -70,7 +69,7 @@ SELECT id_funcionario	id,
 
 
 
--->  consultar vendas por cpf
+--  consultar vendas por cpf
 
 SELECT id_funcionario    cpf,
 	  nm_cliente        cliente,
@@ -84,9 +83,9 @@ SELECT id_funcionario    cpf,
        vl_preco	     preco,
        dt_compra	     compra
   FROM tb_venda
- WHERE ds_cpf			like '%%';
+ WHERE ds_cpf			like "915.302.009-01";
 
---> remover venda
+-- remover venda
 DELETE FROM     tb_venda 
        WHERE    id_funcionario = 1
        AND      id_venda = 1;
