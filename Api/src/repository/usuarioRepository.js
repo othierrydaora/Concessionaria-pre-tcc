@@ -1,5 +1,6 @@
 import { con } from "./connection.js"
 
+//logar administrador
 export async function logar(email, passwd) {
     const comando = `
         SELECT  id_funcionario  id,
