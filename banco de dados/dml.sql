@@ -50,7 +50,8 @@ FROM tb_venda;
 
 
 -->  consultar vendas por cpf
-SELECT id_funcionario    cpf,
+SELECT id_venda          id,
+       id_funcionario    funcionario,
 	  nm_cliente        cliente,
        ds_cpf            cpf,
        ds_endereco       endereco,

@@ -31,7 +31,6 @@ export default function Index() {
             }, 2000);
             
         } catch (err) {
-            console.log(err)
             ref.current.complete();
             setCarregando(false);
             if (err.response.status === 401) setErro(err.response.data.Erro);
@@ -45,7 +44,7 @@ export default function Index() {
             <main className='tela-login'>
                 <div className="login-box">
                     <div className="login-box-title"> Faça seu login </div>
-                    <img className='img-tela' src='/assets/images/agrred2.png' alt=''  />  
+                    <img className='img-tela' src='/assets/images/agrred2.png' alt=''/>  
                     <form class="forms">
                         <div>
                             <input className="input-field" type="email" placeholder="Insira seu Email" value={email} onChange={e => setEmail(e.target.value)}/>

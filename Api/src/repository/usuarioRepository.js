@@ -11,5 +11,5 @@ export async function logar(email, passwd) {
         AND     ds_senha		   = ? `;
 
     const [resposta] = await con.query(comando, [email, passwd]);
-    return resposta;
+    return resposta[0];
 }

@@ -7,5 +7,6 @@ export async function login(email, senha) {
         email: email,
         senha: senha
     });
+    console.log(r.data)
     return r.data;
 }

@@ -74,9 +74,9 @@ export async function filtrocpf(filtro) {
                             ds_telefone       telefone,
                             dt_nascimento     nascimento,
                             ds_placa          placa,
-                            nm_modelo	     nome,
-                            vl_preco	     preco,
-                            dt_compra	     compra
+                            nm_modelo	      nome,
+                            vl_preco	      preco,
+                            dt_compra	      compra
                      FROM   tb_venda
                     WHERE   ds_cpf			= ?`;
     const [resposta] = await con.query(comando, [filtro.cpf]);

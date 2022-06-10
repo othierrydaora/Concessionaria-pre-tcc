@@ -22,23 +22,23 @@ export default function Cadastro() {
                 
                 <div>
                     <input type='text' placeholder='Nome'></input>
-                    <input type='text' placeholder='Nascimento'></input>
+                    <input type='date' placeholder='Nascimento'></input>
                 </div>
                 <div>
                     <input type='text' placeholder='CPF'></input>
-                    <input type='text' placeholder='Email'></input>
+                    <input type='email' placeholder='Email'></input>
                 </div>
                 <div>
                     <input type='text' placeholder='Endereço'></input>
-                        <input type='text' placeholder='Telefone'></input>
+                    <input type='tel' placeholder='Telefone'></input>
                 </div>
                 <div>
                     <input type='text' placeholder='Veículo'></input>
-                    <input type='text' placeholder='Preço'></input>
+                    <input type="number" min="1" step="any" placeholder='Preço'></input>
                 </div>
                 <div>
                     <input type='text' placeholder='Placa'></input>
-                    <input type='text' placeholder='Data do registro'></input>
+                    <input type='date' placeholder='Data do registro'></input>
                 </div>
                 
                 <button className='sending-btn'>ENVIAR</button>
