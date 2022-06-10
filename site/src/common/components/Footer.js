@@ -14,7 +14,7 @@ export default function Footer() {
                         <a href="https://github.com/Mr-auskye"><li>Nicholas</li></a>
                         <a href="https://github.com/RodrigoDig"><li>Rodrigo</li></a>
                     </ul>
-
+     
                 </div>
                 <div class="footer-column">
                     <div className="footer-column-name">Contato</div>

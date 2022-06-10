@@ -81,6 +81,17 @@
         color: #fff;
     }
 
+    .login-invalido {
+        display: flex;
+        justify-content: center;
+        font: 700 16px 'Roboto';
+        color: #f95d48;
+        letter-spacing: 1px;
+        position: relative;
+        top: 20px;
+        height: 50px;
+    }
+
     /* Celular - landscape */
     @media all and (min-width: 480px) and (max-width: 550px) {
 
@@ -116,5 +127,4 @@
             margin-top: .8em;
         }
     }
-    
 }

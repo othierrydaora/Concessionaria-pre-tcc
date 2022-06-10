@@ -8,10 +8,11 @@ server.post('/login', async (req, res) => {
     try {
         const { email, senha } = req.body;
         const answer = await logar(email, senha);
-        if (!answer) throw new Error('Não autorizado')
-        res.send(answer);
+        if (!answer) throw new Error('Não autorizado');
+
+        res.status(200).send(answer);
     } catch (err) {
-        res.status(400).send({
+        res.status(401).send({
             Erro: err.message
         });
     }

@@ -1,6 +1,6 @@
 import { con } from "./connection.js"
 
-// nova venda
+// cadastrar nova venda
 export async function cadastrarVenda(venda) {
     const comando = `
        INSERT INTO tb_venda (id_funcionario, nm_cliente,ds_cpf, dt_nascimento,ds_email, ds_endereco,ds_telefone ,nm_modelo, ds_placa, vl_preco, dt_compra)
@@ -11,22 +11,23 @@ export async function cadastrarVenda(venda) {
     return venda;
 }
 
-
 // consultar vendas
 export async function listagemTotalVendas () {
     const comando = `
-    SELECT id_funcionario	id,
-	  nm_cliente        cliente,
-      ds_cpf            cpf,
-      ds_endereco       endereco,
-      ds_email          email,
-      ds_telefone       telefone,
-      dt_nascimento     nascimento,
-      ds_placa          placa,
-	  nm_modelo			modelo,
-      vl_preco		    preco,
-      dt_compra	        compra
-      FROM tb_venda`
+    SELECT 
+        id_venda        venda,
+	    nm_cliente      cliente,
+        ds_cpf          cpf,
+        ds_endereco     endereco,
+        ds_email        email,
+        ds_telefone     telefone,
+        dt_nascimento   nascimento,
+        ds_placa        placa,
+	    nm_modelo		modelo,
+        vl_preco		preco,
+        dt_compra	    compra,
+        id_funcionario  funcionario
+    FROM tb_venda`;
 
     const [resposta] = await con.query(comando);
     return resposta;
@@ -46,10 +47,21 @@ export async function alterarVenda (id, venda) {
         nm_modelo	  = ?,
         vl_preco	  = ?,
         dt_compra	  = ?
-    WHERE id_funcionario = ?`
+    WHERE id_funcionario = ?`;
 
     const [resposta] = await con.query(comando, [venda.cliente, venda.cpf, venda.endereco, venda.email, venda.telefone, venda.nascimento, venda.placa, venda.modelo, venda.preco, venda.compra, id]);
     return resposta.affectedRows;
+} 
+
+// deletar venda
+export async function deletarVenda(idFunc, idVenda) {
+    const command = `
+    DELETE FROM     tb_venda 
+       WHERE        id_funcionario = ?
+       AND          id_venda = ? `;
+    
+    const [answer] = await con.query(command, [idFunc, idVenda]);
+    return answer.affectedRows;
 }
 
 // filtrar por cpf
@@ -69,12 +81,4 @@ export async function filtrocpf(filtro) {
                     WHERE   ds_cpf			= ?`;
     const [resposta] = await con.query(comando, [filtro.cpf]);
     return resposta;
-}
-
-//deletar venda
-export async function deletar(id) {
-    const comando = `DELETE FROM     tb_venda 
-                            WHERE    id_venda = ?`;
-    const [resposta] = await con.query(comando, [id]);
-    return resposta.affectedRows;
 }
