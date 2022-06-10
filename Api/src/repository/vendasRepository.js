@@ -1,9 +1,7 @@
 import { con } from "./connection.js"
 
 
-
 // cadastrar nova venda
-
 export async function cadastrarVenda(venda) {
     const comando = `
        INSERT INTO tb_venda (id_funcionario, nm_cliente,ds_cpf, dt_nascimento,ds_email, ds_endereco,ds_telefone ,nm_modelo, ds_placa, vl_preco, dt_compra)
@@ -15,9 +13,7 @@ export async function cadastrarVenda(venda) {
     return venda;
 }
 
-
 // consultar vendas
-
 export async function listagemTotalVendas () {
     const comando = `
     SELECT 
@@ -39,9 +35,7 @@ export async function listagemTotalVendas () {
     return resposta;
 }
 
-
 // parte de alterar venda
-
 export async function alterarVenda (id, venda) {
     const comando = `
     UPDATE tb_venda 
@@ -60,3 +54,14 @@ export async function alterarVenda (id, venda) {
     const [resposta] = await con.query(comando, [venda.cliente, venda.cpf, venda.endereco, venda.email, venda.telefone, venda.nascimento, venda.placa, venda.modelo, venda.preco, venda.compra, id]);
     return resposta.affectedRows;
 } 
+
+// deletar venda
+export async function deletarVenda(idFunc, idVenda) {
+    const command = `
+    DELETE FROM     tb_venda 
+       WHERE        id_funcionario = ?
+       AND          id_venda = ? `;
+    
+    const [answer] = await con.query(command, [idFunc, idVenda]);
+    return answer.affectedRows;
+}

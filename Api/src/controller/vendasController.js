@@ -1,10 +1,9 @@
 import { Router } from "express";
-import { alterarVenda, cadastrarVenda, listagemTotalVendas } from "../repository/vendasRepository.js";
+import { alterarVenda, cadastrarVenda, deletarVenda, listagemTotalVendas } from "../repository/vendasRepository.js";
 
 const server = Router();
 
 //cadastrar
-
 server.post('/venda', async (req, resp) => {
     try {
         const adicionarVenda = req.body;
@@ -32,7 +31,7 @@ server.post('/venda', async (req, resp) => {
 
 
 // listagem
-server.get('/vendas', async (req, res) => {
+server.get('/venda', async (req, res) => {
     try {
         const listagem = await listagemTotalVendas();
         if (!listagem) throw new Error('Não encontrado');
@@ -45,7 +44,6 @@ server.get('/vendas', async (req, res) => {
 });
 
 //alterar
-
 server.put('/venda/:id', async (req, res) => {
     try {
         const { id } = req.params;
@@ -58,6 +56,22 @@ server.put('/venda/:id', async (req, res) => {
     } catch (err) {
         res.status(400).send({
             error: err.message
+        });
+    }
+});
+
+//deletar
+server.delete('/venda/:id', async (req, res) => {
+    try {
+        const { id } = req.params;
+        const { idFuncionario } = req.body;
+        const answer = await deletarVenda(idFuncionario, id);
+        if (answer != 1) throw new Error('Não foi possível excluir a venda');
+
+        res.status(204).send();
+    } catch (err) {
+        res.status(400).send({
+            Erro: err.message
         });
     }
 });
