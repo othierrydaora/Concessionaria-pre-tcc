@@ -62,7 +62,7 @@ SELECT id_funcionario    cpf,
        vl_preco	     preco,
        dt_compra	     compra
   FROM tb_venda
- WHERE ds_cpf			like '%%';
+ WHERE ds_cpf			like "915.302.009-01";
 
 --> remover venda
 DELETE FROM     tb_venda 

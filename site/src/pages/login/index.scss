@@ -1,7 +1,5 @@
-
-
-
 .pagina-login{
+    background-color: #f5f6fa;
 
         /* Conteudo principal */
     .tela-login {
@@ -15,14 +13,14 @@
     // CAIXA DE LOGIN
 
     .login-box {
-        margin-bottom: 20vh;
         display: flex;
         flex-direction: column;
         background-color: #ffffff;
         width: fit-content;
+        height: fit-content;
         align-items: center;
         justify-content: center;
-        padding: 4em 8em;
+        padding: 4em 5em;
         border-radius: .5em;
         overflow:hidden;
         box-shadow: 1px 2px 8px #00000054;
@@ -36,6 +34,7 @@
         font-weight: 600;
         text-decoration: underline;
         text-transform: uppercase;
+        margin-bottom: 1em;
     }
 
     .forms {

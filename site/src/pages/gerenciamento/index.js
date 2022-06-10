@@ -20,14 +20,14 @@ export default function Index() {
             <div className='adm-top-bar-title'>Controle de vendas</div>
             <div className='adm-search-field'>
                 <input type='text' placeholder='Pesquisar por CPF'/>
-                <img src="/Icons/search-icon.svg" style={{width: "17px", cursor: "pointer"}} alt="Pesquisar" />
+                <img src="/assets/Icons/search-icon.svg" style={{width: "17px", cursor: "pointer"}} alt="Pesquisar" />
             </div>
         </div>
 
 
-        <div className='adm-table'>
-            <table>
-                <tr className='adm-table-header'>
+        <table>
+            <thead>
+                <tr>
                     <th>NOME</th>
                     <th>CPF</th>
                     <th>ENDEREÇO</th>
@@ -39,6 +39,8 @@ export default function Index() {
                     <th>VALOR</th>
                     <th>AÇÃO</th>
                 </tr>
+            </thead>
+            <tbody>
                 <tr>
                     <td>Nicholas</td>
                     <td>108.176.098-20</td>
@@ -49,7 +51,7 @@ export default function Index() {
                     <td>GTE-2332</td>
                     <td>06/05/2022</td>
                     <td>72.300</td>
-                    <td><div><img src="/Icons/edit.png" alt='' /> <img src="/Icons/trash.png" alt='' /></div></td>
+                    <td><div><img src="assets/Icons/edit.png" alt='' /> <img src="/assets/Icons/trash.png" alt='' /></div></td>
                 </tr>
 
                 <tr>
@@ -62,7 +64,7 @@ export default function Index() {
                     <td></td>
                     <td></td>
                     <td></td>
-                    <td><div><img src="/Icons/edit.png" alt='' /> <img src="/Icons/trash.png" alt='' /></div></td>
+                    <td><div><img src="assets/Icons/edit.png" alt='' /> <img src="/assets/Icons/trash.png" alt='' /></div></td>
                 </tr>
                 <tr>
                     <td></td>
@@ -74,7 +76,7 @@ export default function Index() {
                     <td></td>
                     <td></td>
                     <td></td>
-                    <td><div><img src="/Icons/edit.png" alt='' /> <img src="/Icons/trash.png" alt='' /></div></td>
+                    <td><div><img src="assets/Icons/edit.png" alt='' /> <img src="/assets/Icons/trash.png" alt='' /></div></td>
                 </tr>
                 <tr>
                     <td></td>
@@ -86,7 +88,7 @@ export default function Index() {
                     <td></td>
                     <td></td>
                     <td></td>
-                    <td><div><img src="/Icons/edit.png" alt='' /> <img src="/Icons/trash.png" alt='' /></div></td>
+                    <td><div><img src="assets/Icons/edit.png" alt='' /> <img src="/assets/Icons/trash.png" alt='' /></div></td>
                 </tr>
                 <tr>
                     <td></td>
@@ -98,7 +100,7 @@ export default function Index() {
                     <td></td>
                     <td></td>
                     <td></td>
-                    <td><div><img src="/Icons/edit.png" alt='' /> <img src="/Icons/trash.png" alt='' /></div></td>
+                    <td><div><img src="assets/Icons/edit.png" alt='' /> <img src="/assets/Icons/trash.png" alt='' /></div></td>
                 </tr>
                 <tr>
                     <td></td>
@@ -110,322 +112,11 @@ export default function Index() {
                     <td></td>
                     <td></td>
                     <td></td>
-                    <td><div><img src="/Icons/edit.png" alt='' /> <img src="/Icons/trash.png" alt='' /></div></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td><div><img src="/Icons/edit.png" alt='' /> <img src="/Icons/trash.png" alt='' /></div></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td><div><img src="/Icons/edit.png" alt='' /> <img src="/Icons/trash.png" alt='' /></div></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td><div><img src="/Icons/edit.png" alt='' /> <img src="/Icons/trash.png" alt='' /></div></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td><div><img src="/Icons/edit.png" alt='' /> <img src="/Icons/trash.png" alt='' /></div></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td><div><img src="/Icons/edit.png" alt='' /> <img src="/Icons/trash.png" alt='' /></div></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td><div><img src="/Icons/edit.png" alt='' /> <img src="/Icons/trash.png" alt='' /></div></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td><div><img src="/Icons/edit.png" alt='' /> <img src="/Icons/trash.png" alt='' /></div></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td><div><img src="/Icons/edit.png" alt='' /> <img src="/Icons/trash.png" alt='' /></div></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td><div><img src="/Icons/edit.png" alt='' /> <img src="/Icons/trash.png" alt='' /></div></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td><div><img src="/Icons/edit.png" alt='' /> <img src="/Icons/trash.png" alt='' /></div></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td><div><img src="/Icons/edit.png" alt='' /> <img src="/Icons/trash.png" alt='' /></div></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td><div><img src="/Icons/edit.png" alt='' /> <img src="/Icons/trash.png" alt='' /></div></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td><div><img src="/Icons/edit.png" alt='' /> <img src="/Icons/trash.png" alt='' /></div></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td><div><img src="/Icons/edit.png" alt='' /> <img src="/Icons/trash.png" alt='' /></div></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td><div><img src="/Icons/edit.png" alt='' /> <img src="/Icons/trash.png" alt='' /></div></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td><div><img src="/Icons/edit.png" alt='' /> <img src="/Icons/trash.png" alt='' /></div></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td><div><img src="/Icons/edit.png" alt='' /> <img src="/Icons/trash.png" alt='' /></div></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td><div><img src="/Icons/edit.png" alt='' /> <img src="/Icons/trash.png" alt='' /></div></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td><div><img src="/Icons/edit.png" alt='' /> <img src="/Icons/trash.png" alt='' /></div></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td><div><img src="/Icons/edit.png" alt='' /> <img src="/Icons/trash.png" alt='' /></div></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td><div><img src="/Icons/edit.png" alt='' /> <img src="/Icons/trash.png" alt='' /></div></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td><div><img src="/Icons/edit.png" alt='' /> <img src="/Icons/trash.png" alt='' /></div></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td><div><img src="/Icons/edit.png" alt='' /> <img src="/Icons/trash.png" alt='' /></div></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td><div><img src="/Icons/edit.png" alt='' /> <img src="/Icons/trash.png" alt='' /></div></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td><div><img src="/Icons/edit.png" alt='' /> <img src="/Icons/trash.png" alt='' /></div></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td><div><img src="/Icons/edit.png" alt='' /> <img src="/Icons/trash.png" alt='' /></div></td>
-                </tr>
-            </table>
-        </div>
+                    <td><div><img src="assets/Icons/edit.png" alt='' /> <img src="/assets/Icons/trash.png" alt='' /></div></td>
+                    </tr>
+                    
+            </tbody>
+        </table>
     </div>
     );
 }

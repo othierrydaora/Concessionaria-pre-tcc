@@ -1,5 +1,6 @@
 import { con } from "./connection.js"
 
+//logar administrador
 export async function logar(email, passwd) {
     const comando = `
         SELECT  id_funcionario  id,
@@ -9,6 +10,6 @@ export async function logar(email, passwd) {
         WHERE   ds_email 		   = ?
         AND     ds_senha		   = ? `;
 
-    const [read] = await con.query(comando, [email, passwd]);
-    return read[0];
+    const [resposta] = await con.query(comando, [email, passwd]);
+    return resposta;
 }

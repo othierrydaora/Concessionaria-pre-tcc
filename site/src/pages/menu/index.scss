@@ -3,6 +3,7 @@
     flex-direction: column;
     justify-content: center;
     height: 100vh;
+    background-color: #f5f6fa;
 }
 
 
@@ -17,14 +18,16 @@
     .card {
         display: flex;
         flex-direction: column;
+        justify-content: space-around;
         align-items: center;
         background-color: #e7e7e7;
         border-radius: 2em;
         padding: 1em 1em;
         width: 30vw;
-        height: 550px;
+        height: 60vh;
         transition: .2s ease-in-out;
         box-shadow: 1px 5px 8px #00000034;
+        padding-bottom: 2em;
     }
 
     .card:hover {
@@ -39,20 +42,19 @@
 
     .card-paragrafo {
         text-align: center;
-        margin-top: 1em;
         font-family: sans-serif;
-        margin-bottom: 1em;
+        margin: .5em 0;
     }
    
     .img-card {
-        width: 90%;
+        width: 80%;
     }
 
     .btn-card {
         background-color: #3e3ee0;
         position: relative;
         
-        padding: 1.2em 2.2em;
+        padding: .8em 1.6em;
         color: white;
         font-size: 1em;
         border-radius: 1em;

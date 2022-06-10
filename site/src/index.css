@@ -2,6 +2,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Patua+One&display=swap');
 
+@font-face {
+    font-family: Bebas;
+    src: url(../public/assets/fonts/Bebas.ttf);
+}
+
+@font-face {
+    font-family: Staat;
+    src: url(../public/assets/fonts/Staat.ttf);
+}
+
 *{
     padding: 0;
     margin: 0;

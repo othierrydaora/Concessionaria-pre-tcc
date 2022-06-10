@@ -63,7 +63,7 @@ export default function Header(props) {
         <div className='cm-header'>
             <div className="header-logo">
                 <div className="header-logo-txt">SIGMA</div>
-                <img src="/images/logo.png" className="header-logo-img" alt="Logo" />
+                <img src="/assets/images/logo.png" className="header-logo-img" alt="Logo" />
             </div>
             <div className="header-menu">
                 {info && <Info/>}
