@@ -1,7 +1,18 @@
+import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import storage from 'local-storage';
 import './index.scss';
 import Header from '../../common/components/Header';
 
 export default function Cadastro() {
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        if (!storage('usuario-logado')) {
+            navigate('/')
+        }
+    });
+
     return (
         <div className='cadastro'>
             <Header back="show" />

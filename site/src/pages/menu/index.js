@@ -1,11 +1,21 @@
-import { Link } from 'react-router-dom';
+import storage from 'local-storage';
+import { useEffect } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import Header from '../../common/components/Header';
 import './index.scss';
 
 export default function Menu() {
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        if (!storage('usuario-logado')) {
+            navigate('/')
+        }
+    });
+
     return (
         <div className='main'>
-            <Header initial="show" />
+            <Header initial="show" exit="show"/>
 
         <section className='cards-menu'>
                 <div className='card'>

@@ -1,7 +1,18 @@
+import { useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
+import storage from 'local-storage';
 import Header from '../../common/components/Header';
-import './/index.scss';
+import './index.scss';
 
-export default function gerenciamento() {
+export default function Index() {
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        if (!storage('usuario-logado')) {
+            navigate('/')
+        }
+    });
+
     return (
         <div className="gerenciamento">
         <Header back="show" />
