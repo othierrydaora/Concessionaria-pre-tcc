@@ -17,7 +17,7 @@ CREATE TABLE TB_Venda (
         ds_PLACA      VarChar(8) NOT NULL,
         DS_EMAIL      VarChar(100) NOT NULL,
         VL_PRECO      DECIMAL(10, 2) NOT NULL,
-        DT_COMPRA     DATETIME NOT NULL,
+        DT_COMPRA     DATE NOT NULL,
         CONSTRAINT    FK_ClienteVenda        FOREIGN KEY (ID_Cliente)        REFERENCES TB_Cliente(ID_Cliente),
         CONSTRAINT    FK_FuncionarioVenda    FOREIGN KEY (ID_Funcionario)    REFERENCES TB_Funcionario(ID_Funcionario)
 );

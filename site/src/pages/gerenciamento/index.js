@@ -1,5 +1,5 @@
 import Header from '../../common/components/Header';
-import './/index.scss';
+import './index.scss';
 
 export default function gerenciamento() {
     return (
@@ -14,9 +14,9 @@ export default function gerenciamento() {
         </div>
 
 
-        <table className='adm-table'>
+        <table>
             <thead>
-                <tr className='adm-table-header'>
+                <tr>
                     <th>NOME</th>
                     <th>CPF</th>
                     <th>ENDEREÇO</th>
@@ -102,7 +102,8 @@ export default function gerenciamento() {
                     <td></td>
                     <td></td>
                     <td><div><img src="assets/Icons/edit.png" alt='' /> <img src="/assets/Icons/trash.png" alt='' /></div></td>
-                </tr>
+                    </tr>
+                    
             </tbody>
         </table>
     </div>

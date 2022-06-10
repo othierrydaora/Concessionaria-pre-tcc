@@ -1,9 +1,6 @@
 import { con } from "./connection.js"
 
-
-
 // nova venda
-
 export async function cadastrarVenda(venda) {
     const comando = `
        INSERT INTO tb_venda (id_funcionario, nm_cliente,ds_cpf, dt_nascimento,ds_email, ds_endereco,ds_telefone ,nm_modelo, ds_placa, vl_preco, dt_compra)
@@ -16,7 +13,6 @@ export async function cadastrarVenda(venda) {
 
 
 // consultar vendas
-
 export async function listagemTotalVendas () {
     const comando = `
     SELECT id_funcionario	id,
@@ -36,9 +32,7 @@ export async function listagemTotalVendas () {
     return resposta;
 }
 
-
 // alterar venda
-
 export async function alterarVenda (id, venda) {
     const comando = `
     UPDATE tb_venda 
@@ -59,7 +53,6 @@ export async function alterarVenda (id, venda) {
 }
 
 // filtrar por cpf
-
 export async function filtrocpf(filtro) {
     const comando = `SELECT id_funcionario    id,
                             nm_cliente        cliente,
