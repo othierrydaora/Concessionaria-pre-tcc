@@ -15,7 +15,7 @@ export async function cadastrarVenda(venda) {
 export async function listagemTotalVendas () {
     const comando = `
     SELECT 
-        id_venda        venda,
+        id_venda        id,
 	    nm_cliente      cliente,
         ds_cpf          cpf,
         ds_endereco     endereco,
@@ -65,7 +65,7 @@ export async function deletarVenda(idFunc, idVenda) {
 }
 
 // filtrar por cpf
-export async function filtrocpf(filtro) {
+export async function filtrocpf(cpf) {
     const comando = `SELECT id_funcionario    id,
                             nm_cliente        cliente,
                             ds_cpf            cpf,
@@ -79,6 +79,6 @@ export async function filtrocpf(filtro) {
                             dt_compra	      compra
                      FROM   tb_venda
                     WHERE   ds_cpf			= ?`;
-    const [resposta] = await con.query(comando, [filtro.cpf]);
+    const [resposta] = await con.query(comando, [cpf]);
     return resposta;
 }
