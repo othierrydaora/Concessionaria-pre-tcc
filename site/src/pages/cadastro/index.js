@@ -2,7 +2,6 @@ import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import storage from 'local-storage';
 import './index.scss';
-import Header from '../../common/components/Header';
 
 export default function Cadastro() {
     const navigate = useNavigate();
@@ -15,7 +14,6 @@ export default function Cadastro() {
 
     return (
         <div className='cadastro'>
-            <Header back="show" />
 
             <div className='forms-cont'>
                 <div className='title'>Cadastro de Vendas</div>

@@ -1,5 +1,5 @@
 import { Link, useNavigate } from 'react-router-dom';
-import storage from 'local-storage';
+import sairClick from '../common/functions/sairClick.js';
 import './Header.scss';
 
 
@@ -7,14 +7,6 @@ const Login = () => {
     return (
         <div>
             <Link to="/login" ><i class="fa-light fa-user fa user"></i></Link>
-        </div>
-    );
-}
-
-const BackToInitial = () => {
-    return (
-        <div className="header-menu-item">
-            <Link to="/" ><div>Página inicial</div></Link>
         </div>
     );
 }
@@ -47,17 +39,10 @@ const Contact = () => {
 export default function Header(props) {
     
     const lgn = props.login === 'show';
-    const init = props.initial === 'show';
     const back = props.back === 'show';
     const info = props.info === 'show';
     const cnt = props.contact === 'show';
     const exit = props.exit === 'show';
-    const navigate = useNavigate();
-
-    function sairClick() {
-        storage.remove('usuario-logado');
-        navigate('/login');
-    }
 
     return (
         <div className='cm-header'>
@@ -68,7 +53,6 @@ export default function Header(props) {
             <div className="header-menu">
                 {info && <Info/>}
                 {cnt && <Contact/>}
-                {init && <BackToInitial/>}
                 {lgn && <Login/>}
                 {back && <Back />}
                 {exit && 

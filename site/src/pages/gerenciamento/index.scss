@@ -1,107 +1,111 @@
 .gerenciamento {
     display: flex;
-    width: 100vw;
     height: 100vh;
+}
+
+.content {
+    display: flex;
     flex-direction: column;
-    margin-top: 70px;
+    width: 100%;
     align-items: center;
-    background-color: #f5f6fa;
-}
 
-.adm-top-bar {
-    display: flex;
-    flex-direction: row;
-    margin-top: 2em;
-    height: 2.3em;
-    width: 100vw;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 5vw;
-    margin: 5vh 0 3vh 0;
-}
 
-.adm-top-bar-title {
-    font-family: 'Roboto-condensed', 'Helvetica';
-    font-size: 38px;
-    letter-spacing: -1px;
-    font-weight: 600;
-    color: #1E598F;
-}
-
-.adm-search-field {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    border-radius: 30em;
-    background-color: #dbdbdb;
-    height: fit-content;
-    width: fit-content;
-    padding: 4px 1vw;
-    border: .4px solid #6B6B6B;
-
-    input {
-        outline: none;
-        border: none;
-        background-color: inherit;
-        color: #464646;
+    .adm-top-bar {
+        display: flex;
+        flex-direction: row;
+        height: 2.3em;
+        width: 100%;
+        justify-content: flex-end;
+        align-items: center;
+        padding: 0 5vw;
+        margin: 5vh 0 3vh 0;
     }
-}
 
-table {
-    border-collapse: collapse;
-    width: 95vw;
-    max-height: 550px;
+    
 
-    thead {
-        position: sticky;
-        top: 0;
-        z-index: 1;
+    .adm-search-field {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        border-radius: 30em;
+        background-color: #dbdbdb;
+        height: fit-content;
+        width: fit-content;
+        padding: 4px 1vw;
+        border: .4px solid #6B6B6B;
 
-        tr {
-            background-color: #1E598F;
+        input {
+            outline: none;
+            border: none;
+            background-color: inherit;
+            color: #464646;
         }
+    }
 
-        th {
-            font-family: 'Roboto';
-            font-weight: 500;
-            font-size: 17px;
-            text-align: left;
-            color: #ffffff;
-            height: 30px;
-        }
-    }  
+    table {
+        border-collapse: collapse;
+        width: 95%;
+        max-height: 550px;
 
-    tbody {
-        td {
-            font-family: 'Roboto';
-            color: #3f3f3f;
-            font-size: 15px;
-            background-color: #dbdbdb;
+        thead {
+            position: sticky;
+            top: 0;
+            z-index: 1;
 
-
-            div {
-                display: flex;
-                flex-direction: row;
-                align-items: center;
-                justify-content: space-around;
-                height: fit-content;
-                img {
-                    width: 18px;
-                    cursor: pointer;
-                }
-            }
-        }
-
-        tr {
-            &:nth-child(even) {
-                > td {
-                    background-color: #d6d6d6;
-                }
+            tr {
+                background-color: #1E598F;
             }
 
-            &:hover{
-                > td {
-                    background-color: #e6e6e6;
+            th {
+                font-family: 'Roboto';
+                font-weight: 500;
+                font-size: 16px;
+                text-align: left;
+                color: #ffffff;
+                height: 28px;
+            }
+        }  
+
+        tbody {
+            td {
+                font-family: 'Roboto';
+                color: #3f3f3f;
+                font-size: 14px;
+                background-color: #dbdbdb;
+
+
+                div {
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    justify-content: space-around;
+                    height: fit-content;
+                    img {
+                        width: 18px;
+                        cursor: pointer;
+                    }
+                }
+            }
+
+            tr {
+                .table-actions {
+                    visibility: hidden;
+                }
+
+                &:nth-child(even) {
+                    > td {
+                        background-color: #cecece;
+                    }
+                }
+
+                &:hover{
+                    > td {
+                        background-color: #e6e6e6;
+                    }
+                    
+                    .table-actions {
+                        visibility: visible;
+                    }
                 }
             }
         }

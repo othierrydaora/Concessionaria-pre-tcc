@@ -1,4 +1,4 @@
-import Header from '../../common/components/Header';
+import Header from '../../components/Header';
 import { useState, useEffect, useRef } from 'react';
 import LoadingBar from 'react-top-loading-bar';
 import storage from 'local-storage';
