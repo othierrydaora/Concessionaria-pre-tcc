@@ -1,13 +1,17 @@
 .gerenciamento {
     display: flex;
     height: 100vh;
+    width: 100vw;
 }
 
-.content {
+.gerenciamento-content {
     display: flex;
     flex-direction: column;
     width: 100%;
     align-items: center;
+    padding-top: 60px;
+    max-height: max-content;
+    overflow-y: scroll;
 
 
     .adm-top-bar {

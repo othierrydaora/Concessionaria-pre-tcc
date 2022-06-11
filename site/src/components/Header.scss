@@ -32,13 +32,12 @@
 }
 
 .header-logo-img {
-    margin-top: 7px; /* tem que arrumar o altura da imagem */
+    margin: 0 0 2px 5px;
     width: 100px;
 }
 
 .header-menu {
     display: flex;
-    width: 40vw;
     flex-direction: row;
     align-items: center;
     justify-content: flex-end;
@@ -58,7 +57,7 @@
     }
 }
 
-.user{
+.login{
     height: 30px;
     width: 30px;
     text-decoration: none;
@@ -74,6 +73,19 @@
     &:hover {
         color: #6b85f7;
     }
+}
+
+.header-user {
+    width: 35px;
+    height: 35px;
+    border-radius: 30px;
+    background-color: rgb(38, 98, 167);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-transform: uppercase;
+    font: 17px 'Roboto', sans serif;
 }
 
 @media screen and (max-width: 550px) {

@@ -3,6 +3,7 @@ import { useEffect } from 'react';
 import storage from 'local-storage';
 import Menu from '../../components/Menu.js';
 import './index.scss';
+import Header from '../../components/Header.js';
 
 export default function Index() {
     const navigate = useNavigate();
@@ -15,9 +16,10 @@ export default function Index() {
 
     return (
         <div className="gerenciamento">
-            <Menu selecionado="consultar"/>        
+            <Header user />
+            <Menu selecionado='consulta'/>      
                 
-            <div className='content'>
+            <div className='gerenciamento-content'>
                 <div className='adm-top-bar '>
                     <div className='adm-search-field'>
                         <input type='text' placeholder='Pesquisar por CPF'/>

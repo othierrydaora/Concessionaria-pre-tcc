@@ -7,7 +7,7 @@ export default function Home() {
     return (
         <div>
         <div className='hm-home'>
-            <Header login='show' contact='show' info='show'/>
+            <Header login contact info logo/>
 
             <main>
                 <section className='inicial' id='inicial'>

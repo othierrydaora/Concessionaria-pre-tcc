@@ -1,11 +1,12 @@
 import storage from 'local-storage';
 import { useNavigate, Link } from 'react-router-dom';
-import sairClick from '../common/functions/sairClick.js';
 import './Menu.scss';
 import { useState, useEffect } from 'react';
 
 export default function Index(props) {
     const [menuSelecionado, setMenuSelecionado] = useState(props.selecionado);
+
+    const navigate = useNavigate();
 
     function selecionarMenu(menu) {
         setMenuSelecionado(menu);
@@ -16,7 +17,10 @@ export default function Index(props) {
         else return '';
     }
 
-    const navigate = useNavigate();
+    function sairClick() {
+        storage.remove('usuario-logado');
+        navigate('/login');
+    }
 
     useEffect(() => {
         if (!storage('usuario-logado')) {
@@ -32,17 +36,16 @@ export default function Index(props) {
                 </div>
 
                 <div className='menu-items'>
-                    <Link to='/admin' onClick={() => selecionarMenu('Admin')} className={verificarMenuSelecionado('Admin')}>
-                        
+                    
+                    <Link to='/admin' onClick={() => selecionarMenu('admin')} className={verificarMenuSelecionado('admin')}>
                         <div>Admin</div>
                     </Link>
 
-                    <Link to='/admin/cadastrar' onClick={() => selecionarMenu('cadastrar')} className={verificarMenuSelecionado('cadastrar')}>
-                        
+                    <Link to='/admin/cadastrar' onClick={() => selecionarMenu('cadastro')} className={verificarMenuSelecionado('cadastro')}>    
                         <div>Cadastrar</div>
                     </Link>
-                    <Link to='/admin/consultar' onClick={() => selecionarMenu('consultar')} className={verificarMenuSelecionado('consultar')}>
-                        
+
+                    <Link to='/admin/consultar' onClick={() => selecionarMenu('consulta')} className={verificarMenuSelecionado('consulta')}>
                         <div>Consultar</div>
                     </Link>
                 </div>

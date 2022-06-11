@@ -1,20 +1,20 @@
-import { Link, useNavigate } from 'react-router-dom';
-import sairClick from '../common/functions/sairClick.js';
+import { Link } from 'react-router-dom';
+import storage from 'local-storage';
 import './Header.scss';
 
 
 const Login = () => {
     return (
         <div>
-            <Link to="/login" ><i class="fa-light fa-user fa user"></i></Link>
+            <Link to="/login" ><i class="fa-light fa-user fa login"></i></Link>
         </div>
     );
 }
 
-const Back = () => {
+const Home = () => {
     return (
         <div className="header-menu-item">
-            <Link to="/admin"><div>Voltar</div></Link>
+            <Link to="/"><div>Página inicial</div></Link>
         </div>
     );
 }
@@ -35,31 +35,42 @@ const Contact = () => {
     );
 }
 
+const Logo = () => {
+    return (
+        <div className="header-logo">
+            <div className="header-logo-txt">SIGMA</div>
+            <img src="/assets/Icons/icon-white.png" className="header-logo-img" alt="Logo" />
+        </div>
+    )
+}
 
-export default function Header(props) {
-    
-    const lgn = props.login === 'show';
-    const back = props.back === 'show';
-    const info = props.info === 'show';
-    const cnt = props.contact === 'show';
-    const exit = props.exit === 'show';
+const User = () => {
+    return (
+        <div className='header-user'>
+            {storage('usuario-logado').nome[0]}
+        </div>
+    )
+}
+
+
+export default function Header(props) {    
+    const lgn = props.login;
+    const info = props.info;
+    const cnt = props.contact;
+    const logo = props.logo;
+    const home = props.home;
+    const user = props.user;
 
     return (
         <div className='cm-header'>
-            <div className="header-logo">
-                <div className="header-logo-txt">SIGMA</div>
-                <img src="/assets/images/logo.png" className="header-logo-img" alt="Logo" />
-            </div>
+            {logo ? <Logo/> : <div>&nbsp;</div>}
+
             <div className="header-menu">
                 {info && <Info/>}
                 {cnt && <Contact/>}
                 {lgn && <Login/>}
-                {back && <Back />}
-                {exit && 
-                    <div className='header-menu-item' onClick={sairClick}>
-                        Sair
-                    </div>
-                }
+                {home && <Home />}
+                {user && <User />}
             </div>
         </div>
     );
