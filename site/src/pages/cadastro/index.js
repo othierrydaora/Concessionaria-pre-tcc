@@ -18,18 +18,11 @@ export default function Cadastro() {
     const [compra, setCompra] = useState('');
 
 
-    useEffect(() => {
-        if (!storage('usuario-logado')) navigate('/');
-    });
-
     async function salvarVenda() {
         try {
             const usuario = storage('usuario-logado').id;
             const r = await cadastrarVenda(cliente, cpf, nascimento, email, endereco, telefone, modelo, placa, preco, compra, usuario);
             alert('Venda Cadastrada Com Sucesso!');
-            
-
-
         } catch (err) {
            alert(err.message)
         }
