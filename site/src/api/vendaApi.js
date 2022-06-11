@@ -2,7 +2,7 @@ import axios from 'axios';
 
 const api = axios.create({ baseURL: 'http://localhost:5050' });
 
-export async function cadastrarVenda (nome, cpf, nascimneto, email, endereco, telefone, modelo, placa, preco, compra, usuario) {
+export async function cadastrarVenda (nome, cpf, nascimneto, email, endereco, telefone, modelo, placa, preco, compra) {
     const r = await api.post('/venda', {
         nome: nome,
         cpf: cpf,
@@ -13,8 +13,7 @@ export async function cadastrarVenda (nome, cpf, nascimneto, email, endereco, te
         placa: placa,
         modelo: modelo,
         preco: preco,
-        compra: compra,
-        usuario: usuario
+        compra: compra
     })
     console.log(r.data)
     return r.data;
