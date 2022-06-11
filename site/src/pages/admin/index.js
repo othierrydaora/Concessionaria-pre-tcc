@@ -4,11 +4,11 @@ import './index.scss'
 
 export default function Index() {
     return (
-        <main className='page-home'>
+        <div className='admin'>
             <Menu selecionado='admin' />
-            <div className='conteudo'>
-                <img className='logo-estilizado' src="/assets/Icons/icon-black.png" alt='logo estilizado' />
-            </div>
-        </main>
+            <main className='conteudo'>
+                <img className='logo-estilizado' src="/assets/Icons/icon-gray.png" alt='logo estilizado' />
+            </main>
+        </div>
     );
 }

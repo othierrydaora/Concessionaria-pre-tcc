@@ -1,4 +1,4 @@
-.page-home {
+.admin {
     display: flex;
     flex-direction: row;
     width: 100vw;
@@ -15,6 +15,8 @@
 }
 
 .logo-estilizado {
-    width: 200px;
+    width: 600px;
     user-select: none;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
 }

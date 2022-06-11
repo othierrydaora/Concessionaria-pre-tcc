@@ -50,7 +50,6 @@ export default function Index(props) {
 
             <div className='menu-items'>
                 <a>
-                    
                     <div onClick={sairClick}>Sair</div>
                 </a>
             </div>
