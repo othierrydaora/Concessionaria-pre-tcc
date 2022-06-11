@@ -8,17 +8,18 @@ const server = Router();
 server.post('/venda', async (req, resp) => {
     try {
         const adicionarVenda = req.body;
-        if (!adicionarVenda.funcionario) throw new Error('O id funcionário é obrigatório!');
-        else if (!adicionarVenda.cliente) throw new Error('O nome do cliente é obrigatório!');
-        else if (!adicionarVenda.cpf) throw new Error('O CPF é obrigatorio!');
-        else if (!adicionarVenda.nascimento) throw new Error('A data de nascimento é obrigatória!');
-        else if (!adicionarVenda.email) throw new Error('O email é obrigatório!');
-        else if (!adicionarVenda.endereco) throw new Error('O endereço é obrigatório!');
-        else if (!adicionarVenda.telefone) throw new Error('O telefone é obrigatório!');
-        else if (!adicionarVenda.modelo) throw new Error('O modelo é obrigatório!');
-        else if (!adicionarVenda.placa) throw new Error('A placa é obrigatória!');
-        else if (!adicionarVenda.preco) throw new Error('O preco é obrigatório!');
-        else if (!adicionarVenda.data) throw new Error('A data da compra é obrigatória!');
+        if (!adicionarVenda.cliente) throw new Error('O nome do cliente é obrigatório!');
+        if (!adicionarVenda.cpf) throw new Error('O CPF é obrigatorio!');
+        if (!adicionarVenda.nascimento) throw new Error('A data de nascimento é obrigatória!');
+        if (!adicionarVenda.email) throw new Error('O email é obrigatório!');
+        if (!adicionarVenda.endereco) throw new Error('O endereço é obrigatório!');
+        if (!adicionarVenda.telefone) throw new Error('O telefone é obrigatório!');
+        if (!adicionarVenda.modelo) throw new Error('O modelo é obrigatório!');
+        if (!adicionarVenda.placa) throw new Error('A placa é obrigatória!');
+        if (!adicionarVenda.preco) throw new Error('O preco é obrigatório!');
+        if (!adicionarVenda.compra) throw new Error('A data da compra é obrigatória!');
+        if  (!adicionarVenda.usuario) throw new Error('Usuario Não Logado!');
+
         const vendaInserida = await cadastrarVenda(adicionarVenda);
         resp.send(vendaInserida);
     } catch (err) {

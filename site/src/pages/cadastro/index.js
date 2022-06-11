@@ -5,7 +5,7 @@ import Header from '../../common/components/Header';
 import { cadastrarVenda } from '../../api/vendaApi'
 
 export default function Cadastro() {
-    const [nome, setNome] = useState('');
+    const [cliente, setCliente] = useState('');
     const [cpf, setCpf]= useState('');
     const [endereco, setEndereco] = useState('');
     const [email, setEmail] = useState('');
@@ -13,14 +13,15 @@ export default function Cadastro() {
     const [nascimento, setNascimento] = useState('');
     const [placa, setPlaca] = useState('');
     const [modelo, setModelo] = useState('');
-    const [preco, setPreco] = useState('');
+    const [preco, setPreco] = useState(0);
     const [compra, setCompra] = useState('');
 
     async function salvarVenda() {
         try {
             const usuario = storage('usuario-logado').id;
-            const r = await cadastrarVenda(nome, cpf, endereco, email, telefone, nascimento, placa, modelo, preco, compra, usuario);
+            const r = await cadastrarVenda(cliente, cpf, nascimento, email, endereco, telefone, modelo, placa, preco, compra, usuario);
             alert('Venda Cadastrada Com Sucesso!');
+            
 
 
         } catch (err) {
@@ -38,7 +39,7 @@ export default function Cadastro() {
                 <div className='title'>Cadastro de Vendas</div>
                 
                 <div>
-                    <input type='text' placeholder='Nome' value={nome} onChange={e => setNome(e.target.value)}></input>
+                    <input type='text' placeholder='Nome' value={cliente} onChange={e => setCliente(e.target.value)}></input>
                     <input type='date' placeholder='Nascimento' value={nascimento} onChange={e => setNascimento(e.target.value)}></input>
                 </div>
                 <div>
