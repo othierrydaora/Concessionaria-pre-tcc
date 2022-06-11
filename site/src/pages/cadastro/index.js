@@ -36,27 +36,28 @@ export default function Cadastro() {
             <main className='cadastro-content'>
             <div className='forms-cont'>
                 <div className='title'>Cadastro de Vendas</div>
-                
-                <div>
+                    <ul style={{marginTop: "0.7em"}}>
+                <li>
                     <input type='text' placeholder='Nome' value={cliente} onChange={e => setCliente(e.target.value)}></input>
                     <input type='date' placeholder='Nascimento' value={nascimento} onChange={e => setNascimento(e.target.value)}></input>
-                </div>
-                <div>
+                </li>
+                <li>
                     <input type='text' placeholder='CPF' value={cpf} onChange={e => setCpf(e.target.value)}></input>
                     <input type='email' placeholder='Email' value={email} onChange={e => setEmail(e.target.value)}></input>
-                </div>
-                <div>
+                </li>
+                <li>
                     <input type='text' placeholder='Endereço' value={endereco} onChange={e => setEndereco(e.target.value)}></input>
                     <input type='tel' placeholder='Telefone' value={telefone} onChange={e => setTelefone(e.target.value)}></input>
-                </div>
-                <div>
+                </li>
+                <li>
                     <input type='text' placeholder='Modelo Veículo' value={modelo} onChange={e => setModelo(e.target.value)}></input>
                     <input type="number" min="1" step="any" placeholder='Preço'value={preco} onChange={e => setPreco(e.target.value)}></input>
-                </div>
-                <div>
+                </li>
+                <li>
                     <input type='text' placeholder='Placa' value={placa} onChange={e => setPlaca(e.target.value)}></input>
                     <input type='date' placeholder='Data do registro' value={compra} onChange={e => setCompra(e.target.value)}></input>
-                </div>
+                        </li>
+                        </ul>
                 
                 <button className='sending-btn' onClick={salvarVenda} >Salvar</button>
             </div>

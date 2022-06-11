@@ -18,22 +18,23 @@
         background-color: #dddddd;
         border-radius: .5em;
         padding: .5em;
-        width: fit-content;
-        height: 400px;
+        width: 580px;
+        margin-top: 2.5em;
+        height: 530px;
         box-shadow: 1px 3px 7px #2727275d;
 
         .title {
             font-family: 'Roboto-condensed', 'Helvetica';
-            font-size: 34px;
+            font-size: 32px;
             letter-spacing: -1px;
             font-weight: 600;
             color: #3e3ee0;
-            margin-bottom: 15px;
+            margin-top: 5px;
         }
 
         input {
             width: 16.7em;
-            margin: .3em;
+            margin: 1em;
             padding: .6em .4em;
             outline: none;
             border: none;
@@ -41,16 +42,17 @@
             font-size: 14px;
             border-radius: 3px;
             color: #3f3f3f;
-            margin-bottom: 4px;
         }
+
 
         .sending-btn {
             font-family: 'Roboto', sans-serif;
             font-size: 16px;
             font-weight: 450;
-            margin-top: 2em;
+            margin-top: 2.9em;
+            width: 14em;
             padding: .7em 1.7em;
-            border-radius: 2em;
+            border-radius:.5em;
             text-align: center;
             background-color: #3e3ee0;
             color: #ffffff;
@@ -59,6 +61,7 @@
         
             &:hover {
                 background-color: #4949e9;
+                box-shadow: 0 0 .5em #717171;
             }
         }    
     }
