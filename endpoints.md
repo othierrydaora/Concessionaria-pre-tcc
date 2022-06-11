@@ -28,7 +28,8 @@ RESPONSE
     "placa": "",
     "modelo": "",
     "preco": "",
-    "compra": ""
+    "compra": "",
+    "usuario": ""
 }
 
 response (200)
