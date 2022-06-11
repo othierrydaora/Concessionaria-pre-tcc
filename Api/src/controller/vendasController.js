@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { alterarVenda, cadastrarVenda, listagemTotalVendas } from "../repository/vendasRepository.js";
+import { alterarVenda, cadastrarVenda, listagemTotalVendas, filtrocpf } from "../repository/vendasRepository.js";
 
 
 const server = Router();
@@ -77,11 +77,12 @@ server.delete('/venda/:id', async (req, res) => {
 });
 
 //filtro por CPF
-server.post('/venda/filtro', async (req, resp) => {
+server.post('/venda', async (req, resp) => {
     try {
-        const filtro = req.body;
-        const snd = await filtrocpf(filtro);
-        if (!snd || !filtro) throw new Error("O item não existe em nosso banco de dados");
+        const { cpf } = Number(req.query);
+        if (!cpf) throw new Error("CPF inválido");
+        const snd = await filtrocpf(cpf);
+        if (!snd) throw new Error("Não encontrado");
         resp.send(snd);
     } catch (err)
     {
