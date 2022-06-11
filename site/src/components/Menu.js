@@ -29,33 +29,28 @@ export default function Index(props) {
     });
 
     return (
-        <nav className="menu">
-            <div>
-                <div className='logo'>
-                    <div>Sigma</div>
-                </div>
+        <div className="menu">
+            <div className='menu-items'>
+                <Link to='/admin' onClick={() => selecionarMenu('admin')} className={verificarMenuSelecionado('admin')}>
+                    <div>Admin</div>
+                </Link>
 
-                <div className='menu-items'>
-                    
-                    <Link to='/admin' onClick={() => selecionarMenu('admin')} className={verificarMenuSelecionado('admin')}>
-                        <div>Admin</div>
-                    </Link>
+                <hr/>
 
-                    <Link to='/admin/cadastrar' onClick={() => selecionarMenu('cadastro')} className={verificarMenuSelecionado('cadastro')}>    
-                        <div>Cadastrar</div>
-                    </Link>
+                <Link to='/admin/cadastrar' onClick={() => selecionarMenu('cadastro')} className={verificarMenuSelecionado('cadastro')}>    
+                    <div>Cadastrar</div>
+                </Link>
 
-                    <Link to='/admin/consultar' onClick={() => selecionarMenu('consulta')} className={verificarMenuSelecionado('consulta')}>
-                        <div>Consultar</div>
-                    </Link>
-                </div>
+                <Link to='/admin/consultar' onClick={() => selecionarMenu('consulta')} className={verificarMenuSelecionado('consulta')}>
+                    <div>Consultar</div>
+                </Link>
             </div>
 
             <div className='menu-items'>
-                <a>
-                    <div onClick={sairClick}>Sair</div>
+                <a style={{marginTop: "30px"}} onClick={sairClick}>
+                    <div>Sair</div>
                 </a>
             </div>
-        </nav>
+        </div>
     )
 }

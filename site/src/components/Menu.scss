@@ -1,25 +1,20 @@
 .menu {
     position: relative;
-    z-index: 2;
+    z-index: 1;
 
-    width: 200px;
+    width: 220px;
     padding-bottom: 50px;
-    background-color: #363434;
+    background-color: #4e4f50;
     
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-evenly;
 
     
     .logo {
         display: flex;
         flex-direction: column;
         align-items: center;
-        margin-bottom: 100px;
-        padding: 40px;
-    }
-
-    .logo div {
         font: 700 22px 'Roboto';
         color: #E9E9E9;
     }
@@ -27,25 +22,34 @@
     .menu-items {
         display: flex;
         flex-direction: column;
-        width: 100%;
-    }
-
-    .menu-items > a {
-        display: flex;
         align-items: center;
-        font: 500 17px 'Roboto';
-        color: #fff;
-        padding: 26px 0;
-        transition: .2s;
         width: 100%;
-        cursor: pointer
-    }
 
-    .menu-items > a:hover {
-        background-color: #1E598F;
+        & a {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font: 500 17px 'Roboto';
+            border-radius: 10px;
+            color: #fff;
+            padding: 20px 0;
+            transition: .15s;
+            width: 80%;
+            cursor: pointer;
+            margin: 15px 0;
+
+            &:hover {
+                background-color: #ffffff3a;
+            }
+        }
+
+        & hr {
+            margin: 2em 0;
+            width: 60%;
+        }
     }
 
     .selecionado {
-        background-color: #1E598F;
+        background-color: #ffffff3a;
     }
 }

@@ -14,7 +14,7 @@ export default function Cadastro() {
 
     return (
         <div className='cadastro'>
-            <Header user/>
+            <Header user logo/>
             <Menu selecionado='cadastro' />
 
             <main className='cadastro-content'>

@@ -16,7 +16,7 @@ export default function Index() {
 
     return (
         <div className="gerenciamento">
-            <Header user />
+            <Header user logo />
             <Menu selecionado='consulta'/>      
                 
             <div className='gerenciamento-content'>

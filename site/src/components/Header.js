@@ -46,7 +46,7 @@ const Logo = () => {
 
 const User = () => {
     return (
-        <div className='header-user'>
+        <div className='header-user' title={storage('usuario-logado').nome}>
             {storage('usuario-logado').nome[0]}
         </div>
     )
