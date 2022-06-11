@@ -1,8 +1,8 @@
-import Header from '../../common/components/Header';
+import Header from '../../components/Header';
 import { useState, useEffect, useRef } from 'react';
 import LoadingBar from 'react-top-loading-bar';
 import storage from 'local-storage';
-import { useNavigate } from 'react-router-dom';
+import React, { useNavigate } from 'react-router-dom';
 import { login } from '../../api/usuarioApi.js';
 import './index.scss';
 
@@ -37,21 +37,25 @@ export default function Index() {
         }
     }
 
+    function handleEnterPress(e) {
+        if (e.keyCode === 13) logarClick();
+    }
+
     return (
         <div className='pagina-login'>
             <LoadingBar color='#2397c0' ref={ref}/>
-            <Header initial="show" />
+            <Header home logo/>
             <main className='tela-login'>
                 <div className="login-box">
                     <div className="login-box-title"> Faça seu login </div>
                     <img className='img-tela' src='/assets/images/agrred2.png' alt=''/>  
                     <form class="forms">
                         <div>
-                            <input className="input-field" type="email" placeholder="Insira seu Email" value={email} onChange={e => setEmail(e.target.value)}/>
+                            <input className="input-field" type="email" placeholder="Insira seu Email" value={email} onChange={e => setEmail(e.target.value)} required onKeyDown={handleEnterPress}/>
                             <img src= '/images/users-icons2.png' alt='' className="form-image"/>
                         </div>
                         <div>
-                            <input className="input-field" type="password" placeholder="Insira sua senha" value={senha} onChange={e => setSenha(e.target.value)}/>
+                            <input className="input-field" type="password" placeholder="Insira sua senha" value={senha} onChange={e => setSenha(e.target.value)} required onKeyDown={handleEnterPress}/>
                             <img src='/images/users-icons.png' alt='' className="form-image"/>
                         </div>
                     </form>

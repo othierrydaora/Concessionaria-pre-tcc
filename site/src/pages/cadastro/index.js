@@ -1,7 +1,8 @@
 import {  useState } from 'react';
 import storage from 'local-storage';
+import Header from '../../components/Header';
+import Menu from '../../components/Menu'
 import './index.scss';
-import Header from '../../common/components/Header';
 import { cadastrarVenda } from '../../api/vendaApi'
 
 export default function Cadastro() {
@@ -16,6 +17,11 @@ export default function Cadastro() {
     const [preco, setPreco] = useState('');
     const [compra, setCompra] = useState('');
 
+
+    useEffect(() => {
+        if (!storage('usuario-logado')) navigate('/');
+    });
+
     async function salvarVenda() {
         try {
             const usuario = storage('usuario-logado').id;
@@ -28,12 +34,12 @@ export default function Cadastro() {
         }
     }
 
-
-
     return (
         <div className='cadastro'>
-            <Header back="show" />
+            <Header user logo/>
+            <Menu selecionado='cadastro' />
 
+            <main className='cadastro-content'>
             <div className='forms-cont'>
                 <div className='title'>Cadastro de Vendas</div>
                 
@@ -60,6 +66,7 @@ export default function Cadastro() {
                 
                 <button className='sending-btn' onClick={salvarVenda} >Salvar</button>
             </div>
+            </main>
         </div>
     );
 }
