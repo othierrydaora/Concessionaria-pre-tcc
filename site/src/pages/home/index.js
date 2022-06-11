@@ -1,5 +1,5 @@
-import Header from '../../common/components/Header';
-import Footer from '../../common/components/Footer';
+import Header from '../../components/Header';
+import Footer from '../../components/Footer';
 
 import './index.scss';
 
@@ -7,7 +7,7 @@ export default function Home() {
     return (
         <div>
         <div className='hm-home'>
-            <Header login='show' contact='show' info='show'/>
+            <Header login contact info logo/>
 
             <main>
                 <section className='inicial' id='inicial'>
