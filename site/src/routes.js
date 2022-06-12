@@ -13,6 +13,7 @@ export default function Index() {
             <Route path='/' exact element={<Home />} />
             <Route path='/admin/consultar' exact element={<Gerenciamento />} />
             <Route path='/admin/cadastrar' exact element={<Cadastro />} />
+            <Route path='/admin/alterar/:idParam' exact element={<Cadastro />} />
             <Route path='/login' exact element={<Login />} />
             <Route path='/admin' exact element={<Admin />} />
             <Route path='*' element={<NotFound />} />

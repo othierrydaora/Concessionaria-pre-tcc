@@ -1,9 +1,13 @@
 import React, { useEffect, useState } from 'react';
-import { listarTodasVendas, filtrarCpf, removerVenda } from '../../api/vendaApi.js';
+import { listarTodasVendas, filtrarCpf, alterarVenda } from '../../api/vendaApi.js';
 import Menu from '../../components/Menu.js';
 import Header from '../../components/Header.js';
 import './index.scss';
 import { toast } from 'react-toastify';
+
+import { useNavigate } from 'react-router-dom'
+
+
 
 //importação confirmar delet
 import { confirmAlert } from 'react-confirm-alert';
@@ -11,6 +15,12 @@ import { confirmAlert } from 'react-confirm-alert';
 export default function Index() {
     const [vendas, setVendas] = useState([]);
     const [cpf, setCpf] = useState('');
+
+    const navigate = useNavigate();
+
+    function editarVenda(id){
+        navigate(`/admin/alterar/${id}`);
+    }
 
     async function listarVendas() {
         const resp = await listarTodasVendas();
@@ -25,7 +35,7 @@ export default function Index() {
                 {
                     label: 'Sim',
                     onClick: async () => {
-                        const resposta = await removerVenda(id);
+                        const resposta = await alterarVenda(id);
                         if (resposta === 204) {
                             listarTodasVendas();
                             toast.success('Venda removida com sucesso!');
@@ -97,7 +107,7 @@ export default function Index() {
                                     <td>{item.preco}</td>
                                     <td>
                                         <div>
-                                            <img src="/assets/Icons/edit.png" alt='Editar'/>
+                                            <img src="/assets/Icons/edit.png" alt='Editar' onClick={() => editarVenda(item.id)}/>
                                             <img src="/assets/Icons/trash.png" alt='Excluir' onClick={() => removerVendaClick(item.id)}/>
                                         </div>
                                     </td>

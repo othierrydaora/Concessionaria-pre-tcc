@@ -19,7 +19,28 @@ export default function Cadastro() {
     const [compra, setCompra] = useState('');
     const [id, setId] = useState(0);
 
+    const { idParam } = useParams();
 
+    useEffect(() =>{
+        if(idParam) {
+            alteracoes();
+        }
+    }, [])
+
+    async function alteracoes(){
+        const resposta = await alterarVenda(idParam);
+        setCliente(resposta.cliente);
+        setCpf(resposta.cpf);
+        setEndereco(resposta.endereco);
+        setEmail(resposta.email);
+        setTelefone(resposta.telefone);
+        setNascimento(resposta.nascimento);
+        setPlaca(resposta.placa);
+        setModelo(resposta.modelo);
+        setPreco(resposta.preco);
+        setCompra(resposta.compra);
+        setId(resposta.id);
+    }
 
     async function salvarVenda() {
         try {
@@ -32,7 +53,7 @@ export default function Cadastro() {
                 toast.success('✨ Venda Cadastrada Com Sucesso!');
                 
             } else{
-                await alterarVenda(id, cliente, cpf, nascimento, email, endereco, telefone, modelo, placa, preco, compra, usuario);
+                await alteracoes(id, cliente, cpf, nascimento, email, endereco, telefone, modelo, placa, preco, compra, usuario);
                 console.log(id)
                 toast.success('✨ Venda Alterada Com Sucesso!');
             }
