@@ -70,7 +70,7 @@ export default function Cadastro() {
                     <ul style={{marginTop: "0.7em"}}>
                 <li>
                     <input type='text' placeholder='Nome' value={cliente} onChange={e => setCliente(e.target.value)}></input>
-                    <input type='date' placeholder='Nascimento' value={nascimento} onChange={e => setNascimento(e.target.value)}></input>
+                    <input type='date' title='Nascimento'  value={nascimento} onChange={e => setNascimento(e.target.value)}></input>
                 </li>
                 <li>
                     <input type='text' placeholder='CPF' value={cpf} onChange={e => setCpf(e.target.value)}></input>
@@ -82,11 +82,11 @@ export default function Cadastro() {
                 </li>
                 <li>
                     <input type='text' placeholder='Modelo Veículo' value={modelo} onChange={e => setModelo(e.target.value)}></input>
-                    <input type="number" min="1" step="any" placeholder='Preço'value={preco} onChange={e => setPreco(e.target.value)}></input>
+                    <input type="number" title='preco carro' min="1" step="any" placeholder='Preço'value={preco} onChange={e => setPreco(e.target.value)}></input>
                 </li>
                 <li>
                     <input type='text' placeholder='Placa' value={placa} onChange={e => setPlaca(e.target.value)}></input>
-                    <input type='date' placeholder='Data do registro' value={compra} onChange={e => setCompra(e.target.value)}></input>
+                    <input type='date' title='Data do registro' value={compra} onChange={e => setCompra(e.target.value)}></input>
                         </li>
                         </ul>
 
