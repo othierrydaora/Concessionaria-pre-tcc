@@ -31,7 +31,7 @@ UPDATE tb_venda
      nm_modelo      =    'bmw x6',
      vl_preco		=    '70.000',
      dt_compra	     =    '2022-06-01'
-     WHERE id_funcionario = 1;
+     WHERE id_venda = 1;
 
 
 --> consultar todos as vendas  

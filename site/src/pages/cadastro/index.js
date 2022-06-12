@@ -28,17 +28,18 @@ export default function Cadastro() {
             if(id === 0){
                 const r = await cadastrarVenda(cliente, cpf, nascimento, email, endereco, telefone, modelo, placa, preco, compra, usuario);
                 setId(r.id);
-                
+                console.log(id)
                 toast.success('✨ Venda Cadastrada Com Sucesso!');
                 
             } else{
                 await alterarVenda(id, cliente, cpf, nascimento, email, endereco, telefone, modelo, placa, preco, compra, usuario);
+                console.log(id)
                 toast.success('✨ Venda Alterada Com Sucesso!');
             }
 
 
         } catch (err) {
-            
+            console.log(err);
            toast.error(err.response.data.erro);
            
         }

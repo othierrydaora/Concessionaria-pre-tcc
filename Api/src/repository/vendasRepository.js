@@ -47,7 +47,7 @@ export async function alterarVenda (id, venda) {
         nm_modelo	  = ?,
         vl_preco	  = ?,
         dt_compra	  = ?
-    WHERE id_funcionario = ?`;
+    WHERE id_venda = ?`;
 
     const [resposta] = await con.query(comando, [venda.cliente, venda.cpf, venda.endereco, venda.email, venda.telefone, venda.nascimento, venda.placa, venda.modelo, venda.preco, venda.compra, id]);
     return resposta.affectedRows;
