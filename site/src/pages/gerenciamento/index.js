@@ -51,25 +51,30 @@ export default function Index() {
                             <th>MODELO</th>
                             <th>DATA</th>
                             <th>VALOR</th>
-                            <th>&nbsp;</th>
+                            <th>&nbsp;&nbsp;</th>
                         </tr>
                     </thead>
                     <tbody>
                         {
                             vendas.map(item => 
                                 <tr>
-                                    <th>{item.id}</th>
-                                    <th>{item.cliente}</th>
-                                    <th>{item.cpf}</th>
-                                    <th>{item.endereco}</th>
-                                    <th>{item.email}</th>
-                                    <th>{item.telefone}</th>
-                                    <th>{item.nascimento.substr(0, 10)}</th>
-                                    <th>{item.placa}</th>
-                                    <th>{item.modelo}</th>
-                                    <th>{item.compra}</th>
-                                    <th>{item.preco}</th>
-                                    <td><div><img src="assets/Icons/edit.png" alt='' className='table-actions' /> <img src="/assets/Icons/trash.png" alt='' className='table-actions'/></div></td>
+                                    <td>{item.id}</td>
+                                    <td>{item.cliente}</td>
+                                    <td>{item.cpf}</td>
+                                    <td>{item.endereco}</td>
+                                    <td>{item.email}</td>
+                                    <td>{item.telefone}</td>
+                                    <td>{item.nascimento.substr(0, 10)}</td>
+                                    <td>{item.placa}</td>
+                                    <td>{item.modelo}</td>
+                                    <td>{item.compra}</td>
+                                    <td>{item.preco}</td>
+                                    <td>
+                                        <div>
+                                            <img src="/assets/Icons/edit.png" alt='Editar'/>
+                                            <img src="/assets/Icons/trash.png" alt='Excluir'/>
+                                        </div>
+                                    </td>
                                 </tr>                            
                             )
                         }

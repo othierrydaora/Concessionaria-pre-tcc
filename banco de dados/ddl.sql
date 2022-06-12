@@ -8,19 +8,18 @@ CREATE TABLE tb_funcionario (
 );
 
 CREATE TABLE tb_venda (
-        id_venda      INT PRIMARY KEY auto_increment,
+        id_venda        INT PRIMARY KEY auto_increment,
         id_funcionario  INT,
 		nm_cliente      VARCHAR(100),
-        ds_cpf         VARCHAR(14) ,
+        ds_cpf          VARCHAR(14) ,
         dt_nascimento   DATE,
         ds_email        VARCHAR(100) ,
         ds_endereco     VARCHAR(100) ,
         ds_telefone     VARCHAR(14) ,
-        nm_modelo     VARCHAR(100) ,
-        ds_placa      VARCHAR(8) ,
-        vl_preco      DECIMAL(10, 2) ,
-        dt_compra     DATETIME ,
-		FOREIGN KEY (id_funcionario)    REFERENCES tb_funcionario(id_funcionario)
-
+        nm_modelo       VARCHAR(100) ,
+        ds_placa        VARCHAR(8) ,
+        vl_preco        DECIMAL(12, 2) ,
+        dt_compra       DATE,
+		FOREIGN KEY     (id_funcionario) REFERENCES tb_funcionario(id_funcionario)
 );
 

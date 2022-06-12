@@ -31,11 +31,11 @@
         flex-direction: row;
         align-items: center;
         border-radius: 30em;
-        background-color: #e4e4e4;
+        background-color: #ebebeb;
         height: fit-content;
         width: fit-content;
         padding: 5px 4px;
-        border: .4px solid #6B6B6B;
+        border: .4px solid #818181;
 
         input {
             outline: none;
@@ -69,29 +69,26 @@
         }  
 
         tbody {
-            td {
-                font-family: 'Roboto';
-                color: #3f3f3f;
-                font-size: 14px;
-                background-color: #eeeeee;
-
-
-                div {
-                    display: flex;
-                    flex-direction: row;
-                    align-items: center;
-                    justify-content: space-around;
-                    height: fit-content;
-                    img {
-                        width: 18px;
-                        cursor: pointer;
-                    }
-                }
-            }
-
             tr {
-                .table-actions {
-                    visibility: hidden;
+                > td {
+                    font-family: 'Roboto';
+                    color: #3f3f3f;
+                    font-size: 14px;
+                    background-color: #eeeeee;
+
+                    > div {
+                        display: flex;
+                        flex-direction: row;
+                        align-items: center;
+                        justify-content: space-around;
+                        height: fit-content;
+                        visibility: hidden;
+                        img {
+                            width: 18px;
+                            cursor: pointer;
+                            margin-left: 5px;
+                        }
+                    }
                 }
 
                 &:nth-child(even) {
@@ -103,10 +100,10 @@
                 &:hover{
                     > td {
                         background-color: #ececec;
-                    }
-                    
-                    .table-actions {
-                        visibility: visible;
+
+                        > div {
+                            visibility: visible;
+                        }
                     }
                 }
             }
