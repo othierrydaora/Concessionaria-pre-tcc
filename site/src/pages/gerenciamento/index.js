@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { listarTodasVendas, filtrarCpf, alterarVenda } from '../../api/vendaApi.js';
+import { listarTodasVendas, filtrarCpf, alterarVenda, removerVenda } from '../../api/vendaApi.js';
 import Menu from '../../components/Menu.js';
 import Header from '../../components/Header.js';
 import './index.scss';
@@ -35,7 +35,7 @@ export default function Index() {
                 {
                     label: 'Sim',
                     onClick: async () => {
-                        const resposta = await alterarVenda(id);
+                        const resposta = await removerVenda(id);
                         if (resposta === 204) {
                             listarTodasVendas();
                             toast.success('Venda removida com sucesso!');
@@ -100,10 +100,10 @@ export default function Index() {
                                     <td>{item.endereco}</td>
                                     <td>{item.email}</td>
                                     <td>{item.telefone}</td>
-                                    <td>{item.nascimento.substr(0, 10)}</td>
+                                    <td>{String(item.nascimento).substr(0, 10)}</td>
                                     <td>{item.placa}</td>
                                     <td>{item.modelo}</td>
-                                    <td>{item.compra.substr(0, 10)}</td>
+                                    <td>{String(item.compra).substr(0, 10)}</td>
                                     <td>{item.preco}</td>
                                     <td>
                                         <div>

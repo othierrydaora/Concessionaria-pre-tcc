@@ -17,7 +17,7 @@ export default function Index() {
 
     useEffect(() => {
         if (storage('usuario-logado')) navigate('/admin');
-    }, []);
+    });
 
     async function logarClick() {
         setCarregando(true);

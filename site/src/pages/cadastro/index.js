@@ -1,4 +1,4 @@
-import {  useState } from 'react';
+import React, { useState, useParams, useEffect } from 'react';
 import storage from 'local-storage';
 import { toast } from 'react-toastify';
 import Header from '../../components/Header';
@@ -21,12 +21,7 @@ export default function Cadastro() {
 
     const { idParam } = useParams();
 
-    useEffect(() =>{
-        if(idParam) {
-            alteracoes();
-        }
-    }, [])
-
+    
     async function alteracoes(){
         const resposta = await alterarVenda(idParam);
         setCliente(resposta.cliente);
@@ -80,6 +75,12 @@ export default function Cadastro() {
         setTelefone('');
     }
 
+    useEffect(() => {
+        if (idParam) {
+            alteracoes();
+        }
+    });
+    
     return (
         <div className='cadastro'>
             <Header user logo/>

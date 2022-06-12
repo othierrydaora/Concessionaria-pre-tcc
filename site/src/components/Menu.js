@@ -47,7 +47,7 @@ export default function Index(props) {
             </div>
 
             <div className='menu-items'>
-                <a style={{marginTop: "30px"}} onClick={sairClick}>
+                <a style={{marginTop: "30px"}} onClick={sairClick} href>
                     <div>Sair</div>
                 </a>
             </div>
