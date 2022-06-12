@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { alterarVenda, cadastrarVenda, listagemTotalVendas, filtrocpf } from "../repository/vendasRepository.js";
+import { alterarVenda, cadastrarVenda, listagemTotalVendas, filtrocpf, deletarVenda } from "../repository/vendasRepository.js";
 
 
 const server = Router();
@@ -63,10 +63,9 @@ server.put('/venda/:id', async (req, res) => {
 //deletar
 server.delete('/venda/:id', async (req, res) => {
     try {
-        const { id } = req.params;
-        const { idFuncionario } = req.body;
-        const answer = await deletarVenda(idFuncionario, id);
-        if (answer != 1) throw new Error('Não foi possível excluir a venda');
+        const id = Number(req.params.id);
+        const answer = await deletarVenda(id);
+        if (answer !== 1) throw new Error('Não foi possível excluir a venda');
 
         res.status(204).send();
     } catch (err) {
@@ -91,21 +90,5 @@ server.post('/venda', async (req, resp) => {
         });
     }
 });
-
-//Deletar um campo
-server.delete('/vendas/:id', async (req, resp) => {
-    try {
-        const { id } = req.params;
-        const snd = await deletar(id);
-        if (snd != 1) throw new Error('Não foi possível deletar o campo');
-        else {
-            resp.status(204).send();
-        }
-    } catch (err) {
-        resp.status(404).send({
-            erro: err.message
-        });
-    }
-}); 
 
 export default server;

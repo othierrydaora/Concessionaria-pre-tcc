@@ -3,6 +3,7 @@ import { listarTodasVendas, filtrarCpf, removerVenda } from '../../api/vendaApi.
 import Menu from '../../components/Menu.js';
 import Header from '../../components/Header.js';
 import './index.scss';
+import { toast } from 'react-toastify';
 
 //importação confirmar delet
 import { confirmAlert } from 'react-confirm-alert';
@@ -17,31 +18,25 @@ export default function Index() {
     }
 
     async function removerVendaClick(id){
-
         confirmAlert({
-            title: 'remover venda',
-            massage: `Deseja remover a venda?`,
+            title: 'Remover venda',
+            message: `Deseja remover a venda?`,
             buttons: [
                 {
                     label: 'Sim',
                     onClick: async () => {
                         const resposta = await removerVenda(id);
-                        if(cpf === '')
+                        if (resposta === 204) {
                             listarTodasVendas();
-                        else
-                            filtrar();
-                        
-                        alert('Venda removida');
+                            toast.success('Venda removida com sucesso!');
+                        }
+                        else toast.warn('Não foi possível remover a venda');
                     }
                 },
-
-                {
-                    label: 'Não'
-                }
+                
+                { label: 'Não' }
             ]
-
-        })
-
+        });
     }
 
     async function filtrar() {

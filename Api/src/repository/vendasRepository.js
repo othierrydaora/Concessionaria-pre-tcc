@@ -54,13 +54,11 @@ export async function alterarVenda (id, venda) {
 } 
 
 // deletar venda
-export async function deletarVenda(idFunc, idVenda) {
+export async function deletarVenda(id) {
     const command = `
     DELETE FROM     tb_venda 
-       WHERE        id_funcionario = ?
-       AND          id_venda = ? `;
-    
-    const [answer] = await con.query(command, [idFunc, idVenda]);
+       WHERE        id_venda = ? `;
+    const [answer] = await con.query(command, [id]);
     return answer.affectedRows;
 }
 
