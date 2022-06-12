@@ -64,7 +64,7 @@ export async function deletarVenda(id) {
 
 // filtrar por cpf
 export async function filtrocpf(cpf) {
-    const comando = `SELECT id_funcionario    id,
+    const comando = `SELECT id_venda   id,
                             nm_cliente        cliente,
                             ds_cpf            cpf,
                             ds_endereco       endereco,

@@ -29,6 +29,21 @@ server.post('/venda', async (req, resp) => {
     }
 });
 
+//filtro por CPF
+server.get('/venda/filtro', async (req, resp) => {
+    try {
+        const cpf= req.query.cpf;
+        if (!cpf) throw new Error("CPF inválido");
+        const snd = await filtrocpf(cpf);
+        if (!snd) throw new Error("Não encontrado");
+        resp.send(snd);
+    } catch (err)
+    {
+        resp.status(404).send({
+            error: err.message
+        });
+    }
+});
 
 // listagem
 server.get('/venda', async (req, res) => {
@@ -71,22 +86,6 @@ server.delete('/venda/:id', async (req, res) => {
     } catch (err) {
         res.status(400).send({
             Erro: err.message
-        });
-    }
-});
-
-//filtro por CPF
-server.post('/venda', async (req, resp) => {
-    try {
-        const { cpf } = Number(req.query);
-        if (!cpf) throw new Error("CPF inválido");
-        const snd = await filtrocpf(cpf);
-        if (!snd) throw new Error("Não encontrado");
-        resp.send(snd);
-    } catch (err)
-    {
-        resp.status(404).send({
-            error: err.message
         });
     }
 });

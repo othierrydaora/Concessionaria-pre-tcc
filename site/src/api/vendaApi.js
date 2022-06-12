@@ -24,7 +24,7 @@ export async function listarTodasVendas() {
 }
 
 export async function filtrarCpf(cpf) {
-  const r = await api.get(`/venda?cpf=${cpf}`);
+  const r = await api.get(`/venda/filtro?cpf=${cpf}`);
   return r.data;
 }
 
