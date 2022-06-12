@@ -1,6 +1,10 @@
-### (1)/POST /LOGIN 
+# *Análise de Endpoints*
 
-#### REQUEST BODY
+<br/>
+
+## (1) Post    /login 
+### Body
+```
 { 
 "email": " ",
  "senha": " "
@@ -12,12 +16,12 @@ RESPONSE
 "email": " ",
  "nome": " "
 }
+```
+<hr/>
 
-////////////////////////////////////////////
-
-#### (2) /POST       /venda          --cadastro
-
-#### request body
+## (2) Post    /venda      --cadastro
+### Body
+```
 {
     "nome": "",
     "cpf": 0.0,
@@ -45,14 +49,14 @@ response (200)
     "modelo": "",
     "preco": "",
     "compra": ""
-
 }
+```
 
-////////////////////////////////////////////
+<hr/>
 
-### (3) /PUT        /venda
-
-request body
+## (3) Put     /venda
+### Body
+```
 {
     "id": "",
     "nome": "",
@@ -69,22 +73,17 @@ request body
 
 response (204)
 -- sem conteúdo
+```
+<hr/>
 
-
-////////////////////////////////////////////
-
-
-### (4) /DELETE     /venda/:id 
-
+## (4) Delete  /venda/:id 
+```
 response (204)
+```
+<hr/>
 
-
-////////////////////////////////////////////
-
-
-
-### (5) /GET        /vendas  ---listagem
-
+## (5) Get     /venda      --listagem
+```
 response (200)
 [
     {
@@ -101,14 +100,12 @@ response (200)
         "compra": ""
     }
 ]
+```
 
+<hr/>
 
-
-////////////////////////////////////////////
-
-
-### (6) /GET      /venda/filtro/:cpf 
-
+## (6) /GET      /venda/filtro/:cpf 
+```
 response (200)
 {
         "id": "",
@@ -123,3 +120,4 @@ response (200)
         "preco": "",
         "compra": ""
 }
+```
