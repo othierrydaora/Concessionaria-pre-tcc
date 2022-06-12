@@ -27,3 +27,8 @@ export async function filtrarCpf(cpf) {
   const r = await api.get(`/venda?cpf=${cpf}`);
   return r.data;
 }
+
+export async function deletarVenda(id) {
+  const resposta = await api.delete(`/venda/${id}`);
+  return resposta.status;
+}

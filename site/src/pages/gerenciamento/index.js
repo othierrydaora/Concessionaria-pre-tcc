@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { listarTodasVendas, filtrarCpf } from '../../api/vendaApi.js';
+import { listarTodasVendas, filtrarCpf, removerVenda } from '../../api/vendaApi.js';
 import Menu from '../../components/Menu.js';
 import Header from '../../components/Header.js';
 import './index.scss';
+
+//importação confirmar delet
+import { confirmAlert } from 'react-confirm-alert';
 
 export default function Index() {
     const [vendas, setVendas] = useState([]);
@@ -11,6 +14,34 @@ export default function Index() {
     async function listarVendas() {
         const resp = await listarTodasVendas();
         setVendas(resp);
+    }
+
+    async function removerVendaClick(id){
+
+        confirmAlert({
+            title: 'remover venda',
+            massage: `Deseja remover a venda?`,
+            buttons: [
+                {
+                    label: 'Sim',
+                    onClick: async () => {
+                        const resposta = await removerVenda(id);
+                        if(cpf === '')
+                            listarTodasVendas();
+                        else
+                            filtrar();
+                        
+                        alert('Venda removida');
+                    }
+                },
+
+                {
+                    label: 'Não'
+                }
+            ]
+
+        })
+
     }
 
     async function filtrar() {
@@ -72,7 +103,7 @@ export default function Index() {
                                     <td>
                                         <div>
                                             <img src="/assets/Icons/edit.png" alt='Editar'/>
-                                            <img src="/assets/Icons/trash.png" alt='Excluir'/>
+                                            <img src="/assets/Icons/trash.png" alt='Excluir' onClick={() => removerVendaClick(item.id)}/>
                                         </div>
                                     </td>
                                 </tr>                            
