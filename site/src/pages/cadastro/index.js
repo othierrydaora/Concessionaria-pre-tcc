@@ -1,9 +1,10 @@
 import {  useState } from 'react';
 import storage from 'local-storage';
+import { toast } from 'react-toastify';
 import Header from '../../components/Header';
 import Menu from '../../components/Menu'
 import './index.scss';
-import { cadastrarVenda } from '../../api/vendaApi'
+import { alterarVenda, cadastrarVenda } from '../../api/vendaApi'
 
 export default function Cadastro() {
     const [cliente, setCliente] = useState('');
@@ -16,16 +17,45 @@ export default function Cadastro() {
     const [modelo, setModelo] = useState('');
     const [preco, setPreco] = useState(0);
     const [compra, setCompra] = useState('');
+    const [id, setId] = useState(0);
+
 
 
     async function salvarVenda() {
         try {
             const usuario = storage('usuario-logado').id;
-            const r = await cadastrarVenda(cliente, cpf, nascimento, email, endereco, telefone, modelo, placa, preco, compra, usuario);
-            alert('Venda Cadastrada Com Sucesso!');
+
+            if(id === 0){
+                const r = await cadastrarVenda(cliente, cpf, nascimento, email, endereco, telefone, modelo, placa, preco, compra, usuario);
+                setId(r.id);
+                
+                toast.success('✨ Venda Cadastrada Com Sucesso!');
+                
+            } else{
+                await alterarVenda(id, cliente, cpf, nascimento, email, endereco, telefone, modelo, placa, preco, compra, usuario);
+                toast.success('✨ Venda Alterada Com Sucesso!');
+            }
+
+
         } catch (err) {
-           alert(err.message)
+            
+           toast.error(err.response.data.erro);
+           
         }
+    }
+
+    function refresh() {
+        setId(0);
+        setCliente('');
+        setCompra('');
+        setCpf('');
+        setEmail('');
+        setEndereco('');
+        setModelo('');
+        setNascimento('');
+        setPlaca('');
+        setPreco(0);
+        setTelefone('');
     }
 
     return (
@@ -58,8 +88,12 @@ export default function Cadastro() {
                     <input type='date' placeholder='Data do registro' value={compra} onChange={e => setCompra(e.target.value)}></input>
                         </li>
                         </ul>
-                
-                <button className='sending-btn' onClick={salvarVenda} >Salvar</button>
+
+                <div className='btn-cadastro'>
+                <button className='sending-btn' onClick={salvarVenda} >{ id === 0 ? 'Salvar' : 'alterar'}</button>
+                <button className='sending-btn' onClick={refresh} >Atualizar</button>
+
+                </div>
             </div>
             </main>
         </div>
