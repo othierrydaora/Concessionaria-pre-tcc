@@ -67,7 +67,7 @@ export default function Index() {
                                     <td>{item.nascimento.substr(0, 10)}</td>
                                     <td>{item.placa}</td>
                                     <td>{item.modelo}</td>
-                                    <td>{item.compra}</td>
+                                    <td>{item.compra.substr(0, 10)}</td>
                                     <td>{item.preco}</td>
                                     <td>
                                         <div>
