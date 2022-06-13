@@ -51,6 +51,10 @@ export default function Index() {
         setVendas(resp);
     }
 
+    function handleEnterPress(e) {
+        if (e.keyCode === 13) filtrar();
+    }
+
     useEffect(() => {
         listarVendas();
     });
@@ -63,7 +67,7 @@ export default function Index() {
             <div className='gerenciamento-content'>
                 <div className='adm-top-bar '>
                     <div className='adm-search-field'>
-                        <input type='text' placeholder='Pesquisar por CPF' value={cpf} onChange={e => setCpf(e.target.value)} />
+                        <input type='text' placeholder='Pesquisar por CPF' value={cpf} onChange={e => setCpf(e.target.value)} onKeyDown={handleEnterPress}/>
                         <img src="/assets/Icons/search-icon.svg" style={{width: "17px", cursor: "pointer"}} alt="Pesquisar" onClick={filtrar}/>
                     </div>
                 </div>

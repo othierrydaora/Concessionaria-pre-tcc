@@ -32,23 +32,23 @@ export default function Index(props) {
         <div className="menu">
             <div className='menu-items'>
                 <Link to='/admin' onClick={() => selecionarMenu('admin')} className={verificarMenuSelecionado('admin')}>
-                    <div>Admin</div>
+                    <div><img src='/assets/Icons/admin.png' alt=''/><span>Admin</span></div>
                 </Link>
 
                 <hr/>
 
                 <Link to='/admin/cadastrar' onClick={() => selecionarMenu('cadastro')} className={verificarMenuSelecionado('cadastro')}>    
-                    <div>Cadastrar</div>
+                    <div><img src='/assets/Icons/cadastro.png' alt=''/><span>Cadastrar</span></div>
                 </Link>
 
                 <Link to='/admin/consultar' onClick={() => selecionarMenu('consulta')} className={verificarMenuSelecionado('consulta')}>
-                    <div>Consultar</div>
+                    <div><img src='/assets/Icons/consulta.png' alt=''/><span>Consultar</span></div>
                 </Link>
             </div>
 
             <div className='menu-items'>
                 <a style={{marginTop: "30px"}} onClick={sairClick} href>
-                    <div>Sair</div>
+                    <div><img src='/assets/Icons/sair.png' alt=''/><span>Sair</span></div>
                 </a>
             </div>
         </div>

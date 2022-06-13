@@ -41,6 +41,22 @@
             &:hover {
                 background-color: #ffffff3a;
             }
+
+            div {
+                display: flex;
+                width: 100%;
+                align-items: center;
+                justify-content: center;
+            }
+
+            > div span {
+                margin-left: 2px;
+            }
+
+            > div img {
+                width: 25px;
+                margin-right: 2px;
+            }
         }
 
         & hr {
