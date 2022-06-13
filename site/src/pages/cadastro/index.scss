@@ -4,71 +4,66 @@
     display: flex;
 }
 
-.btn-cadastro{
-    display: flex;
-    flex-direction: row;
-}
-
 .cadastro-content {
     display: flex;
     flex-direction: column;
     width: 100%;
     align-items: center;
     justify-content: center;
+    background-color: #f5f6fa;
 
     .forms-cont {
         display: flex;
         flex-direction: column;
         align-items: center;
-        background-color: #dddddd;
+        background-color: #ffffff;
         border-radius: .5em;
-        padding: .5em;
-        width: 580px;
-        margin-top: 2.5em;
-        height: 530px;
-        box-shadow: 1px 3px 7px #2727275d;
+        padding: .7em;
+        width: fit-content;
+        height: fit-content;
+        box-shadow: 1px 2px 8px #00000054;
 
         .title {
-            font-family: 'Roboto-condensed', 'Helvetica';
-            font-size: 32px;
-            letter-spacing: -1px;
+            color: rgb(42, 118, 231);
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.7em;
             font-weight: 600;
-            color: #3e3ee0;
-            margin-top: 5px;
+            text-transform: uppercase;
+            margin: 1em 0 1.1em 0;
         }
 
         input {
-            width: 16.7em;
-            margin: 1em;
+            width: 240px;
+            height: 35px;
+            margin: 4px 8px;
             padding: .6em .4em;
             outline: none;
             border: none;
             font-family: 'Roboto' sans-serif;
             font-size: 14px;
             border-radius: 3px;
-            color: #3f3f3f;
+            background-color: #70798b46;
+            color: #3b3b3b;
         }
 
-
-        .sending-btn {
-            font-family: 'Roboto', sans-serif;
-            font-size: 16px;
-            font-weight: 450;
-            margin-top: 2.9em;
-            width: 14em;
-            margin-left: 1em;
-            padding: .7em 1.7em;
-            border-radius:.5em;
-            text-align: center;
-            background-color: #3e3ee0;
-            color: #ffffff;
-            transition: .15s;
-            cursor: pointer;
-        
-            &:hover {
-                background-color: #4949e9;
-                box-shadow: 0 0 .5em #717171;
+        .btn-cadastro{
+            display: flex;
+            flex-direction: row;
+            width: 420px;
+            justify-content: space-between;
+            margin: 1.3em 0 4em 0;
+            
+            .sending-btn {
+                background-color: #c9c7c7;
+                border-radius: 10px;
+                font-size: 18px;
+                font-family: 'Roboto', sans-serif;
+                color: #303030;
+                padding: .5em 4em;
+                margin-top: .5em;
+                cursor: pointer;
+                transition: .1s;
             }
-        }    
+        } 
     }
 }

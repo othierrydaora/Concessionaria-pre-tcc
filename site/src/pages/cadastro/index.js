@@ -16,8 +16,8 @@ export default function Cadastro() {
     const [nascimento, setNascimento] = useState('');
     const [placa, setPlaca] = useState('');
     const [modelo, setModelo] = useState('');
-    const [preco, setPreco] = useState(0);
-    const [compra, setCompra] = useState('');
+    const [preco, setPreco] = useState('');
+    const [compra, setCompra] = useState();
     const [id, setId] = useState(0);
     
     const { idParam } = useParams();
@@ -77,7 +77,7 @@ export default function Cadastro() {
         setModelo('');
         setNascimento('');
         setPlaca('');
-        setPreco(0);
+        setPreco('');
         setTelefone('');
     }
     
@@ -88,28 +88,98 @@ export default function Cadastro() {
 
             <main className='cadastro-content'>
                 <div className='forms-cont'>
-                    <div className='title'> Cadastrar Vendas </div>
+                    <div className='title'> { location.pathname !== '/admin/cadastrar' ? 'Editar venda' : 'Cadastrar Vendas' } </div>
                     
                     <ul style={{ marginTop: "0.7em" }}>
                         <li>
-                            <input type='text' placeholder='Nome' value={cliente} onChange={e => setCliente(e.target.value)}></input>
-                            <input type='date' title='Nascimento'  value={nascimento} onChange={e => setNascimento(e.target.value)}></input>
+                            <input
+                                type='text'
+                                placeholder='Nome'
+                                value={cliente}
+                                onChange={e => setCliente(e.target.value)} 
+                                required="required"
+                                />
+                            
+                            <input
+                                placeholder='Data de nascimento'
+                                title='Data de nascimento'
+                                value={nascimento}
+                                onChange={e => setNascimento(e.target.value)}
+                                onFocus={(e) => (e.target.type = "date")} 
+                                required="required"
+                                />
                         </li>
                         <li>
-                            <input type='text' placeholder='CPF' value={cpf} onChange={e => setCpf(e.target.value)}></input>
-                            <input type='email' placeholder='Email' value={email} onChange={e => setEmail(e.target.value)}></input>
+                            <input
+                                type='text'
+                                placeholder='CPF'
+                                value={cpf} onChange={e => setCpf(e.target.value)} 
+                                required="required"
+                                />
+                            
+                            <input
+                                type='email'
+                                placeholder='Email'
+                                value={email}
+                                onChange={e => setEmail(e.target.value)} 
+                                required="required"
+                                />
                         </li>
                         <li>
-                            <input type='text' placeholder='Endereço' value={endereco} onChange={e => setEndereco(e.target.value)}></input>
-                            <input type='tel' placeholder='Telefone' value={telefone} onChange={e => setTelefone(e.target.value)}></input>
+                            <input
+                                type='text'
+                                placeholder='Endereço'
+                                value={endereco}
+                                onChange={e => setEndereco(e.target.value)}
+                                required="required"
+                                />
+                            
+                            <input
+                                type='tel'
+                                placeholder='(xx)xxxxx-xxxx'
+                                title='Telefone'
+                                value={telefone}
+                                onChange={e => setTelefone(e.target.value)} 
+                                required="required"
+                                pattern="\([0-9]{2}\) [0-9]{4,6}-[0-9]{3,4}$"
+                                />
                         </li>
                         <li>
-                            <input type='text' placeholder='Modelo Veículo' value={modelo} onChange={e => setModelo(e.target.value)}></input>
-                            <input type="number" title='preco carro' min="1" step="any" placeholder='Preço'value={preco} onChange={e => setPreco(e.target.value)}></input>
+                            <input
+                                type='text'
+                                placeholder='Modelo Veículo'
+                                value={modelo}
+                                onChange={e => setModelo(e.target.value)} 
+                                required="required"
+                                />
+                            
+                            <input
+                                title='Valor da venda'
+                                placeholder='Valor da venda'
+                                value={preco}
+                                onChange={e => setPreco(e.target.value)}
+                                onFocus={(e) => (e.target.type = "number")} 
+                                required="required"
+                                />
                         </li>
                         <li>
-                            <input type='text' placeholder='Placa' value={placa} onChange={e => setPlaca(e.target.value)}></input>
-                            <input type='date' title='Data do registro' value={compra} onChange={e => setCompra(e.target.value)}></input>
+                            <input
+                                type='text'
+                                placeholder='Placa'
+                                title='placa'
+                                value={placa}
+                                onChange={e => setPlaca(e.target.value)} 
+                                required="required"
+                                />
+                            
+                            <input
+                                placeholder='Data do registro'
+                                title='Data do registro'
+                                value={compra}
+                                onChange={e => setCompra(e.target.value)}
+                                onFocus={(e) => (e.target.type = "date")} 
+                                required="required"
+                                />
                         </li>
                     </ul>
                     <div className='btn-cadastro'>
