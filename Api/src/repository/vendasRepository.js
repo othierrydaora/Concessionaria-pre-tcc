@@ -33,6 +33,29 @@ export async function listagemTotalVendas () {
     return resposta;
 }
 
+// Consultar uma venda
+export async function consultarVenda(id) {
+    const comando = `
+    SELECT 
+        id_venda        id,
+	    nm_cliente      cliente,
+        ds_cpf          cpf,
+        ds_endereco     endereco,
+        ds_email        email,
+        ds_telefone     telefone,
+        dt_nascimento   nascimento,
+        ds_placa        placa,
+	    nm_modelo		modelo,
+        vl_preco		preco,
+        dt_compra	    compra,
+        id_funcionario  funcionario
+    FROM tb_venda
+    WHERE id_venda = ? `;
+
+    const [resposta] = await con.query(comando, [id]);
+    return resposta[0];
+}
+
 // alterar venda
 export async function alterarVenda (id, venda) {
     const comando = `

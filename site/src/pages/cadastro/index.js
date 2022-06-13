@@ -1,10 +1,11 @@
-import React, { useState, useParams, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import storage from 'local-storage';
 import { toast } from 'react-toastify';
 import Header from '../../components/Header';
-import Menu from '../../components/Menu'
+import Menu from '../../components/Menu';
+import { alterarVenda, cadastrarVenda, consultarVenda } from '../../api/vendaApi';
+import { Navigate, useLocation, useNavigate, useParams } from 'react-router-dom';
 import './index.scss';
-import { alterarVenda, cadastrarVenda } from '../../api/vendaApi'
 
 export default function Cadastro() {
     const [cliente, setCliente] = useState('');
@@ -18,23 +19,28 @@ export default function Cadastro() {
     const [preco, setPreco] = useState(0);
     const [compra, setCompra] = useState('');
     const [id, setId] = useState(0);
-
-    const { idParam } = useParams();
-
     
-    async function alteracoes(){
-        const resposta = await alterarVenda(idParam);
-        setCliente(resposta.cliente);
-        setCpf(resposta.cpf);
-        setEndereco(resposta.endereco);
-        setEmail(resposta.email);
-        setTelefone(resposta.telefone);
-        setNascimento(resposta.nascimento);
-        setPlaca(resposta.placa);
-        setModelo(resposta.modelo);
-        setPreco(resposta.preco);
-        setCompra(resposta.compra);
-        setId(resposta.id);
+    const { idParam } = useParams();
+    const location = useLocation();
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        if (idParam) carregarVenda();
+    }, []);
+
+    async function carregarVenda() {
+        const r = await consultarVenda(idParam);
+        setCliente(r.cliente);
+        setCpf(r.cpf);
+        setEndereco(r.endereco);
+        setEmail(r.email);
+        setTelefone(r.telefone);
+        setNascimento(r.nascimento.substr(0, 10));
+        setPlaca(r.placa);
+        setModelo(r.modelo);
+        setPreco(r.preco);
+        setCompra(r.compra.substr(0, 10));
+        setId(r.id);
     }
 
     async function salvarVenda() {
@@ -44,12 +50,10 @@ export default function Cadastro() {
             if(id === 0){
                 const r = await cadastrarVenda(cliente, cpf, nascimento, email, endereco, telefone, modelo, placa, preco, compra, usuario);
                 setId(r.id);
-                console.log(id)
                 toast.success('✨ Venda Cadastrada Com Sucesso!');
                 
-            } else{
-                await alteracoes(id, cliente, cpf, nascimento, email, endereco, telefone, modelo, placa, preco, compra, usuario);
-                console.log(id)
+            } else {
+                await alterarVenda(id, cliente, cpf, nascimento, email, endereco, telefone, modelo, placa, preco, compra, usuario);
                 toast.success('✨ Venda Alterada Com Sucesso!');
             }
 
@@ -62,6 +66,8 @@ export default function Cadastro() {
     }
 
     function refresh() {
+        if (location.pathname !== '/admin/cadastrar') navigate('/admin/cadastrar');
+
         setId(0);
         setCliente('');
         setCompra('');
@@ -74,12 +80,6 @@ export default function Cadastro() {
         setPreco(0);
         setTelefone('');
     }
-
-    useEffect(() => {
-        if (idParam) {
-            alteracoes();
-        }
-    });
     
     return (
         <div className='cadastro'>
@@ -87,37 +87,36 @@ export default function Cadastro() {
             <Menu selecionado='cadastro' />
 
             <main className='cadastro-content'>
-            <div className='forms-cont'>
-                <div className='title'>Cadastro de Vendas</div>
-                    <ul style={{marginTop: "0.7em"}}>
-                <li>
-                    <input type='text' placeholder='Nome' value={cliente} onChange={e => setCliente(e.target.value)}></input>
-                    <input type='date' title='Nascimento'  value={nascimento} onChange={e => setNascimento(e.target.value)}></input>
-                </li>
-                <li>
-                    <input type='text' placeholder='CPF' value={cpf} onChange={e => setCpf(e.target.value)}></input>
-                    <input type='email' placeholder='Email' value={email} onChange={e => setEmail(e.target.value)}></input>
-                </li>
-                <li>
-                    <input type='text' placeholder='Endereço' value={endereco} onChange={e => setEndereco(e.target.value)}></input>
-                    <input type='tel' placeholder='Telefone' value={telefone} onChange={e => setTelefone(e.target.value)}></input>
-                </li>
-                <li>
-                    <input type='text' placeholder='Modelo Veículo' value={modelo} onChange={e => setModelo(e.target.value)}></input>
-                    <input type="number" title='preco carro' min="1" step="any" placeholder='Preço'value={preco} onChange={e => setPreco(e.target.value)}></input>
-                </li>
-                <li>
-                    <input type='text' placeholder='Placa' value={placa} onChange={e => setPlaca(e.target.value)}></input>
-                    <input type='date' title='Data do registro' value={compra} onChange={e => setCompra(e.target.value)}></input>
+                <div className='forms-cont'>
+                    <div className='title'> Cadastrar Vendas </div>
+                    
+                    <ul style={{ marginTop: "0.7em" }}>
+                        <li>
+                            <input type='text' placeholder='Nome' value={cliente} onChange={e => setCliente(e.target.value)}></input>
+                            <input type='date' title='Nascimento'  value={nascimento} onChange={e => setNascimento(e.target.value)}></input>
                         </li>
-                        </ul>
-
-                <div className='btn-cadastro'>
-                <button className='sending-btn' onClick={salvarVenda} >{ id === 0 ? 'Salvar' : 'alterar'}</button>
-                <button className='sending-btn' onClick={refresh} >Atualizar</button>
-
+                        <li>
+                            <input type='text' placeholder='CPF' value={cpf} onChange={e => setCpf(e.target.value)}></input>
+                            <input type='email' placeholder='Email' value={email} onChange={e => setEmail(e.target.value)}></input>
+                        </li>
+                        <li>
+                            <input type='text' placeholder='Endereço' value={endereco} onChange={e => setEndereco(e.target.value)}></input>
+                            <input type='tel' placeholder='Telefone' value={telefone} onChange={e => setTelefone(e.target.value)}></input>
+                        </li>
+                        <li>
+                            <input type='text' placeholder='Modelo Veículo' value={modelo} onChange={e => setModelo(e.target.value)}></input>
+                            <input type="number" title='preco carro' min="1" step="any" placeholder='Preço'value={preco} onChange={e => setPreco(e.target.value)}></input>
+                        </li>
+                        <li>
+                            <input type='text' placeholder='Placa' value={placa} onChange={e => setPlaca(e.target.value)}></input>
+                            <input type='date' title='Data do registro' value={compra} onChange={e => setCompra(e.target.value)}></input>
+                        </li>
+                    </ul>
+                    <div className='btn-cadastro'>
+                        <button className='sending-btn' onClick={salvarVenda} >{ id === 0 ? 'Salvar' : 'Alterar'}</button>
+                        <button className='sending-btn' onClick={refresh}>Limpar</button>
+                    </div>
                 </div>
-            </div>
             </main>
         </div>
     );

@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { alterarVenda, cadastrarVenda, listagemTotalVendas, filtrocpf, deletarVenda } from "../repository/vendasRepository.js";
+import { alterarVenda, cadastrarVenda, listagemTotalVendas, filtrocpf, deletarVenda, consultarVenda } from "../repository/vendasRepository.js";
 
 
 const server = Router();
@@ -51,6 +51,20 @@ server.get('/venda', async (req, res) => {
         const listagem = await listagemTotalVendas();
         if (!listagem) throw new Error('Não encontrado');
         res.send(listagem);
+    } catch (err) {
+        res.status(400).send({
+            error: err.message
+        });
+    }
+});
+
+//consulta
+server.get('/venda/:id', async (req, res) => {
+    try {
+        const { id } = req.params;
+        const venda = await consultarVenda(id);
+        if (!venda) throw new Error('Não encontrado');
+        res.send(venda);
     } catch (err) {
         res.status(400).send({
             error: err.message
