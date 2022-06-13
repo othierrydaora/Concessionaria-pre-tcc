@@ -11,7 +11,7 @@ export default function Footer() {
                         <a href="https://github.com/eoqthiago"><li>Thiago</li></a>
                     </ul>
                     <ul class="dev-names">
-                        <a href="https://github.com/Mr-auskye"><li>Nicholas</li></a>
+                        <a href="https://github.com/DoctorRedacted"><li>Nicholas</li></a>
                         <a href="https://github.com/RodrigoDig"><li>Rodrigo</li></a>
                     </ul>
      
