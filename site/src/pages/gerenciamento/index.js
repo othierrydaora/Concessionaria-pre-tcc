@@ -9,10 +9,17 @@ import { confirmAlert } from 'react-confirm-alert';
 
 export default function Index() {
     const [vendas, setVendas] = useState([]);
-    const [cpf, setCpf] = useState('');
-
+    const [cpf, setCpf] = useState();
+    
     const navigate = useNavigate();
 
+    useEffect(() => {
+        if (!cpf) listarVendas();
+    });
+
+    useEffect(() => {
+        filtrar();
+    }, [cpf]);
 
     function alterarVendaClick(id) {
         navigate(`/admin/alterar/${id}`);
@@ -39,7 +46,6 @@ export default function Index() {
                         else toast.warn('Não foi possível remover a venda');
                     }
                 },
-                
                 { label: 'Não' }
             ]
         });
@@ -47,7 +53,7 @@ export default function Index() {
 
     async function filtrar() {
         const resp = await filtrarCpf(cpf);
-        console.log(resp)
+        console.log(resp);
         setVendas(resp);
     }
 
@@ -55,13 +61,9 @@ export default function Index() {
         if (e.keyCode === 13) filtrar();
     }
 
-    useEffect(() => {
-        listarVendas();
-    });
-
     return (
         <div className="gerenciamento">
-            <Header user logo />
+            <Header user logo/>
             <Menu selecionado='consulta'/>      
                 
             <div className='gerenciamento-content'>
@@ -87,7 +89,7 @@ export default function Index() {
                             <th>MODELO</th>
                             <th>DATA</th>
                             <th>VALOR</th>
-                            <th>&nbsp;&nbsp;</th>
+                            <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
                         </tr>
                     </thead>
                     <tbody>

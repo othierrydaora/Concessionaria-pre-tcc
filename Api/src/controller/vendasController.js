@@ -77,8 +77,19 @@ server.put('/venda/:id', async (req, res) => {
     try {
         const { id } = req.params;
         const alterar = req.body;
-        const alterandoVenda = await alterarVenda(id, alterar);
+        if (!alterar.cliente) throw new Error('O nome do cliente é obrigatório!');
+        if (!alterar.cpf) throw new Error('O CPF é obrigatorio!');
+        if (!alterar.nascimento) throw new Error('A data de nascimento é obrigatória!');
+        if (!alterar.email) throw new Error('O email é obrigatório!');
+        if (!alterar.endereco) throw new Error('O endereço é obrigatório!');
+        if (!alterar.telefone) throw new Error('O telefone é obrigatório!');
+        if (!alterar.modelo) throw new Error('O modelo é obrigatório!');
+        if (!alterar.placa) throw new Error('A placa é obrigatória!');
+        if (!alterar.preco) throw new Error('O preco é obrigatório!');
+        if (!alterar.compra) throw new Error('A data da compra é obrigatória!');
+        if (!alterar.usuario) throw new Error('Usuario Não Logado!');
         
+        const alterandoVenda = await alterarVenda(id, alterar);
         if (alterandoVenda != 1) throw new Error('Não foi possível alterar a venda');
         
         res.status(204).send();

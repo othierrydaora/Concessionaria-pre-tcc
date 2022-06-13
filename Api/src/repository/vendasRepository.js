@@ -99,7 +99,7 @@ export async function filtrocpf(cpf) {
                             vl_preco	      preco,
                             dt_compra	      compra
                      FROM   tb_venda
-                    WHERE   ds_cpf			= ?`;
-    const [resposta] = await con.query(comando, [cpf]);
+                    WHERE   ds_cpf			  like '%${cpf}%'`;
+    const [resposta] = await con.query(comando);
     return resposta;
 }

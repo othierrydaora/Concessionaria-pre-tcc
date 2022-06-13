@@ -50,11 +50,16 @@ export default function Cadastro() {
             if(id === 0){
                 const r = await cadastrarVenda(cliente, cpf, nascimento, email, endereco, telefone, modelo, placa, preco, compra, usuario);
                 setId(r.id);
-                toast.success('✨ Venda Cadastrada Com Sucesso!');
+                toast.success('✨ Venda cadastrada com sucesso!');
                 
             } else {
-                await alterarVenda(id, cliente, cpf, nascimento, email, endereco, telefone, modelo, placa, preco, compra, usuario);
-                toast.success('✨ Venda Alterada Com Sucesso!');
+                try {
+                    const s = await alterarVenda(id, cliente, cpf, nascimento, email, endereco, telefone, modelo, placa, preco, compra, usuario);
+                    console.log(s);
+                    toast.success('✨ Venda alterada com sucesso!');
+                } catch (err) {
+                    toast.error('Não foi possível alterar a venda');
+                }
             }
 
 
