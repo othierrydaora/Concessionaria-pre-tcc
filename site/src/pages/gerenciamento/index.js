@@ -4,12 +4,7 @@ import Menu from '../../components/Menu.js';
 import Header from '../../components/Header.js';
 import './index.scss';
 import { toast } from 'react-toastify';
-
-import { useNavigate } from 'react-router-dom'
-
-
-
-//importação confirmar delet
+import { useNavigate } from 'react-router-dom';
 import { confirmAlert } from 'react-confirm-alert';
 
 export default function Index() {
@@ -18,7 +13,8 @@ export default function Index() {
 
     const navigate = useNavigate();
 
-    function editarVenda(id){
+
+    function alterarVendaClick(id) {
         navigate(`/admin/alterar/${id}`);
     }
 
@@ -55,9 +51,13 @@ export default function Index() {
         setVendas(resp);
     }
 
+    function handleEnterPress(e) {
+        if (e.keyCode === 13) filtrar();
+    }
+
     useEffect(() => {
         listarVendas();
-    })
+    });
 
     return (
         <div className="gerenciamento">
@@ -67,7 +67,7 @@ export default function Index() {
             <div className='gerenciamento-content'>
                 <div className='adm-top-bar '>
                     <div className='adm-search-field'>
-                        <input type='text' placeholder='Pesquisar por CPF' value={cpf} onChange={e => setCpf(e.target.value)} />
+                        <input type='text' placeholder='Pesquisar por CPF' value={cpf} onChange={e => setCpf(e.target.value)} onKeyDown={handleEnterPress}/>
                         <img src="/assets/Icons/search-icon.svg" style={{width: "17px", cursor: "pointer"}} alt="Pesquisar" onClick={filtrar}/>
                     </div>
                 </div>
@@ -107,7 +107,7 @@ export default function Index() {
                                     <td>{item.preco}</td>
                                     <td>
                                         <div>
-                                            <img src="/assets/Icons/edit.png" alt='Editar' onClick={() => editarVenda(item.id)}/>
+                                            <img src="/assets/Icons/edit.png" alt='Editar' onClick={() => alterarVendaClick(item.id)}/>
                                             <img src="/assets/Icons/trash.png" alt='Excluir' onClick={() => removerVendaClick(item.id)}/>
                                         </div>
                                     </td>

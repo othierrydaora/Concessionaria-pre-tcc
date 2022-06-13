@@ -23,6 +23,11 @@ export async function listarTodasVendas() {
   return r.data;
 }
 
+export async function consultarVenda(id) {
+  const r = await api.get(`/venda/${id}`);
+  return r.data;
+}
+
 export async function filtrarCpf(cpf) {
   const r = await api.get(`/venda/filtro?cpf=${cpf}`);
   return r.data;
@@ -33,8 +38,19 @@ export async function removerVenda(id) {
   return resposta.status;
 }
 
-export async function alterarVenda(id){
-  const resposta = await api.put(`/venda/${id}`);
-  return resposta.data;
+export async function alterarVenda(id, cliente, cpf, nascimento, email, endereco, telefone, modelo, placa, preco, compra, usuario) {
+  const r = await api.put(`/venda/${id}`, {
+    cliente: cliente,
+    cpf: cpf,
+    nascimento: nascimento,
+    email: email,
+    endereco: endereco,
+    telefone: telefone,
+    modelo: modelo,
+    placa: placa,
+    preco: preco,
+    compra: compra,
+    usuario: usuario
+  });
+  return r.status;
 }
-
