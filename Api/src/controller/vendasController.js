@@ -18,7 +18,6 @@ server.post('/venda', async (req, resp) => {
         if (!adicionarVenda.placa || !adicionarVenda.placa.trim()) throw new Error('A placa é obrigatória!');
         if (!adicionarVenda.preco || !adicionarVenda.preco.trim()) throw new Error('O preço é obrigatório!');
         if (!adicionarVenda.compra || !adicionarVenda.compra.trim()) throw new Error('A data da compra é obrigatória!');
-        if  (!adicionarVenda.usuario || !adicionarVenda.usuario.trim()) throw new Error('Usuario Não Logado!');
 
         const vendaInserida = await cadastrarVenda(adicionarVenda);
         resp.send(vendaInserida);

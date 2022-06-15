@@ -97,16 +97,16 @@ export default function Index() {
                             vendas.map(item => 
                                 <tr>
                                     <td>{item.id}</td>
-                                    <td>{item.cliente}</td>
+                                    <td>{String(item.cliente).substr(0, 10)}</td>
                                     <td>{item.cpf}</td>
-                                    <td>{item.endereco}</td>
-                                    <td>{item.email}</td>
+                                    <td>{item.endereco.substr(0, 30)}</td>
+                                    <td>{item.email.substr(0, 30)}</td>
                                     <td>{item.telefone}</td>
                                     <td>{String(item.nascimento).substr(0, 10)}</td>
                                     <td>{item.placa}</td>
-                                    <td>{item.modelo}</td>
+                                    <td>{item.modelo.substr(0, 15)}</td>
                                     <td>{String(item.compra).substr(0, 10)}</td>
-                                    <td>{item.preco}</td>
+                                    <td>{(item.preco)}</td>
                                     <td>
                                         <div>
                                             <img src="/assets/Icons/edit.png" alt='Editar' onClick={() => alterarVendaClick(item.id)}/>
