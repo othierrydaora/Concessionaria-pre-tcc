@@ -8,17 +8,17 @@ const server = Router();
 server.post('/venda', async (req, resp) => {
     try {
         const adicionarVenda = req.body;
-        if (!adicionarVenda.cliente) throw new Error('O nome do cliente é obrigatório!');
-        if (!adicionarVenda.cpf) throw new Error('O CPF é obrigatorio!');
-        if (!adicionarVenda.nascimento) throw new Error('A data de nascimento é obrigatória!');
-        if (!adicionarVenda.email) throw new Error('O email é obrigatório!');
-        if (!adicionarVenda.endereco) throw new Error('O endereço é obrigatório!');
-        if (!adicionarVenda.telefone) throw new Error('O telefone é obrigatório!');
-        if (!adicionarVenda.modelo) throw new Error('O modelo é obrigatório!');
-        if (!adicionarVenda.placa) throw new Error('A placa é obrigatória!');
-        if (!adicionarVenda.preco) throw new Error('O preco é obrigatório!');
-        if (!adicionarVenda.compra) throw new Error('A data da compra é obrigatória!');
-        if  (!adicionarVenda.usuario) throw new Error('Usuario Não Logado!');
+        if (!adicionarVenda.cliente ||!adicionarVenda.cliente.trim() ) throw new Error('O nome do cliente é obrigatório!');
+        if (!adicionarVenda.cpf ||!adicionarVenda.cpf.trim()) throw new Error('O CPF é obrigatorio!');
+        if (!adicionarVenda.nascimento || !adicionarVenda.nascimento.trim()) throw new Error('A data de nascimento é obrigatória!');
+        if (!adicionarVenda.email || !adicionarVenda.email.trim()) throw new Error('O email é obrigatório!');
+        if (!adicionarVenda.endereco || !adicionarVenda.endereco.trim()) throw new Error('O endereço é obrigatório!');
+        if (!adicionarVenda.telefone || !adicionarVenda.telefone.trim()) throw new Error('O telefone é obrigatório!');
+        if (!adicionarVenda.modelo || !adicionarVenda.modelo.trim()) throw new Error('O modelo é obrigatório!');
+        if (!adicionarVenda.placa || !adicionarVenda.placa.trim()) throw new Error('A placa é obrigatória!');
+        if (!adicionarVenda.preco || !adicionarVenda.preco.trim()) throw new Error('O preço é obrigatório!');
+        if (!adicionarVenda.compra || !adicionarVenda.compra.trim()) throw new Error('A data da compra é obrigatória!');
+        if  (!adicionarVenda.usuario || !adicionarVenda.usuario.trim()) throw new Error('Usuario Não Logado!');
 
         const vendaInserida = await cadastrarVenda(adicionarVenda);
         resp.send(vendaInserida);

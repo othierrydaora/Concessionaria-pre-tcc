@@ -4,7 +4,7 @@ import { toast } from 'react-toastify';
 import Header from '../../components/Header';
 import Menu from '../../components/Menu';
 import { alterarVenda, cadastrarVenda, consultarVenda } from '../../api/vendaApi';
-import { Navigate, useLocation, useNavigate, useParams } from 'react-router-dom';
+import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import './index.scss';
 
 export default function Cadastro() {
