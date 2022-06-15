@@ -61,8 +61,6 @@ export default function Cadastro() {
                     toast.error('Não foi possível alterar a venda');
                 }
             }
-
-
         } catch (err) {
             console.log(err);
            toast.error(err.response.data.erro);
@@ -72,7 +70,6 @@ export default function Cadastro() {
 
     function refresh() {
         if (location.pathname !== '/admin/cadastrar') navigate('/admin/cadastrar');
-
         setId(0);
         setCliente('');
         setCompra('');

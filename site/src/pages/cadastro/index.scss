@@ -64,6 +64,16 @@
                 cursor: pointer;
                 transition: .1s;
             }
+
+            .sending-btn:hover {
+                transform: scale(.9);
+                transition: .5;
+                background-color: rgba(18, 35, 129, 0.808);
+                color: rgb(255, 255, 255);
+            }
+            .sending-btn:active{
+                transform: scale(.85);
+            }
         } 
     }
 }

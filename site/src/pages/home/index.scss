@@ -507,7 +507,8 @@ section {
         margin-bottom: 60px;
     }
     .car {
-        width: 75vw;
+        width: 55vw;
+        height: 15em;
     }
 
 
@@ -555,4 +556,50 @@ section {
         font-size: 15px;
         border-radius: 10px;
     }
+
+    .page-three {
+        flex-direction: row;
+        border-radius: 1em;
+        height: 21em;
+        width: 34.3em;
+        margin-top: 4em;
+        padding: 1em;
+
+        .pg3-texts {
+            .pg3-texts-title {
+                font-size: 32px;
+            }
+            .pg3-texts-button {
+                font-size: 16px;
+                color: #ffffff;
+                background-color: #0952f00a;
+                height: 4em;
+                width: 8em;
+            }
+        }
+    }
+
+    .page-four {
+        flex-direction: column;
+        justify-content: space-between;
+        height: 40em;
+
+    .pg4-card {
+        height: 18em;
+        width: 33em;
+        border-radius: .5em;
+    }
+
+    .pg4-left-img {
+        height: 13em;
+        width: 21em;
+    }
+    .pg4-right-img {
+        height: 9em;
+        width: 20em;
+    }
+    .pg4-texts-lbl {
+        display: none;
+    }
+}
 }
