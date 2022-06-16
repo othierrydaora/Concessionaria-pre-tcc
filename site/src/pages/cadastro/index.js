@@ -19,6 +19,7 @@ export default function Cadastro() {
     const [preco, setPreco] = useState('');
     const [compra, setCompra] = useState();
     const [id, setId] = useState(0);
+    const [imagem, setImagem] = useState('');
     
     const { idParam } = useParams();
     const location = useLocation();
@@ -184,6 +185,11 @@ export default function Cadastro() {
                                 />
                         </li>
                     </ul>
+                    <div className='car-image'>
+                        <div className='image'>
+                            <img />
+                        </div>
+                    </div>
                     <div className='btn-cadastro'>
                         <button className='sending-btn' onClick={salvarVenda} >{ id === 0 ? 'Salvar' : 'Alterar'}</button>
                         <button className='sending-btn' onClick={refresh}>Limpar</button>

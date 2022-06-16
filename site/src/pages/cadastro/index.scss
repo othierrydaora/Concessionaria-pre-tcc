@@ -21,6 +21,7 @@
         padding: .7em;
         width: fit-content;
         height: fit-content;
+        margin-top: 2em;
         box-shadow: 1px 2px 8px #00000054;
 
         .title {
@@ -46,12 +47,28 @@
             color: #3b3b3b;
         }
 
+        .car-image {
+         height: 7em; 
+         width: 13em;
+         margin: .7em 0 0 .5em;
+         padding: .5em;
+         border-radius: .2em;
+         background-color: #70798b46;
+        }
+
+        .image {
+            height: 6em;
+            width: 12em;
+            margin-left: 3em;
+            background: url(./../../../public/assets/images/upload.svg) no-repeat;
+        }
+
         .btn-cadastro{
             display: flex;
             flex-direction: row;
             width: 420px;
             justify-content: space-between;
-            margin: 1.3em 0 4em 0;
+            margin: 2em 0 4em 0;
           
             .sending-btn {
                 background-color: #c9c7c7;
