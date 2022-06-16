@@ -1,4 +1,5 @@
 CREATE DATABASE sistemaSigmaDB;
+USE sistemaSigmaDB;
 
 CREATE TABLE tb_funcionario (
         id_funcionario  INT PRIMARY KEY auto_increment,
@@ -20,6 +21,6 @@ CREATE TABLE tb_venda (
         ds_placa        VARCHAR(8) ,
         vl_preco        DECIMAL(12, 2) ,
         dt_compra       DATE,
+        ds_imagem       varchar(200),
 		FOREIGN KEY     (id_funcionario) REFERENCES tb_funcionario(id_funcionario)
 );
-

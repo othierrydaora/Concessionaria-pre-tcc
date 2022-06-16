@@ -1,8 +1,9 @@
 import { Router } from "express";
-import { alterarVenda, cadastrarVenda, listagemTotalVendas, filtrocpf, deletarVenda, consultarVenda } from "../repository/vendasRepository.js";
-
+import multer from 'multer'
+import { alterarVenda, cadastrarVenda, listagemTotalVendas, filtrocpf, deletarVenda, consultarVenda, alterarImagem } from "../repository/vendasRepository.js";
 
 const server = Router();
+const upload = multer({ dest: 'storage/fotosCarros' });
 
 //cadastrar
 server.post('/venda', async (req, resp) => {
@@ -56,6 +57,20 @@ server.get('/venda', async (req, res) => {
         });
     }
 });
+
+server.put('/venda/:id/fotos', upload.single('fotos'), async (req, resp) => {
+    try {
+        const { id } = req.params;
+        const imagem = req.file.path;
+        const resposta = await alterarImagem(imagem, id);
+        if (resposta != 1) throw new Error('A imagem não pôde ser salva...');
+        resp.status(204).send();
+    } catch (err) {
+        resp.status(400).send({
+            erro: err.message
+        })
+    }
+})
 
 //consulta
 server.get('/venda/:id', async (req, res) => {
