@@ -1,8 +1,57 @@
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import './index.scss';
+import { useRef, useState} from 'react';
+import { toast } from 'react-toastify';
+import emailjs from '@emailjs/browser';
 
 export default function Home() {
+    const form = useRef();
+    const [nome, setNome] = useState('');
+    const [assunto, setAssunto] = useState('');
+    const [email, setEmail] = useState('');
+    const [msg, setMsg] = useState('');
+    const [err, setErr] = useState('');
+    
+
+    
+
+    
+
+    const sendEmail = (e) => {
+        try {
+            e.preventDefault();
+            
+            //erros
+            if(!nome.trim() || Number(nome))
+                throw new Error('Nome é obrigatorio')
+            if(nome === "@" || nome === "." || nome === "*" || nome === '#' || nome === '$')
+                throw new Error('Não são permitidos caracteres especiais');
+            
+            if(!assunto.trim())
+                throw new Error('Assunto é obrigatorio');
+            if(!email.trim())
+                throw new Error('E-mail é obrigatorio');
+            if(!msg.trim())
+             throw new Error('Mensagem é obrigatorio')
+
+            else{
+                emailjs.sendForm('gmailMessage', 'template_2hzushi', form.current, 'abE9n78BHmOCsShev')
+                  .then((result) => {
+                      toast.success('E-mail Enviado!')
+                  }, (error) => {
+                      toast.error(error.message);
+                  });
+                  
+                  e.target.reset();
+            }
+            
+        } catch (err) {
+            setErr(err.message);
+        }
+    };
+
+      
     return (
         <div>
             <div className='hm-home'>
@@ -78,12 +127,16 @@ export default function Home() {
 
 
                     <section className='page-contato' id='contato'>
-                        <form action='' id='formulario' className='card-form'>
-                            <div className='hm-form-title'>Nos envie uma mensagem!</div>
-                            <input className='email' id='nome' type='text' name='name' placeholder='Digite Seu Nome' />
-                            <input className='email' id='useremail' type='email' name='email' placeholder='Insira seu melhor email' />
-                            <textarea className='email msg-form' name='message' id='message' placeholder='Mensagem'></textarea>
-                            <button id='button-contact' className='contact-btn'>Enviar</button>
+                        <form action='' id='formulario' className='card-form' ref={form} onSubmit={sendEmail}>
+                            <div className='hm-form-title'>ENTRE EM CONTATO</div>
+                            <div className='form-invalido'>
+                                {err}
+                             </div>
+                            <input className='email' id='nome' type='text' name='name' placeholder='Digite Seu Nome' value={nome} onChange={e => setNome(e.target.value)} />
+                            <input className='email' id='useremail' type='text' name='subject' placeholder='Assunto' value={assunto} onChange={e => setAssunto(e.target.value)}/>
+                            <input className='email' id='useremail' type='email' name='email' placeholder='Insira seu melhor email' value={email} onChange={e => setEmail(e.target.value)} />
+                            <textarea className='email msg-form' name='message' id='message' placeholder='Mensagem' value={msg} onChange={e => setMsg(e.target.value)}></textarea>
+                            <button id='button-contact' type='submit' className='contact-btn'>Enviar</button>
                         </form>
                     </section>
                 </main>

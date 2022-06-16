@@ -302,7 +302,7 @@ section {
 }
 
 .card-form{
-    background-color: #0000007a;
+    background-color: #ffffff;
     width: 550px;
     height: fit-content;
     border-radius: 10px;
@@ -310,21 +310,24 @@ section {
     flex-direction: column;
     align-items: center;
     padding: 1em;
-    backdrop-filter: blur(3px);
+    box-shadow: 1px 2px 8px #00000054;
+    // backdrop-filter: blur(3px);
 }
 
 .hm-form-title {
-    color: #fff;
-    font-size: 24px;
+    color: #526cff;
     font-family: 'Roboto', sans-serif;
-    margin-bottom: 20px;
+    font-size: 1em;
+    font-weight: 20;
+    text-transform: uppercase;
+    margin-bottom: 10px;
 }
 
 .email{
     width: 100%;
     max-width: 550px;
     min-width: 150px;
-    background: #fff;
+    background: #70798b46;
     font-size: 16px;
     height: 40px;
     padding-left: 10px;
@@ -337,6 +340,17 @@ section {
 }
 
 .msg-form { height: 80px; }
+
+.form-invalido {
+    display: flex;
+    justify-content: center;
+    font: 700 16px 'Roboto';
+    color: #f95d48;
+    letter-spacing: 1px;
+    position: relative;
+    top: 20px;
+    height: 50px;
+}
 
 .contact-btn {
     margin-top: .4em;

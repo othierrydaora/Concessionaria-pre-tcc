@@ -9,6 +9,7 @@
     "axios": "^0.27.2",
     "cctx": "^1.0.1",
     "debug": "^4.3.4",
+    "emailjs-com": "^3.2.0",
     "eslint-plugin-react-hooks": "^4.6.0-next-f7b44539c-20220610",
     "foo": "^0.0.7",
     "local-storage": "^2.0.0",
