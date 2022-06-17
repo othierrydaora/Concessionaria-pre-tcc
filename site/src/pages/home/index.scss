@@ -302,7 +302,7 @@ section {
 }
 
 .card-form{
-    background-color: #0000007a;
+    background-color: #ffffff;
     width: 550px;
     height: fit-content;
     border-radius: 10px;
@@ -310,21 +310,24 @@ section {
     flex-direction: column;
     align-items: center;
     padding: 1em;
-    backdrop-filter: blur(3px);
+    box-shadow: 1px 2px 8px #00000054;
+    // backdrop-filter: blur(3px);
 }
 
 .hm-form-title {
-    color: #fff;
-    font-size: 24px;
+    color: #526cff;
     font-family: 'Roboto', sans-serif;
-    margin-bottom: 20px;
+    font-size: 1em;
+    font-weight: 400;
+    text-transform: uppercase;
+    margin-bottom: 10px;
 }
 
 .email{
     width: 100%;
     max-width: 550px;
     min-width: 150px;
-    background: #fff;
+    background: #70798b46;
     font-size: 16px;
     height: 40px;
     padding-left: 10px;
@@ -336,7 +339,36 @@ section {
     border-radius: 2px;
 }
 
+.email-erro{
+    border: 2px solid red;
+    width: 100%;
+    max-width: 550px;
+    min-width: 150px;
+    background: #fe090946;
+    font-size: 16px;
+    height: 40px;
+    padding-left: 10px;
+    border: 2.5px rgb(255, 39, 39) solid;
+    margin-bottom: 13px;
+    outline: none;
+    font-family: 'Roboto', sans-serif;
+    resize: none;
+    border-radius: 2px;
+}
+
+
 .msg-form { height: 80px; }
+
+.form-invalido {
+    display: flex;
+    align-items: flex-start;
+    font: 200 16px 'Roboto';
+    color: #f95d48;
+    letter-spacing: 1px;
+    position: relative;
+    width: 100%;
+    bottom: 8px;
+}
 
 .contact-btn {
     margin-top: .4em;
