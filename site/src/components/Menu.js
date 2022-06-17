@@ -44,6 +44,10 @@ export default function Index(props) {
                 <Link to='/admin/consultar' onClick={() => selecionarMenu('consulta')} className={verificarMenuSelecionado('consulta')}>
                     <div><img src='/assets/Icons/consulta.png' alt=''/><span>Consultar</span></div>
                 </Link>
+
+                <Link to='/admin/cards' onClick={() => selecionarMenu('consultarCards')} className={verificarMenuSelecionado('cards')}>
+                    <div><img src='' alt=''/><span>Cards</span></div>
+                </Link>
             </div>
 
             <div className='menu-items'>

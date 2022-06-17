@@ -11,6 +11,17 @@ export async function cadastrarVenda(venda) {
     return venda;
 }
 
+// Alterar imagem
+export async function alterarImagem(imagem, id) {
+    const comando =
+        `UPDATE     tb_venda 
+            SET     ds_imagem   = ?
+            WHERE   id_venda    = ?`;
+    
+    const [resposta] = await con.query(comando, [imagem, id]);
+    return resposta.affectedRows;
+}
+
 // consultar vendas
 export async function listagemTotalVendas () {
     const comando = `
@@ -99,7 +110,7 @@ export async function filtrocpf(cpf) {
                             vl_preco	      preco,
                             dt_compra	      compra
                      FROM   tb_venda
-                    WHERE   ds_cpf			  like '%${cpf}%'`;
+                    WHERE   ds_cpf			  like '%${cpf}%' `;
     const [resposta] = await con.query(comando);
     return resposta;
 }
