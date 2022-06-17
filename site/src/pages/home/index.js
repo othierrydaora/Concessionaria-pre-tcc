@@ -7,15 +7,34 @@ import emailjs from '@emailjs/browser';
 
 export default function Home() {
     const form = useRef();
+
     const [nome, setNome] = useState('');
     const [assunto, setAssunto] = useState('');
     const [email, setEmail] = useState('');
     const [msg, setMsg] = useState('');
-    const [err, setErr] = useState('');
+
+    const [NomeErr, setNomeErr] = useState('');
+    const [AssuntoErr, setAssuntoErr] = useState('');
+    const [EmailErr, setEmailErr] = useState('');
+    const [MsgErr, setMsgErr] = useState('');
+
+    
+    function limpar() {
+        setTimeout(() => {
+            setAssunto('');
+            setEmail('');
+            setNome('');
+            setMsg('');
+            setAssuntoErr('');
+            setEmailErr('');
+            setNomeErr('');
+            setMsgErr('');
+
+        }, 1000)
+    }
     
 
     
-
     
 
     const sendEmail = (e) => {
@@ -24,30 +43,33 @@ export default function Home() {
             
             //erros
             if(!nome.trim() || Number(nome))
-                throw new Error('Nome é obrigatorio')
-            if(nome === "@" || nome === "." || nome === "*" || nome === '#' || nome === '$')
-                throw new Error('Não são permitidos caracteres especiais');
+                setNomeErr('Nome é obrigatorio')
+                
+            if(nome === "@" || nome === "." || nome === "?" || nome === "'" || nome === "()" || nome === "*" || nome === "#")
+                setNomeErr('Não são permitidos caracteres especiais');
             
             if(!assunto.trim())
-                throw new Error('Assunto é obrigatorio');
+                setAssuntoErr('Assunto é obrigatorio');
             if(!email.trim())
-                throw new Error('E-mail é obrigatorio');
+                setEmailErr('E-mail é obrigatorio');
             if(!msg.trim())
-             throw new Error('Mensagem é obrigatorio')
+             setMsgErr('Mensagem é obrigatorio')
 
-            else{
-                emailjs.sendForm('gmailMessage', 'template_2hzushi', form.current, 'abE9n78BHmOCsShev')
-                  .then((result) => {
-                      toast.success('E-mail Enviado!')
-                  }, (error) => {
-                      toast.error(error.message);
-                  });
-                  
-                  e.target.reset();
-            }
+             
+             else{
+                 emailjs.sendForm('gmailMessage', 'template_2hzushi', form.current, 'abE9n78BHmOCsShev')
+                 .then((result) => {
+                     toast.success('E-mail Enviado!')
+                    }, (error) => {
+                        toast.error(error.message);
+                    });
+                    
+                    limpar();
+                }
+            
             
         } catch (err) {
-            setErr(err.message);
+            toast.error(err.message);
         }
     };
 
@@ -129,13 +151,22 @@ export default function Home() {
                     <section className='page-contato' id='contato'>
                         <form action='' id='formulario' className='card-form' ref={form} onSubmit={sendEmail}>
                             <div className='hm-form-title'>ENTRE EM CONTATO</div>
+                            <input className={NomeErr ? 'email-erro' : 'email'} id='nome' type='text' name='name' placeholder='Digite Seu Nome' value={nome} onChange={e => setNome(e.target.value)} />
                             <div className='form-invalido'>
-                                {err}
+                                {NomeErr}
                              </div>
-                            <input className='email' id='nome' type='text' name='name' placeholder='Digite Seu Nome' value={nome} onChange={e => setNome(e.target.value)} />
-                            <input className='email' id='useremail' type='text' name='subject' placeholder='Assunto' value={assunto} onChange={e => setAssunto(e.target.value)}/>
-                            <input className='email' id='useremail' type='email' name='email' placeholder='Insira seu melhor email' value={email} onChange={e => setEmail(e.target.value)} />
-                            <textarea className='email msg-form' name='message' id='message' placeholder='Mensagem' value={msg} onChange={e => setMsg(e.target.value)}></textarea>
+                            <input className={AssuntoErr ? 'email-erro' : 'email'} id='useremail' type='text' name='subject' placeholder='Assunto' value={assunto} onChange={e => setAssunto(e.target.value)}/>
+                            <div className='form-invalido'>
+                                {AssuntoErr}
+                             </div>
+                            <input className={EmailErr ? 'email-erro' : 'email'} id='useremail' type='email' name='email' placeholder='Insira seu melhor email' value={email} onChange={e => setEmail(e.target.value)} />
+                            <div className='form-invalido'>
+                                {EmailErr}
+                             </div>
+                            <textarea className={NomeErr ? 'email-erro msg-form' : 'email msg-form'} name='message' id='message' placeholder='Mensagem' value={msg} onChange={e => setMsg(e.target.value)}></textarea>
+                            <div className='form-invalido'>
+                                {MsgErr}
+                             </div>
                             <button id='button-contact' type='submit' className='contact-btn'>Enviar</button>
                         </form>
                     </section>
