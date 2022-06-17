@@ -2,41 +2,38 @@
     width: 100vw;
     height: 100vh;
     display: flex;
-    background-color: rgb(255, 255, 255);
-    justify-content: space-between;
+    background-color: #F5F6FA;
 }
 
 .cards-content {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    height: 100%;
-    width: 100%;
-    background-color: #ffffff;
+
+    margin-top: 3em;
+    background-color: #F5F6FA;
 }
 
 .main-container {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
-    align-items: flex-start;
+    justify-content: space-between;
+    align-items:center;
     flex-wrap: wrap;
-    height: fit-content;
-    width: 60em;
+
+    width: 69em;
     border-radius: .3em;
-    padding: 2em;
-    margin-top: 3em;
-    background-color: #00ffc8;
+    padding: 1em;
 }
 
 .adm-top-bar-crd {
     display: flex;
     flex-direction: row;
-    height: 2em;
-    width: 56em;
     justify-content: space-between;
     align-items: center;
+    
+    width: 58em;
+    margin: 1em 0 0 5.8em;
 
 .adm-search-field-crd {
     display: flex;
@@ -57,16 +54,33 @@
     }}
 }
 
+.card-field {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: fit-content;
+    flex-wrap: wrap;
+    width: 65em;
+    padding: 2em;
+}
+
 .layout-card {
-    width: 20em;
-    height: 15em;
-    background-color: rgb(131, 131, 131);
-    margin-top: 2em;
+    height: 18em;
+    width: 15em;
+    margin: 2em 0 0  3em;
+    padding: .5em;
+    border-radius: .5em;
+    background-color: #fff;
+    box-shadow: 0 0 1em #9b9b9b;
+}
+
+.card-image {
+    height: 8em;
+    border-radius: .2em;
 }
 
 .card-text {
-    display: flex;
-    flex-direction: row;
-    text-align: center;
-    text-transform: uppercase;
+    height: 8em;
+    background-color: #F3F4F5;
+    color: #5E5E5E;
 }

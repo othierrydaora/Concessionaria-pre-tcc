@@ -25,16 +25,44 @@ export default function cards() {
                                     <img src="/assets/Icons/search-icon.svg" style={{width: "17px", cursor: "pointer"}} alt="Pesquisar"/>
                                 </div>
                     </div>
-                    
-                    <div className='layout-card'>
-                        <img src='' alt='' style={{ height: '8em', width: '100%' }} />
-                        <ul className='card-text'>
-                            <li></li>
-                            <li></li>
-                            <li></li>
-                            <li></li>
-                        </ul>
-                    </div>
+                </div>
+                    <div className='card-field'>
+                        <ul className='layout-card'>
+                        <li className='card-image'><img src='\assets\images\car-test.png' alt='' /></li>
+                        <div className='card-text'>
+                            <li>Cliente:</li>
+                            <li>Placa:</li>
+                            <li>Modelo:</li>
+                            <li>Data:</li>
+                        </div>
+                    </ul>
+                    <ul className='layout-card'>
+                        <li className='card-image'><img src='\assets\images\car-test.png' alt='' /></li>
+                        <div className='card-text'>
+                            <li>Cliente:</li>
+                            <li>Placa:</li>
+                            <li>Modelo:</li>
+                            <li>Data:</li>
+                        </div>
+                    </ul>
+                    <ul className='layout-card'>
+                        <li className='card-image'><img src='\assets\images\car-test.png' alt='' /></li>
+                        <div className='card-text'>
+                            <li>Cliente:</li>
+                            <li>Placa:</li>
+                            <li>Modelo:</li>
+                            <li>Data:</li>
+                        </div>
+                    </ul>
+                    <ul className='layout-card'>
+                        <li className='card-image'><img src='\assets\images\car-test.png' alt='' /></li>
+                        <div className='card-text'>
+                            <li>Cliente:</li>
+                            <li>Placa:</li>
+                            <li>Modelo:</li>
+                            <li>Data:</li>
+                        </div>
+                    </ul>
                 </div>
             </main>
         </div>
