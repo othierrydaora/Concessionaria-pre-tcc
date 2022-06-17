@@ -66,7 +66,7 @@ export default function Home() {
             throw new Error('Mensagem é obrigatorio');
 
             }else{
-                 emailjs.sendForm('gmailMessage', 'template_2hzushi', form.current, 'abE9n78BHmOCsShev')
+                 emailjs.sendForm('gmailMessage', 'template_23t1poq', form.current, 'E-htjvr4d6KlQUrvY')
                  .then((result) => {
                      toast.success('E-mail Enviado!')
                     }, (error) => {
