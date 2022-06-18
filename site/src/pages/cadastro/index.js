@@ -50,10 +50,10 @@ export default function Cadastro() {
 
             if(id === 0){
                 const r = await cadastrarVenda(cliente, cpf, nascimento, email, endereco, telefone, modelo, placa, preco, compra, usuario);
-                const s = await enviarImagem(imagem, r.id, usuario);
+                await enviarImagem(imagem, r.id, usuario);
                 setId(r.id);
-                toast.success('✨ Venda cadastrada com sucesso!');
                 
+                toast.success('✨ Venda cadastrada com sucesso!');
             } else {
                 try {
                     const s = await alterarVenda(id, cliente, cpf, nascimento, email, endereco, telefone, modelo, placa, preco, compra, usuario);

@@ -54,14 +54,14 @@
     }}
 }
 
-.card-field {
+.cards-field {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     height: fit-content;
     flex-wrap: wrap;
-    width: 65em;
-    padding: 2em;
+    width: 100%;
+    outline: 4px red solid;
 }
 
 .layout-card {
@@ -71,7 +71,7 @@
     padding: .5em;
     border-radius: .5em;
     background-color: #fff;
-    box-shadow: 0 0 1em #9b9b9b;
+    box-shadow: 0 0 6px 2px #00000025;
 }
 
 .card-image {
