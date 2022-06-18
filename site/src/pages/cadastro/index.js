@@ -127,7 +127,7 @@ export default function Cadastro() {
                                 placeholder='CPF'
                                 value={cpf} onChange={e => setCpf(e.target.value)} 
                                 required="required"
-                                maxLength='12'
+                                maxLength='14'
                             />
                             
                             <input

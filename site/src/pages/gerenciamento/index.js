@@ -61,6 +61,11 @@ export default function Index() {
         if (e.keyCode === 13) filtrar();
     }
 
+    function format(data) {
+        let ano = data.substr(0, 4), mes = data.substr(5, 2), dia = data.substr(8, 2);
+        return `${dia}/${mes}/${ano}`;
+    }
+
     return (
         <div className="gerenciamento">
             <Header user logo/>
@@ -99,13 +104,13 @@ export default function Index() {
                                     <td>{item.id}</td>
                                     <td>{String(item.cliente).substr(0, 10)}</td>
                                     <td>{item.cpf}</td>
-                                    <td>{item.endereco.substr(0, 30)}</td>
+                                    <td>{format(item.nascimento)}</td>
                                     <td>{item.email.substr(0, 30)}</td>
                                     <td>{item.telefone}</td>
-                                    <td>{String(item.nascimento).substr(0, 10)}</td>
+                                    <td>{item.endereco.substr(0, 30)}</td>
                                     <td>{item.placa}</td>
                                     <td>{item.modelo.substr(0, 15)}</td>
-                                    <td>{String(item.compra).substr(0, 10)}</td>
+                                    <td>{format(item.compra)}</td>
                                     <td>{(item.preco)}</td>
                                     <td>
                                         <div>

@@ -1,16 +1,48 @@
 import React, { useState, useEffect } from 'react';
-import { listarTodasVendas } from '../../api/vendaApi';
+import { listarTodasVendas, removerVenda } from '../../api/vendaApi';
 import Header from '../../components/Header';
+import Card from '../../components/Card';
 import Menu from '../../components/Menu';
+import { toast } from 'react-toastify';
+import { useNavigate } from 'react-router-dom';
+import { confirmAlert } from 'react-confirm-alert';
 import './index.scss';
 
 
 export default function Index() {
     const [vendas, setVendas] = useState([]);
+    
+    const navigate = useNavigate();
+
 
     async function listarVendas() {
         const resp = await listarTodasVendas();
         setVendas(resp);
+    }
+
+    function alterarVendaClick(id) {
+        navigate(`/admin/alterar/${id}`);
+    }
+
+    async function removerVendaClick(id){
+        confirmAlert({
+            title: 'Remover venda',
+            message: `Deseja remover a venda?`,
+            buttons: [
+                {
+                    label: 'Sim',
+                    onClick: async () => {
+                        const resposta = await removerVenda(id);
+                        if (resposta === 204) {
+                            listarTodasVendas();
+                            toast.success('Venda removida com sucesso!');
+                        }
+                        else toast.warn('Não foi possível remover a venda');
+                    }
+                },
+                { label: 'Não' }
+            ]
+        });
     }
 
     useEffect(() => {
@@ -36,19 +68,9 @@ export default function Index() {
                         </div>
                 </div>
                 <section className='cards-field'>
-                    
                     {
                         vendas.map(item => 
-                            <ul className='layout-card'>
-                                <li className='card-image'><img src='\assets\images\car-test.png' alt='' /></li>
-                                <div className='card-text'>
-                                    <li>Cliente: {item.cliente}</li>
-                                    <li>Nascimento: {String(item.nascimento).substr(0, 10)}</li>
-                                    <li>Placa: {item.placa}</li>
-                                    <li>Modelo: {item.modelo}</li>
-                                    <li>Data: {String(item.compra).substr(0, 10)}</li>
-                                </div>
-                            </ul>
+                            <Card item={item} alterarVendaClick={alterarVendaClick} removerVendaClick={removerVendaClick} />
                         )
                     }
                 </section>

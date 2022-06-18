@@ -37,7 +37,8 @@ export async function listagemTotalVendas () {
 	    nm_modelo		modelo,
         vl_preco		preco,
         dt_compra	    compra,
-        id_funcionario  funcionario
+        id_funcionario  funcionario,
+        ds_imagem       imagem
     FROM tb_venda`;
 
     const [resposta] = await con.query(comando);

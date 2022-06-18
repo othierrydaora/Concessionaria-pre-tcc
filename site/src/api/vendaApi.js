@@ -67,3 +67,7 @@ export async function enviarImagem(imagem, id, usuario) {
 
   return r.status;
 }
+
+export function buscarImg(imagem) {
+  return `${api.getUri()}/${imagem}`;
+}

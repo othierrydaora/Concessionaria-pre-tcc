@@ -19,7 +19,6 @@ server.post('/venda', async (req, resp) => {
         if (!adicionarVenda.placa || !adicionarVenda.placa.trim()) throw new Error('A placa é obrigatória!');
         if (!adicionarVenda.preco) throw new Error('O preço é obrigatório!');
         if (!adicionarVenda.compra) throw new Error('A data da compra é obrigatória!');
-        console.log(adicionarVenda.usuario)
         if (!adicionarVenda.usuario) throw new Error('O usuário não logado!');
 
         const vendaInserida = await cadastrarVenda(adicionarVenda);
@@ -68,7 +67,7 @@ server.put('/venda/imagem', upload.single('imagem'), async (req, res) => {
 
         const imagem = req.file.path;
         const resposta = await alterarImagem(imagem, id);
-        if (resposta != 1) throw new Error('A imagem não pôde ser salva...');
+        if (resposta != 1) throw new Error('A imagem não pôde ser salva');
         res.status(204).send();
     } catch (err) {
         res.status(400).send({
