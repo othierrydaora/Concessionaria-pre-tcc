@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { listarTodasVendas, filtrarCpf, alterarVenda, removerVenda } from '../../api/vendaApi.js';
+import { listarTodasVendas, filtrarCpf, removerVenda } from '../../api/vendaApi.js';
 import Menu from '../../components/Menu.js';
 import Header from '../../components/Header.js';
 import './index.scss';

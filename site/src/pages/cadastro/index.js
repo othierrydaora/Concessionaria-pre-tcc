@@ -3,7 +3,7 @@ import storage from 'local-storage';
 import { toast } from 'react-toastify';
 import Header from '../../components/Header';
 import Menu from '../../components/Menu';
-import { alterarVenda, cadastrarVenda, consultarVenda } from '../../api/vendaApi';
+import { alterarVenda, cadastrarVenda, consultarVenda, enviarImagem } from '../../api/vendaApi';
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import './index.scss';
 
@@ -27,7 +27,7 @@ export default function Cadastro() {
 
     useEffect(() => {
         if (idParam) carregarVenda();
-    }, []);
+    });
 
     async function carregarVenda() {
         const r = await consultarVenda(idParam);
@@ -50,6 +50,7 @@ export default function Cadastro() {
 
             if(id === 0){
                 const r = await cadastrarVenda(cliente, cpf, nascimento, email, endereco, telefone, modelo, placa, preco, compra, usuario);
+                const s = await enviarImagem(imagem, r.id, usuario);
                 setId(r.id);
                 toast.success('✨ Venda cadastrada com sucesso!');
                 
@@ -83,6 +84,14 @@ export default function Cadastro() {
         setPreco('');
         setTelefone('');
     }
+
+    function setarImagem() {
+        document.getElementById('car-image-input').click();
+    }
+
+    function showImage() {
+        return URL.createObjectURL(imagem);
+    }
     
     return (
         <div className='cadastro'>
@@ -92,7 +101,6 @@ export default function Cadastro() {
             <main className='cadastro-content'>
                 <div className='forms-cont'>
                     <div className='title'> { location.pathname !== '/admin/cadastrar' ? 'Editar venda' : 'Cadastrar Vendas' } </div>
-                    
                     <ul style={{ marginTop: "0.7em" }}>
                         <li>
                             <input
@@ -101,7 +109,8 @@ export default function Cadastro() {
                                 value={cliente}
                                 onChange={e => setCliente(e.target.value)} 
                                 required="required"
-                                />
+                                maxLength='100'
+                            />
                             
                             <input
                                 placeholder='Data de nascimento'
@@ -110,7 +119,7 @@ export default function Cadastro() {
                                 onChange={e => setNascimento(e.target.value)}
                                 onFocus={(e) => (e.target.type = "date")} 
                                 required="required"
-                                />
+                            />
                         </li>
                         <li>
                             <input
@@ -118,7 +127,8 @@ export default function Cadastro() {
                                 placeholder='CPF'
                                 value={cpf} onChange={e => setCpf(e.target.value)} 
                                 required="required"
-                                />
+                                maxLength='12'
+                            />
                             
                             <input
                                 type='email'
@@ -126,7 +136,8 @@ export default function Cadastro() {
                                 value={email}
                                 onChange={e => setEmail(e.target.value)} 
                                 required="required"
-                                />
+                                maxLength='50'
+                            />
                         </li>
                         <li>
                             <input
@@ -135,7 +146,8 @@ export default function Cadastro() {
                                 value={endereco}
                                 onChange={e => setEndereco(e.target.value)}
                                 required="required"
-                                />
+                                maxLength='100'
+                            />
                             
                             <input
                                 type='tel'
@@ -145,7 +157,8 @@ export default function Cadastro() {
                                 onChange={e => setTelefone(e.target.value)} 
                                 required="required"
                                 pattern="\([0-9]{2}\) [0-9]{4,6}-[0-9]{3,4}$"
-                                />
+                                maxLength='14'
+                            />
                         </li>
                         <li>
                             <input
@@ -154,7 +167,8 @@ export default function Cadastro() {
                                 value={modelo}
                                 onChange={e => setModelo(e.target.value)} 
                                 required="required"
-                                />
+                                maxLength='25'
+                            />
                             
                             <input
                                 title='Valor da venda'
@@ -163,7 +177,7 @@ export default function Cadastro() {
                                 onChange={e => setPreco(e.target.value)}
                                 onFocus={(e) => (e.target.type = "number")} 
                                 required="required"
-                                />
+                            />
                         </li>
                         <li>
                             <input
@@ -173,7 +187,8 @@ export default function Cadastro() {
                                 value={placa}
                                 onChange={e => setPlaca(e.target.value)} 
                                 required="required"
-                                />
+                                maxLength='8'
+                            />
                             
                             <input
                                 placeholder='Data do registro'
@@ -182,14 +197,19 @@ export default function Cadastro() {
                                 onChange={e => setCompra(e.target.value)}
                                 onFocus={(e) => (e.target.type = "date")} 
                                 required="required"
-                                />
+                            />
                         </li>
                     </ul>
-                    <div className='car-image'>
-                        <div className='image'>
-                            <img />
-                        </div>
+                        
+                    <div className='car-image-box' onClick={setarImagem} title='Enviar imagem'>
+                        {
+                            !imagem ? <img src='/assets/images/upload.svg' alt='' className='car-image-box-icon'/>
+                            : <img src={showImage()} alt=''/>
+                        }
+
+                        <input type='file' id='car-image-input' onChange={e => setImagem(e.target.files[0])}/>
                     </div>
+                        
                     <div className='btn-cadastro'>
                         <button className='sending-btn' onClick={salvarVenda} >{ id === 0 ? 'Salvar' : 'Alterar'}</button>
                         <button className='sending-btn' onClick={refresh}>Limpar</button>

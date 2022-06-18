@@ -1,9 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import storage from 'local-storage';
-import { toast } from 'react-toastify';
+import React from 'react';
 import Header from '../../components/Header';
 import Menu from '../../components/Menu';
-import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import './index.scss';
 
 

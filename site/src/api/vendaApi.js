@@ -54,3 +54,16 @@ export async function alterarVenda(id, cliente, cpf, nascimento, email, endereco
   });
   return r.status;
 }
+
+export async function enviarImagem(imagem, id, usuario) {
+  const formData = new FormData();
+  formData.append('imagem', imagem);
+
+  const r = await api.put(`/venda/imagem?id=${id}&usuario=${usuario}`, formData, {
+    headers: {
+      "Content-Type": "multipart/form-data"
+    }
+  });
+
+  return r.status;
+}

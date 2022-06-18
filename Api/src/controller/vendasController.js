@@ -11,14 +11,16 @@ server.post('/venda', async (req, resp) => {
         const adicionarVenda = req.body;
         if (!adicionarVenda.cliente ||!adicionarVenda.cliente.trim() ) throw new Error('O nome do cliente é obrigatório!');
         if (!adicionarVenda.cpf ||!adicionarVenda.cpf.trim()) throw new Error('O CPF é obrigatorio!');
-        if (!adicionarVenda.nascimento || !adicionarVenda.nascimento.trim()) throw new Error('A data de nascimento é obrigatória!');
+        if (!adicionarVenda.nascimento) throw new Error('A data de nascimento é obrigatória!');
         if (!adicionarVenda.email || !adicionarVenda.email.trim()) throw new Error('O email é obrigatório!');
         if (!adicionarVenda.endereco || !adicionarVenda.endereco.trim()) throw new Error('O endereço é obrigatório!');
         if (!adicionarVenda.telefone || !adicionarVenda.telefone.trim()) throw new Error('O telefone é obrigatório!');
         if (!adicionarVenda.modelo || !adicionarVenda.modelo.trim()) throw new Error('O modelo é obrigatório!');
         if (!adicionarVenda.placa || !adicionarVenda.placa.trim()) throw new Error('A placa é obrigatória!');
-        if (!adicionarVenda.preco || !adicionarVenda.preco.trim()) throw new Error('O preço é obrigatório!');
-        if (!adicionarVenda.compra || !adicionarVenda.compra.trim()) throw new Error('A data da compra é obrigatória!');
+        if (!adicionarVenda.preco) throw new Error('O preço é obrigatório!');
+        if (!adicionarVenda.compra) throw new Error('A data da compra é obrigatória!');
+        console.log(adicionarVenda.usuario)
+        if (!adicionarVenda.usuario) throw new Error('O usuário não logado!');
 
         const vendaInserida = await cadastrarVenda(adicionarVenda);
         resp.send(vendaInserida);
@@ -58,15 +60,18 @@ server.get('/venda', async (req, res) => {
     }
 });
 
-server.put('/venda/:id/fotos', upload.single('fotos'), async (req, resp) => {
+//adiocionar imagem
+server.put('/venda/imagem', upload.single('imagem'), async (req, res) => {
     try {
-        const { id } = req.params;
+        const { id, usuario } = req.query;
+        if (!usuario) throw new Error('O usuário precisa estar logado');
+
         const imagem = req.file.path;
         const resposta = await alterarImagem(imagem, id);
         if (resposta != 1) throw new Error('A imagem não pôde ser salva...');
-        resp.status(204).send();
+        res.status(204).send();
     } catch (err) {
-        resp.status(400).send({
+        res.status(400).send({
             erro: err.message
         })
     }
