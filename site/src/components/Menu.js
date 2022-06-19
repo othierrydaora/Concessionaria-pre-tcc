@@ -30,6 +30,8 @@ export default function Index(props) {
 
     return (
         <div className="menu">
+            <div className="menu-logo-txt">SIGMA</div>
+            
             <div className='menu-items'>
                 <Link to='/admin' onClick={() => selecionarMenu('admin')} className={verificarMenuSelecionado('admin')}>
                     <div><img src='/assets/Icons/admin.png' alt=''/><span>Admin</span></div>
@@ -46,7 +48,7 @@ export default function Index(props) {
                 </Link>
 
                 <Link to='/admin/cards' onClick={() => selecionarMenu('consultarCards')} className={verificarMenuSelecionado('cards')}>
-                    <div><img src='' alt=''/><span>Cards</span></div>
+                    <div><img src='/assets/Icons/cards.png' alt=''/><span>Cards</span></div>
                 </Link>
             </div>
 

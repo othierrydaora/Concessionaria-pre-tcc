@@ -89,6 +89,9 @@
     font: 17px 'Roboto', sans serif;
     cursor: default;
     user-select: none;
+    transition: 2s ease-in-out;
+
+    &:hover { border: 1px solid #747474; }
 }
 
 @media screen and (max-width: 550px) {

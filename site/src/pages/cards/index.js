@@ -53,7 +53,7 @@ export default function Index() {
 
     return (
         <div className='cards'>
-            <Header user logo />
+            <Header user/>
             <Menu selecionado='cards' /> 
 
             <main className='cards-content'>

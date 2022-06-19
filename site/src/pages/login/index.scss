@@ -76,9 +76,11 @@
     }
 
     .login-button:hover {
-        transform: scale(1.1);
+        transform: scale(1.04);
         background-color: #3787ff;
         color: #fff;
+
+        &:active { transform: scale(.9) }
     }
 
     .login-invalido {

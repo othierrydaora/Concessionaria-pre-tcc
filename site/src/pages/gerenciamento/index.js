@@ -68,7 +68,7 @@ export default function Index() {
 
     return (
         <div className="gerenciamento">
-            <Header user logo/>
+            <Header user/>
             <Menu selecionado='consulta'/>      
                 
             <div className='gerenciamento-content'>

@@ -7,7 +7,7 @@ import { alterarVenda, cadastrarVenda, consultarVenda, enviarImagem } from '../.
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import './index.scss';
 
-export default function Cadastro() {
+export default function Index() {
     const [cliente, setCliente] = useState('');
     const [cpf, setCpf]= useState('');
     const [endereco, setEndereco] = useState('');
@@ -49,7 +49,7 @@ export default function Cadastro() {
             const usuario = storage('usuario-logado').id;
 
             if (!imagem) {
-                throw new Error('Escolha uma foto de seu veículo...');
+                throw new Error('Escolha uma foto de seu veículo');
             }
 
             if(id === 0){
@@ -98,14 +98,15 @@ export default function Cadastro() {
     
     return (
         <div className='cadastro'>
-            <Header user logo/>
+            <Header user/>
             <Menu selecionado='cadastro' />
 
             <main className='cadastro-content'>
                 <div className='forms-cont'>
                     <div className='title'> { location.pathname !== '/admin/cadastrar' ? 'Editar venda' : 'Cadastrar Vendas' } </div>
-                    <ul style={{ marginTop: "0.7em" }}>
-                        <li>
+                    
+                    <div className='cad-forms-columns'>
+                        <div>
                             <input
                                 type='text'
                                 placeholder='Nome'
@@ -123,8 +124,7 @@ export default function Cadastro() {
                                 onFocus={(e) => (e.target.type = "date")} 
                                 required="required"
                             />
-                        </li>
-                        <li>
+                        
                             <input
                                 type='text'
                                 placeholder='CPF'
@@ -141,8 +141,7 @@ export default function Cadastro() {
                                 required="required"
                                 maxLength='50'
                             />
-                        </li>
-                        <li>
+                        
                             <input
                                 type='text'
                                 placeholder='Endereço'
@@ -152,6 +151,7 @@ export default function Cadastro() {
                                 maxLength='100'
                             />
                             
+                        
                             <input
                                 type='tel'
                                 placeholder='(xx)xxxxx-xxxx'
@@ -162,8 +162,27 @@ export default function Cadastro() {
                                 pattern="\([0-9]{2}\) [0-9]{4,6}-[0-9]{3,4}$"
                                 maxLength='14'
                             />
-                        </li>
-                        <li>
+
+                            <input
+                                placeholder='Data do registro'
+                                title='Data do registro'
+                                value={compra}
+                                onChange={e => setCompra(e.target.value)}
+                                onFocus={(e) => (e.target.type = "date")} 
+                                required="required"
+                            />
+                        </div>
+
+                        <div>
+                            <div className='car-image-box' onClick={setarImagem} title='Enviar imagem'>
+                                {
+                                    !imagem ? <img src='/assets/Icons/upload.svg' alt='' className='car-image-box-icon'/>
+                                    : <img src={showImage()} alt=''/>
+                                }
+
+                                <input type='file' id='car-image-input' onChange={e => setImagem(e.target.files[0])}/>
+                            </div>
+                        
                             <input
                                 type='text'
                                 placeholder='Modelo Veículo'
@@ -181,8 +200,7 @@ export default function Cadastro() {
                                 onFocus={(e) => (e.target.type = "number")} 
                                 required="required"
                             />
-                        </li>
-                        <li>
+                        
                             <input
                                 type='text'
                                 placeholder='Placa'
@@ -193,25 +211,9 @@ export default function Cadastro() {
                                 maxLength='8'
                             />
                             
-                            <input
-                                placeholder='Data do registro'
-                                title='Data do registro'
-                                value={compra}
-                                onChange={e => setCompra(e.target.value)}
-                                onFocus={(e) => (e.target.type = "date")} 
-                                required="required"
-                            />
-                        </li>
-                    </ul>
-                        
-                    <div className='car-image-box' onClick={setarImagem} title='Enviar imagem'>
-                        {
-                            !imagem ? <img src='/assets/images/upload.svg' alt='' className='car-image-box-icon'/>
-                            : <img src={showImage()} alt=''/>
-                        }
-
-                        <input type='file' id='car-image-input' onChange={e => setImagem(e.target.files[0])}/>
+                        </div>
                     </div>
+                
                         
                     <div className='btn-cadastro'>
                         <button className='sending-btn' onClick={salvarVenda} >{ id === 0 ? 'Salvar' : 'Alterar'}</button>

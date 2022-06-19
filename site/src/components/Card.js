@@ -8,7 +8,6 @@ export default function Index(props) {
         return `${dia}/${mes}/${ano}`;
     }
 
-    console.log(buscarImg(props.item.imagem))
 
     return (
         <div className='layout-card'>

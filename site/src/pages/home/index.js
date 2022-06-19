@@ -5,7 +5,7 @@ import { useRef, useState} from 'react';
 import { toast } from 'react-toastify';
 import emailjs from '@emailjs/browser';
 
-export default function Home() {
+export default function Index() {
     const form = useRef();
 
     const [nome, setNome] = useState('');
@@ -161,11 +161,11 @@ export default function Home() {
                     <section className='page-contato' id='contato'>
                         <form action='' id='formulario' className='card-form' ref={form} onSubmit={sendEmail}>
                             <div className='hm-form-title'>ENTRE EM CONTATO</div>
-                            <input className={NomeErr ? 'email-erro' : 'email'} id='nome' type='text' name='name' placeholder='Digite Seu Nome' maxLength={10} value={nome} onChange={e => setNome(e.target.value)} />
+                            <input className={NomeErr ? 'email-erro' : 'email'} id='nome' type='text' name='name' placeholder='Digite Seu Nome' maxLength={40} value={nome} onChange={e => setNome(e.target.value)} />
                             <div className='form-invalido'>
                                 {NomeErr}
                              </div>
-                            <input className={AssuntoErr ? 'email-erro' : 'email'} id='useremail' type='text' name='subject' placeholder='Assunto' maxLength={40} value={assunto} onChange={e => setAssunto(e.target.value)}/>
+                            <input className={AssuntoErr ? 'email-erro' : 'email'} id='useremail' type='text' name='subject' placeholder='Assunto' maxLength={50} value={assunto} onChange={e => setAssunto(e.target.value)}/>
                             <div className='form-invalido'>
                                 {AssuntoErr}
                              </div>
@@ -173,7 +173,7 @@ export default function Home() {
                             <div className='form-invalido'>
                                 {EmailErr}
                              </div>
-                            <textarea className={NomeErr ? 'email-erro msg-form' : 'email msg-form'} name='message' id='message' placeholder='Mensagem' value={msg} onChange={e => setMsg(e.target.value)}></textarea>
+                            <textarea className={NomeErr ? 'email-erro msg-form' : 'email msg-form'} name='message' id='message' placeholder='Mensagem' maxLength='1500' value={msg} onChange={e => setMsg(e.target.value)}></textarea>
                             <div className='form-invalido'>
                                 {MsgErr}
                              </div>
