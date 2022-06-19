@@ -64,10 +64,10 @@ export async function enviarImagem(imagem, id, usuario) {
       "Content-Type": "multipart/form-data"
     }
   });
-
   return r.status;
 }
 
 export function buscarImg(imagem) {
+  console.log(api.getUri());
   return `${api.getUri()}/${imagem}`;
 }

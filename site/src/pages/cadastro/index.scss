@@ -31,6 +31,7 @@
             font-weight: 600;
             text-transform: uppercase;
             margin: 1em 0 1.1em 0;
+            user-select: none;
         }
 
         
@@ -77,8 +78,6 @@
                 outline: yellow 2px solid;
             }
         }
-
- 
 
         .btn-cadastro{
             display: flex;

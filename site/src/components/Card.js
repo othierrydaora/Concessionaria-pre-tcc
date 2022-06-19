@@ -8,25 +8,18 @@ export default function Index(props) {
         return `${dia}/${mes}/${ano}`;
     }
 
-    console.log(buscarImg(props.item.imagem) )
+    console.log(buscarImg(props.item.imagem))
 
     return (
         <div className='layout-card'>
-            <div className='card-image'><img src={'/assets/images/car-test.png'} alt='' /></div>
-            
+            <li style={{font: "15px 'Roboto', sans serif", color: "#5E5E5E"}}>ID: {props.item.id}</li>
+            <div className='card-image'><img style={{ borderRadius: '.2em' }} src={props.item.imagem ? buscarImg(props.item.imagem) : '/assets/images/car-test.png'}  alt=''/></div>
             <div className='card-text'>
-                <li>ID: {props.item.id}</li>
                 <li>Cliente: {props.item.cliente}</li>
-                <li>CPF: {props.item.cpf}</li>
-                <li>Nascimento: {format(props.item.nascimento)}</li>
-                <li>Email: {props.item.email}</li>
-                <li>Telefone: {props.item.telefone}</li>
-                <li>Endereco: {props.item.endereco}</li>
                 <li>Placa: {props.item.placa}</li>
                 <li>Modelo: {props.item.modelo}</li>
-                <li>Data: {format(props.item.compra)}</li>
                 <li>Preço: {props.item.preco}</li>
-
+                <li>Data: {format(props.item.compra)}</li>
                 
                 <div className='card-actions'>
                     <img src="/assets/Icons/edit.png" alt='Editar' onClick={() => props.alterarVendaClick(props.item.id)}/>

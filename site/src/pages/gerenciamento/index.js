@@ -82,8 +82,8 @@ export default function Index() {
 
                 <table>
                     <thead>
-                        <tr>
-                            <th>ID</th>
+                        <tr style={{userSelect: "none"}}>
+                            <th  oncontextmenu="return false" ondragstart="return false" onselectstart="return false">ID</th>
                             <th>NOME</th>
                             <th>CPF</th>
                             <th>ENDEREÇO</th>

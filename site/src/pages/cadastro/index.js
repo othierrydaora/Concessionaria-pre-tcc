@@ -48,11 +48,14 @@ export default function Cadastro() {
         try {
             const usuario = storage('usuario-logado').id;
 
+            if (!imagem) {
+                throw new Error('Escolha uma foto de seu veículo...');
+            }
+
             if(id === 0){
-                const r = await cadastrarVenda(cliente, cpf, nascimento, email, endereco, telefone, modelo, placa, preco, compra, usuario);
+                const r = await cadastrarVenda(cliente, cpf, nascimento, email, endereco, telefone, modelo, placa, preco, compra, usuario, imagem);
                 await enviarImagem(imagem, r.id, usuario);
-                setId(r.id);
-                
+                setId(r.id);      
                 toast.success('✨ Venda cadastrada com sucesso!');
             } else {
                 try {

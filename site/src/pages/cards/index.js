@@ -34,7 +34,7 @@ export default function Index() {
                     onClick: async () => {
                         const resposta = await removerVenda(id);
                         if (resposta === 204) {
-                            listarTodasVendas();
+                            listarVendas();
                             toast.success('Venda removida com sucesso!');
                         }
                         else toast.warn('Não foi possível remover a venda');
@@ -49,6 +49,8 @@ export default function Index() {
         listarVendas()
     }, []);
 
+
+
     return (
         <div className='cards'>
             <Header user logo />
@@ -56,14 +58,19 @@ export default function Index() {
 
             <main className='cards-content'>
                 <div className='main-container'>
-                        <div className='adm-top-bar-crd'>
-                                <div className='adm-search-field-crd'>
-                                    <input type='text' onFocus={(e) => (e.target.type = "date")} onBlur={(e) => (e.target.type = "text")} placeholder='Data de Inicio'/>
+                    <div className='adm-top-bar-crd'>
+                                <div style={{display: 'flex', width: '26em', justifyContent: 'space-between'}}>
+                                    <div className='adm-search-field-crd'>
+                                        <input type='text' onFocus={(e) => (e.target.type = "date")} placeholder='Data de Inicio'/>
+                                            <img src="/assets/Icons/search-icon.svg" style={{width: "17px", cursor: "pointer"}} alt="Pesquisar"/>
+                                    </div>
+                                    <div className='adm-search-field-crd'>
+                                        <input type='text' onFocus={(e) => (e.target.type = "date")} placeholder='Data final'/>
                                         <img src="/assets/Icons/search-icon.svg" style={{width: "17px", cursor: "pointer"}} alt="Pesquisar"/>
+                                    </div>
                                 </div>
                                 <div className='adm-search-field-crd'>
-                                    <input type='text' onFocus={(e) => (e.target.type = "date")} onBlur={(e) => (e.target.type = "text")} placeholder='Data final'/>
-                                    <img src="/assets/Icons/search-icon.svg" style={{width: "17px", cursor: "pointer"}} alt="Pesquisar"/>
+                                    <p type='text' style={{width: '15em', fontFamily: 'sans-serif' , fontSize: '15px', color: '#535353'}}>Lucro total: </p>
                                 </div>
                         </div>
                 </div>
