@@ -52,6 +52,7 @@ export default function Index() {
             if (!inicio || !fim) throw new Error('Insira uma data válida');
 
             const resp = await filtrarDatas(inicio, fim);
+            console.log(resp)
             setVendas(resp);
         } catch (err) {
             toast.error(err.message)
@@ -61,6 +62,10 @@ export default function Index() {
     useEffect(() => {
         listarVendas()
     }, []);
+
+    useEffect(() => {
+        listarFiltrados()
+    }, [fim])
 
 
     return (

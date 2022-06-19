@@ -27,7 +27,7 @@ export default function Index() {
 
     useEffect(() => {
         if (idParam) carregarVenda();
-    });
+    }, []);
 
     async function carregarVenda() {
         const r = await consultarVenda(idParam);
