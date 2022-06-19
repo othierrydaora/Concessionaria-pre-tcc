@@ -18,6 +18,8 @@ export default function Index() {
     const [EmailErr, setEmailErr] = useState('');
     const [MsgErr, setMsgErr] = useState('');
 
+    const [check, setCheck] = useState('email');
+
     
     function limpar() {
         setTimeout(() => {
@@ -29,10 +31,13 @@ export default function Index() {
             setEmailErr('');
             setNomeErr('');
             setMsgErr('');
+            setCheck('email');
+            
 
         }, 1000)
     }
-    
+    let validate = true;
+
 
     
     
@@ -40,42 +45,63 @@ export default function Index() {
     const sendEmail = (e) => {
         try {
             e.preventDefault();
+             validate = true;
             
             //erros
-            if(nome.length === 10)
-                setNomeErr('Max 10 Caracteres');
             if(!nome.trim())
-                throw new Error('digite apenas nomes');
-                setNomeErr('Nome é obrigatorio');
-            if(Number(nome))
-                throw new Error('digite apenas nomes');
                 setNomeErr('Nome é obrigatorio');
                 
-            if(nome === "@" || nome === "." || nome === "?" || nome === "$" || nome === "'" || nome === "()" || nome === "*" || nome === "#")
-                throw new Error('Não são permitidos caracteres especiais');
+                validate = false;
+                setCheck('email-erro');
+                
+            if(!String(nome))
+                setNomeErr('Nome é obrigatorio');
+                   
+                validate = false;
+                setCheck('email-erro');
+            if(nome === "@" || nome === "." || nome === "?" || nome === "$" || nome === "'" || nome === "()" || nome === "*" || nome === "#"){
                 setNomeErr('Não são permitidos caracteres especiais');
-            
-            if(!assunto.trim())
-                throw new Error('Assunto é obrigatorio');
-                setAssuntoErr('Assunto é obrigatorio');
-            if(!email.trim())
-            throw new Error('E-mail é obrigatorio');
-                setEmailErr('E-mail é obrigatorio');
-            if(!msg.trim()){
-                setMsgErr('Mensagem é obrigatorio');
-            throw new Error('Mensagem é obrigatorio');
+                validate = false;
+                setCheck('email-erro');
 
-            }else{
-                 emailjs.sendForm('gmailMessage', 'template_23t1poq', form.current, 'E-htjvr4d6KlQUrvY')
-                 .then((result) => {
-                     toast.success('E-mail Enviado!')
-                    }, (error) => {
-                        toast.error(error.message);
-                    });
-                    console.log(setNomeErr);
+            }
                     
-                    limpar();
-                }
+            if(!assunto.trim())
+                    
+            setAssuntoErr('Assunto é obrigatorio');
+                   
+            validate = false;
+            setCheck('email-erro');
+            if(!email.trim())
+               
+            setEmailErr('E-mail é obrigatorio');
+                   
+                validate = false;
+                setCheck('email-erro');
+            if(!msg.trim() || msg === '')
+                setMsgErr('Mensagem é obrigatorio');
+                    
+                validate = false;
+                setCheck('email-erro');
+
+            if(nome.trim() && assunto.trim() && msg.trim() && email.trim() && !Number(nome)){
+                validate = true
+            }
+            
+            if(validate === true) {
+                // EMAILJS (NÃO PODE APAGAR)
+                emailjs.sendForm('gmailMessage', 'template_23t1poq', form.current, 'E-htjvr4d6KlQUrvY')
+                .then((result) => {
+                    toast.success('E-mail Enviado!')
+                }, (error) => {
+                       toast.error(error.message);
+                });
+                limpar();
+            }
+            else {
+                toast.error('Verifique se todos os campos estão corretos')
+            }
+            
             
             
         } catch (err) {
@@ -161,19 +187,19 @@ export default function Index() {
                     <section className='page-contato' id='contato'>
                         <form action='' id='formulario' className='card-form' ref={form} onSubmit={sendEmail}>
                             <div className='hm-form-title'>ENTRE EM CONTATO</div>
-                            <input className={NomeErr ? 'email-erro' : 'email'} id='nome' type='text' name='name' placeholder='Digite Seu Nome' maxLength={40} value={nome} onChange={e => setNome(e.target.value)} />
+                            <input className={check} id='nome' type='text' name='name' placeholder='Digite Seu Nome' maxLength={40} value={nome} onChange={e => setNome(e.target.value)} />
                             <div className='form-invalido'>
                                 {NomeErr}
                              </div>
-                            <input className={AssuntoErr ? 'email-erro' : 'email'} id='useremail' type='text' name='subject' placeholder='Assunto' maxLength={50} value={assunto} onChange={e => setAssunto(e.target.value)}/>
+                            <input className={check} id='useremail' type='text' name='subject' placeholder='Assunto' maxLength={50} value={assunto} onChange={e => setAssunto(e.target.value)}/>
                             <div className='form-invalido'>
                                 {AssuntoErr}
                              </div>
-                            <input className={EmailErr ? 'email-erro' : 'email'} id='useremail' type='email' name='email' placeholder='Insira seu melhor email' maxLength={30} value={email} onChange={e => setEmail(e.target.value)} />
+                            <input className={check} id='useremail' type='email' name='email' placeholder='Insira seu melhor email' maxLength={30} value={email} onChange={e => setEmail(e.target.value)} />
                             <div className='form-invalido'>
                                 {EmailErr}
                              </div>
-                            <textarea className={NomeErr ? 'email-erro msg-form' : 'email msg-form'} name='message' id='message' placeholder='Mensagem' maxLength='1500' value={msg} onChange={e => setMsg(e.target.value)}></textarea>
+                            <textarea className={`${check} msg-form`} name='message' id='message' placeholder='Mensagem' maxLength={230} value={msg} onChange={e => setMsg(e.target.value)}></textarea>
                             <div className='form-invalido'>
                                 {MsgErr}
                              </div>
