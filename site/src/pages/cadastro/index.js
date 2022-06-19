@@ -98,7 +98,7 @@ export default function Index() {
     
     return (
         <div className='cadastro'>
-            <Header user/>
+            <Header user logo/>
             <Menu selecionado='cadastro' />
 
             <main className='cadastro-content'>
