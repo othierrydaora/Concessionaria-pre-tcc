@@ -57,7 +57,6 @@ export default function Index() {
             <Menu selecionado='cards'/> 
 
             <main className='cards-content'>
-                
                 <section className='card-top-bar'>
                     <div>
                         <span>

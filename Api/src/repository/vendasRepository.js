@@ -115,3 +115,23 @@ export async function filtrocpf(cpf) {
     const [resposta] = await con.query(comando);
     return resposta;
 }
+
+// filtrar por datas
+export async function filtroDatas(inicio, fim) {
+    const command = `SELECT id_venda          id,
+                            id_funcionario    funcionario,
+                            nm_cliente        cliente,
+                            ds_cpf            cpf,
+                            ds_endereco       endereco,
+                            ds_email          email,
+                            ds_telefone       telefone,
+                            dt_nascimento     nascimento,
+                            ds_placa          placa,
+                            nm_modelo	      nome,
+                            vl_preco	      preco,
+                            dt_compra	      compra
+                            FROM tb_venda
+                            WHERE dt_compra BETWEEN ? and ?`;
+    const [answer] = await con.query(command, [inicio, fim]);
+    return answer;
+}
