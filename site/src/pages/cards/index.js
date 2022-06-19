@@ -54,26 +54,28 @@ export default function Index() {
     return (
         <div className='cards'>
             <Header user logo/>
-            <Menu selecionado='cards' /> 
+            <Menu selecionado='cards'/> 
 
             <main className='cards-content'>
-                <div className='main-container'>
-                    <div className='adm-top-bar-crd'>
-                                <div style={{display: 'flex', width: '26em', justifyContent: 'space-between'}}>
-                                    <div className='adm-search-field-crd'>
-                                        <input type='text' onFocus={(e) => (e.target.type = "date")} placeholder='Data de Inicio'/>
-                                            <img src="/assets/Icons/search-icon.svg" style={{width: "17px", cursor: "pointer"}} alt="Pesquisar"/>
-                                    </div>
-                                    <div className='adm-search-field-crd'>
-                                        <input type='text' onFocus={(e) => (e.target.type = "date")} placeholder='Data final'/>
-                                        <img src="/assets/Icons/search-icon.svg" style={{width: "17px", cursor: "pointer"}} alt="Pesquisar"/>
-                                    </div>
-                                </div>
-                                <div className='adm-search-field-crd'>
-                                    <p type='text' style={{width: '15em', fontFamily: 'sans-serif' , fontSize: '15px', color: '#535353'}}>Lucro total: </p>
-                                </div>
-                        </div>
-                </div>
+                
+                <section className='card-top-bar'>
+                    <div>
+                        <span>
+                            <input placeholder='Data inicial' onFocus={(e) => (e.target.type = "date")}/>
+                        </span>
+
+                        <span>
+                            <input placeholder='Data final' onFocus={(e) => (e.target.type = "date")}/>
+                        </span>
+
+                        <img src='/assets/Icons/search-icon.png' alt=''/>
+                    </div>
+
+                    <span>
+                        <div>Ganhos totais: { }</div>
+                    </span>
+                </section>
+                
                 <section className='cards-field'>
                     {
                         vendas.map(item => 

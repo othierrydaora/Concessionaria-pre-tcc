@@ -11,9 +11,9 @@ export default function Index(props) {
 
     return (
         <div className='layout-card'>
-            <li style={{font: "15px 'Roboto', sans serif", color: "#5E5E5E"}}>ID: {props.item.id}</li>
-            <div className='card-image'><img style={{ borderRadius: '.2em' }} src={props.item.imagem ? buscarImg(props.item.imagem) : '/assets/images/car-test.png'}  alt=''/></div>
+            <div className='card-image'><img src={props.item.imagem ? buscarImg(props.item.imagem) : '/assets/images/car-test.png'}  alt=''/></div>
             <div className='card-text'>
+                <li>ID: {props.item.id}</li>
                 <li>Cliente: {props.item.cliente}</li>
                 <li>Placa: {props.item.placa}</li>
                 <li>Modelo: {props.item.modelo}</li>
