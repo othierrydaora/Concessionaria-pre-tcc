@@ -19,7 +19,7 @@
         background-color: #ffffff;
         border-radius: .5em;
         padding: .7em;
-        width: fit-content;
+        width: 600px;
         height: fit-content;
         margin-top: 2em;
         box-shadow: 1px 2px 8px #00000054;
@@ -31,8 +31,10 @@
             font-weight: 600;
             text-transform: uppercase;
             margin: 1em 0 1.1em 0;
+            user-select: none;
         }
 
+        
         input {
             width: 240px;
             height: 35px;
@@ -47,20 +49,34 @@
             color: #3b3b3b;
         }
 
-        .car-image {
-         height: 7em; 
-         width: 13em;
-         margin: .7em 0 0 .5em;
-         padding: .5em;
-         border-radius: .2em;
-         background-color: #70798b46;
-        }
+        .car-image-box {
+            width: 250px;
+            height: 130px; 
+            margin: .7em 0 0 .5em;
+            padding: .5em;
+            border-radius: .2em;
+            background: #70798b46;
+            outline: 1px #bbbec4 solid;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            align-self: flex-start;
+            margin-left: 42.5px;
 
-        .image {
-            height: 6em;
-            width: 12em;
-            margin-left: 3em;
-            background: url(./../../../public/assets/images/upload.svg) no-repeat;
+            img {
+                width: 100%;
+            }
+
+            .car-image-box-icon {
+                width: 145px;
+            }
+
+            #car-image-input {
+                visibility: hidden;
+                position: absolute;
+                outline: yellow 2px solid;
+            }
         }
 
         .btn-cadastro{
@@ -83,13 +99,11 @@
             }
 
             .sending-btn:hover {
-                transform: scale(.9);
-                transition: .5;
                 background-color: rgba(18, 35, 129, 0.808);
                 color: rgb(255, 255, 255);
             }
             .sending-btn:active{
-                transform: scale(.85);
+                transform: scale(.9);
             }
         } 
     }

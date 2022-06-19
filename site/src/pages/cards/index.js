@@ -1,13 +1,56 @@
 import React, { useState, useEffect } from 'react';
-import storage from 'local-storage';
-import { toast } from 'react-toastify';
+import { listarTodasVendas, removerVenda } from '../../api/vendaApi';
 import Header from '../../components/Header';
+import Card from '../../components/Card';
 import Menu from '../../components/Menu';
-import { useLocation, useNavigate, useParams } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import { useNavigate } from 'react-router-dom';
+import { confirmAlert } from 'react-confirm-alert';
 import './index.scss';
 
 
-export default function cards() {
+export default function Index() {
+    const [vendas, setVendas] = useState([]);
+    
+    const navigate = useNavigate();
+
+
+    async function listarVendas() {
+        const resp = await listarTodasVendas();
+        setVendas(resp);
+    }
+
+    function alterarVendaClick(id) {
+        navigate(`/admin/alterar/${id}`);
+    }
+
+    async function removerVendaClick(id){
+        confirmAlert({
+            title: 'Remover venda',
+            message: `Deseja remover a venda?`,
+            buttons: [
+                {
+                    label: 'Sim',
+                    onClick: async () => {
+                        const resposta = await removerVenda(id);
+                        if (resposta === 204) {
+                            listarVendas();
+                            toast.success('Venda removida com sucesso!');
+                        }
+                        else toast.warn('Não foi possível remover a venda');
+                    }
+                },
+                { label: 'Não' }
+            ]
+        });
+    }
+
+    useEffect(() => {
+        listarVendas()
+    }, []);
+
+
+
     return (
         <div className='cards'>
             <Header user logo />
@@ -15,55 +58,29 @@ export default function cards() {
 
             <main className='cards-content'>
                 <div className='main-container'>
-                        <div className='adm-top-bar-crd'>
-                                <div className='adm-search-field-crd'>
-                                    <input type='text' onFocus={(e) => (e.target.type = "date")} onBlur={(e) => (e.target.type = "text")} placeholder='Data de Inicio'/>
+                    <div className='adm-top-bar-crd'>
+                                <div style={{display: 'flex', width: '26em', justifyContent: 'space-between'}}>
+                                    <div className='adm-search-field-crd'>
+                                        <input type='text' onFocus={(e) => (e.target.type = "date")} placeholder='Data de Inicio'/>
+                                            <img src="/assets/Icons/search-icon.svg" style={{width: "17px", cursor: "pointer"}} alt="Pesquisar"/>
+                                    </div>
+                                    <div className='adm-search-field-crd'>
+                                        <input type='text' onFocus={(e) => (e.target.type = "date")} placeholder='Data final'/>
                                         <img src="/assets/Icons/search-icon.svg" style={{width: "17px", cursor: "pointer"}} alt="Pesquisar"/>
+                                    </div>
                                 </div>
                                 <div className='adm-search-field-crd'>
-                                    <input type='text' onFocus={(e) => (e.target.type = "date")} onBlur={(e) => (e.target.type = "text")} placeholder='Data final'/>
-                                    <img src="/assets/Icons/search-icon.svg" style={{width: "17px", cursor: "pointer"}} alt="Pesquisar"/>
+                                    <p type='text' style={{width: '15em', fontFamily: 'sans-serif' , fontSize: '15px', color: '#535353'}}>Lucro total: </p>
                                 </div>
-                    </div>
+                        </div>
                 </div>
-                    <div className='card-field'>
-                        <ul className='layout-card'>
-                        <li className='card-image'><img src='\assets\images\car-test.png' alt='' /></li>
-                        <div className='card-text'>
-                            <li>Cliente:</li>
-                            <li>Placa:</li>
-                            <li>Modelo:</li>
-                            <li>Data:</li>
-                        </div>
-                    </ul>
-                    <ul className='layout-card'>
-                        <li className='card-image'><img src='\assets\images\car-test.png' alt='' /></li>
-                        <div className='card-text'>
-                            <li>Cliente:</li>
-                            <li>Placa:</li>
-                            <li>Modelo:</li>
-                            <li>Data:</li>
-                        </div>
-                    </ul>
-                    <ul className='layout-card'>
-                        <li className='card-image'><img src='\assets\images\car-test.png' alt='' /></li>
-                        <div className='card-text'>
-                            <li>Cliente:</li>
-                            <li>Placa:</li>
-                            <li>Modelo:</li>
-                            <li>Data:</li>
-                        </div>
-                    </ul>
-                    <ul className='layout-card'>
-                        <li className='card-image'><img src='\assets\images\car-test.png' alt='' /></li>
-                        <div className='card-text'>
-                            <li>Cliente:</li>
-                            <li>Placa:</li>
-                            <li>Modelo:</li>
-                            <li>Data:</li>
-                        </div>
-                    </ul>
-                </div>
+                <section className='cards-field'>
+                    {
+                        vendas.map(item => 
+                            <Card item={item} alterarVendaClick={alterarVendaClick} removerVendaClick={removerVendaClick} />
+                        )
+                    }
+                </section>
             </main>
         </div>
     )

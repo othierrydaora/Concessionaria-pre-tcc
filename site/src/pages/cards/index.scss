@@ -32,8 +32,8 @@
     justify-content: space-between;
     align-items: center;
     
-    width: 58em;
-    margin: 1em 0 0 5.8em;
+    width: 64em;
+    margin: 1em 0 0 1.5em;
 
 .adm-search-field-crd {
     display: flex;
@@ -54,33 +54,11 @@
     }}
 }
 
-.card-field {
+.cards-field {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
-    height: fit-content;
+    height: auto;
     flex-wrap: wrap;
-    width: 65em;
-    padding: 2em;
-}
-
-.layout-card {
-    height: 18em;
-    width: 15em;
-    margin: 2em 0 0  3em;
-    padding: .5em;
-    border-radius: .5em;
-    background-color: #fff;
-    box-shadow: 0 0 1em #9b9b9b;
-}
-
-.card-image {
-    height: 8em;
-    border-radius: .2em;
-}
-
-.card-text {
-    height: 8em;
-    background-color: #F3F4F5;
-    color: #5E5E5E;
+    align-items: flex-start;
+    width: 100%;
 }

@@ -6,7 +6,7 @@ export async function cadastrarVenda(venda) {
        INSERT INTO tb_venda (id_funcionario, nm_cliente,ds_cpf, dt_nascimento,ds_email, ds_endereco,ds_telefone ,nm_modelo, ds_placa, vl_preco, dt_compra)
                         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) `;
 
-    const [resposta] = await con.query(comando, [venda.funcionario, venda.cliente, venda.cpf, venda.nascimento, venda.email, venda.endereco, venda.telefone, venda.modelo, venda.placa, venda.preco, venda.compra]);
+    const [resposta] = await con.query(comando, [venda.usuario, venda.cliente, venda.cpf, venda.nascimento, venda.email, venda.endereco, venda.telefone, venda.modelo, venda.placa, venda.preco, venda.compra]);
     venda.id = resposta.insertId;
     return venda;
 }
@@ -37,7 +37,8 @@ export async function listagemTotalVendas () {
 	    nm_modelo		modelo,
         vl_preco		preco,
         dt_compra	    compra,
-        id_funcionario  funcionario
+        id_funcionario  funcionario,
+        ds_imagem       imagem
     FROM tb_venda`;
 
     const [resposta] = await con.query(comando);

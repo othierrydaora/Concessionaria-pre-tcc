@@ -1,0 +1,37 @@
+.layout-card {
+    height: fit-content;
+    width: 240px;
+    margin: 2em 0 0  3em;
+    border-radius: 12px;
+    background-color: #fff;
+    box-shadow: 0 0 6px 2px #00000025;
+    overflow: hidden;
+    transition: .2s;
+
+    &:hover {
+        transform: scale(1.03);
+        box-shadow: 0 0 7px 2px #0044ff18;  
+    }
+
+    .card-image {
+        width: 100%;
+    }
+
+    .card-text {
+        padding: 10px 7px;
+        height: 8em;
+        font: 15px 'Roboto', sans serif;
+        color: #5E5E5E;
+    }
+
+    .card-actions {
+        float: right;
+        > img {
+            width: 20px;
+            margin: 0 3px;
+            cursor: pointer;
+        }
+
+        margin-bottom: 10px;
+    }
+}
