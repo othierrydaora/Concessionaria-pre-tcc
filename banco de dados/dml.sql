@@ -78,3 +78,20 @@ DELETE FROM     tb_venda
        AND      id_venda = 1;
 
 SELECT * from tb_venda;
+
+-- Listar entre datas
+SELECT id_venda          id,
+       id_funcionario    funcionario,
+	  nm_cliente        cliente,
+       ds_cpf            cpf,
+       ds_endereco       endereco,
+       ds_email          email,
+       ds_telefone       telefone,
+       dt_nascimento     nascimento,
+       ds_placa          placa,
+	  nm_modelo	     nome,
+	  vl_preco	     preco,
+	  dt_compra	     compra
+  FROM tb_venda
+ WHERE dt_compra BETWEEN '2000-01-01' and '2010-01-01';
+

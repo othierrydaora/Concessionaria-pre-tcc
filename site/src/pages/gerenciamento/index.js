@@ -53,7 +53,6 @@ export default function Index() {
 
     async function filtrar() {
         const resp = await filtrarCpf(cpf);
-        console.log(resp);
         setVendas(resp);
     }
 
@@ -86,10 +85,10 @@ export default function Index() {
                             <th  oncontextmenu="return false" ondragstart="return false" onselectstart="return false">ID</th>
                             <th>NOME</th>
                             <th>CPF</th>
-                            <th>ENDEREÇO</th>
+                            <th>NASCIMENTO</th>
                             <th>EMAIL</th>
                             <th>TELEFONE</th>
-                            <th>NASCIMENTO</th>
+                            <th>ENDEREÇO</th>
                             <th>PLACA</th>
                             <th>MODELO</th>
                             <th>DATA</th>

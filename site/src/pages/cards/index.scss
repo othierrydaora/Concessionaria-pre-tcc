@@ -3,7 +3,6 @@
     height: 100vh;
     display: flex;
     background-color: #F5F6FA;
-
 }
 
 .cards-content {
@@ -11,7 +10,7 @@
     flex-direction: column;
     align-items: center;
     width: 100%;
-
+    overflow-y: scroll;
     margin-top: 3em;
     background-color: #F5F6FA;
 }
@@ -47,7 +46,7 @@
                 background-color: inherit;
                 color: #535353;
                 width: 120px;
-
+                cursor: pointer;
             }
 
             div {
@@ -60,6 +59,8 @@
             width: 25px;
             height: fit-content;
             cursor: pointer;
+
+            &:active { transform: scale(1.1); }
         }
     }
 

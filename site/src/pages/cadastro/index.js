@@ -27,7 +27,7 @@ export default function Index() {
 
     useEffect(() => {
         if (idParam) carregarVenda();
-    });
+    }, []);
 
     async function carregarVenda() {
         const r = await consultarVenda(idParam);
@@ -48,9 +48,7 @@ export default function Index() {
         try {
             const usuario = storage('usuario-logado').id;
 
-            if (!imagem) {
-                throw new Error('Escolha uma foto de seu veículo');
-            }
+            if (!imagem) throw new Error('Escolha uma foto de seu veículo');
 
             if(id === 0){
                 const r = await cadastrarVenda(cliente, cpf, nascimento, email, endereco, telefone, modelo, placa, preco, compra, usuario, imagem);
@@ -59,17 +57,15 @@ export default function Index() {
                 toast.success('✨ Venda cadastrada com sucesso!');
             } else {
                 try {
-                    const s = await alterarVenda(id, cliente, cpf, nascimento, email, endereco, telefone, modelo, placa, preco, compra, usuario);
-                    console.log(s);
+                    await alterarVenda(id, cliente, cpf, nascimento, email, endereco, telefone, modelo, placa, preco, compra, usuario);
                     toast.success('✨ Venda alterada com sucesso!');
                 } catch (err) {
                     toast.error('Não foi possível alterar a venda');
                 }
             }
         } catch (err) {
-            console.log(err);
-           toast.error(err.response.data.erro);
-           
+            if (err.response) toast.error(err.response.data.erro);
+            else toast.error(err.message);
         }
     }
 
@@ -213,7 +209,6 @@ export default function Index() {
                             
                         </div>
                     </div>
-                
                         
                     <div className='btn-cadastro'>
                         <button className='sending-btn' onClick={salvarVenda} >{ id === 0 ? 'Salvar' : 'Alterar'}</button>

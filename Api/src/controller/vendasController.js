@@ -1,6 +1,6 @@
 import { Router } from "express";
 import multer from 'multer'
-import { alterarVenda, cadastrarVenda, listagemTotalVendas, filtrocpf, deletarVenda, consultarVenda, alterarImagem } from "../repository/vendasRepository.js";
+import { alterarVenda, cadastrarVenda, listagemTotalVendas, filtrocpf, deletarVenda, consultarVenda, alterarImagem, filtroDatas } from "../repository/vendasRepository.js";
 
 const server = Router();
 const upload = multer({ dest: 'storage/fotosCarros' });
@@ -75,6 +75,19 @@ server.put('/venda/imagem', upload.single('imagem'), async (req, res) => {
         })
     }
 })
+
+server.get('/venda/periodo', async (req, res) => {
+    try {
+        const { inicio, fim } = req.body;
+        const answer = await filtroDatas(inicio, fim);
+
+        res.status(200).send(answer);
+    } catch (err) {
+        res.status(400).send({
+            Erro: err.message
+        });
+    }
+}); 
 
 //consulta
 server.get('/venda/:id', async (req, res) => {
