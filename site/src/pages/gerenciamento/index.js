@@ -53,7 +53,6 @@ export default function Index() {
 
     async function filtrar() {
         const resp = await filtrarCpf(cpf);
-        console.log(resp);
         setVendas(resp);
     }
 

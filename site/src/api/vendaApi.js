@@ -68,6 +68,13 @@ export async function enviarImagem(imagem, id, usuario) {
 }
 
 export function buscarImg(imagem) {
-  console.log(api.getUri());
   return `${api.getUri()}/${imagem}`;
+}
+
+export async function filtrarDatas(inicio, fim) {
+  const r = await api.get('/venda/periodo', {
+    inicio: inicio,
+    fim: fim
+  });
+  return r.data;
 }

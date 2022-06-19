@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { listarTodasVendas, removerVenda } from '../../api/vendaApi';
+import { filtrarDatas, listarTodasVendas, removerVenda } from '../../api/vendaApi';
 import Header from '../../components/Header';
 import Card from '../../components/Card';
 import Menu from '../../components/Menu';
@@ -11,6 +11,8 @@ import './index.scss';
 
 export default function Index() {
     const [vendas, setVendas] = useState([]);
+    const [inicio, setInicio] = useState('');
+    const [fim, setFim] = useState('');
     
     const navigate = useNavigate();
 
@@ -45,10 +47,20 @@ export default function Index() {
         });
     }
 
+    async function listarFiltrados() {
+        try {
+            if (!inicio || !fim) throw new Error('Insira uma data válida');
+
+            const resp = await filtrarDatas(inicio, fim);
+            setVendas(resp);
+        } catch (err) {
+            toast.error(err.message)
+        }
+    }
+
     useEffect(() => {
         listarVendas()
     }, []);
-
 
 
     return (
@@ -60,14 +72,24 @@ export default function Index() {
                 <section className='card-top-bar'>
                     <div>
                         <span>
-                            <input placeholder='Data inicial' onFocus={(e) => (e.target.type = "date")}/>
+                            <input
+                                placeholder='Data inicial'
+                                value={inicio}
+                                onChange={e => setInicio(e.target.value)}
+                                onFocus={(e) => (e.target.type = "date")}
+                            />
                         </span>
 
                         <span>
-                            <input placeholder='Data final' onFocus={(e) => (e.target.type = "date")}/>
+                            <input
+                                placeholder='Data final'
+                                value={fim}
+                                onChange={e => setFim(e.target.value)}
+                                onFocus={(e) => (e.target.type = "date")}
+                            />
                         </span>
 
-                        <img src='/assets/Icons/search-icon.png' alt=''/>
+                        <button onClick={listarFiltrados}><img src='/assets/Icons/search-icon.png' alt=''/></button>
                     </div>
 
                     <span>

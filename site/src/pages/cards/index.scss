@@ -47,7 +47,7 @@
                 background-color: inherit;
                 color: #535353;
                 width: 120px;
-
+                cursor: pointer;
             }
 
             div {
@@ -60,6 +60,8 @@
             width: 25px;
             height: fit-content;
             cursor: pointer;
+
+            &:active { transform: scale(1.1); }
         }
     }
 
