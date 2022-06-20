@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Header from '../../components/Header';
 import Menu from '../../components/Menu';
-import { Link, useNavigate, useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import './index.scss';
 import { buscarImg, consultarVenda, removerVenda } from '../../api/vendaApi';
 import { toast } from 'react-toastify';
@@ -90,7 +90,7 @@ export default function Index() {
                     </div>
                     <ul className='info-list'>
                         <li>ID: #{id}</li>
-                        <li>Cliente: <span style={{color: '#000'}}>{cliente}</span></li>
+                        <li>Cliente: {cliente}</li>
                         <li>Telefone: {telefone}</li>
                         <li>Email: {email}</li>
                         <li>Nascimento: {nascimento}</li>

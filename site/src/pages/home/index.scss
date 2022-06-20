@@ -500,7 +500,7 @@ section {
     }
 }
 
-@media screen and (max-width: 550px) {
+@media screen and (min-width: 550px) and (max-width: 600px)  {
     .inicial {
         height: 450px;
         background-size: cover;
@@ -618,7 +618,7 @@ section {
 
     .pg4-card {
         height: 18em;
-        width: 33em;
+        width: 34.5em;
         border-radius: .5em;
     }
 

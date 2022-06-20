@@ -10,7 +10,7 @@ server.post('/venda', async (req, resp) => {
     try {
         const adicionarVenda = req.body;
         if (!adicionarVenda.cliente ||!adicionarVenda.cliente.trim() ) throw new Error('O nome do cliente é obrigatório!');
-        if (!adicionarVenda.cpf ||!adicionarVenda.cpf.trim()) throw new Error('O CPF é obrigatorio!');
+        if (!adicionarVenda.cpf ||!adicionarVenda.cpf.trim()) throw new Error('O CPF é obrigatório!');
         if (!adicionarVenda.nascimento) throw new Error('A data de nascimento é obrigatória!');
         if (!adicionarVenda.email || !adicionarVenda.email.trim()) throw new Error('O email é obrigatório!');
         if (!adicionarVenda.endereco || !adicionarVenda.endereco.trim()) throw new Error('O endereço é obrigatório!');

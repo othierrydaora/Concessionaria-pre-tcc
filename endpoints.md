@@ -121,3 +121,21 @@ response (200)
         "compra": ""
 }
 ```
+
+## (7) /GET      /venda/:id
+```
+response (200)
+{
+        "id": "",
+        "nome": "",
+        "cpf": 0.0,
+        "endereco": "",
+        "email": "",
+        "telefone": "",
+        "nascimento": "",
+        "placa": "",
+        "modelo": "",
+        "preco": "",
+        "compra": ""
+}
+```
