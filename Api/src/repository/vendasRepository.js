@@ -60,7 +60,8 @@ export async function consultarVenda(id) {
 	    nm_modelo		modelo,
         vl_preco		preco,
         dt_compra	    compra,
-        id_funcionario  funcionario
+        id_funcionario  funcionario,
+        ds_imagem       imagem
     FROM tb_venda
     WHERE id_venda = ? `;
 
@@ -109,7 +110,8 @@ export async function filtrocpf(cpf) {
                             ds_placa          placa,
                             nm_modelo	      nome,
                             vl_preco	      preco,
-                            dt_compra	      compra
+                            dt_compra	      compra,
+                            ds_imagem         imagem
                      FROM   tb_venda
                     WHERE   ds_cpf			  like '%${cpf}%' `;
     const [resposta] = await con.query(comando);
@@ -129,7 +131,8 @@ export async function filtroDatas(inicio, fim) {
                             ds_placa          placa,
                             nm_modelo	      nome,
                             vl_preco	      preco,
-                            dt_compra	      compra
+                            dt_compra	      compra,
+                            ds_imagem         imagem
                             FROM tb_venda
                             WHERE dt_compra BETWEEN ? and ?`;
     const [answer] = await con.query(command, [inicio, fim]);

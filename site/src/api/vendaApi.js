@@ -25,6 +25,7 @@ export async function listarTodasVendas() {
 
 export async function consultarVenda(id) {
   const r = await api.get(`/venda/${id}`);
+  console.log(r.data)
   return r.data;
 }
 

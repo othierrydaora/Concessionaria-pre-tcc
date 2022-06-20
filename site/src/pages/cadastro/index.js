@@ -3,7 +3,7 @@ import storage from 'local-storage';
 import { toast } from 'react-toastify';
 import Header from '../../components/Header';
 import Menu from '../../components/Menu';
-import { alterarVenda, cadastrarVenda, consultarVenda, enviarImagem } from '../../api/vendaApi';
+import { alterarVenda, cadastrarVenda, consultarVenda, enviarImagem, buscarImg } from '../../api/vendaApi';
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import './index.scss';
 
@@ -42,6 +42,7 @@ export default function Index() {
         setPreco(r.preco);
         setCompra(r.compra.substr(0, 10));
         setId(r.id);
+        setImagem(r.imagem);
     }
 
     async function salvarVenda() {
@@ -58,6 +59,7 @@ export default function Index() {
             } else {
                 try {
                     await alterarVenda(id, cliente, cpf, nascimento, email, endereco, telefone, modelo, placa, preco, compra, usuario);
+                    if (typeof imagem == 'object') await enviarImagem(imagem, id, usuario);
                     toast.success('✨ Venda alterada com sucesso!');
                 } catch (err) {
                     toast.error('Não foi possível alterar a venda');
@@ -82,6 +84,7 @@ export default function Index() {
         setPlaca('');
         setPreco('');
         setTelefone('');
+        setImagem('');
     }
 
     function setarImagem() {
@@ -89,7 +92,8 @@ export default function Index() {
     }
 
     function showImage() {
-        return URL.createObjectURL(imagem);
+        if (typeof imagem == 'object') return URL.createObjectURL(imagem);
+        else return buscarImg(imagem);
     }
     
     return (
