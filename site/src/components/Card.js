@@ -1,16 +1,21 @@
+import { useNavigate } from 'react-router-dom';
 import { buscarImg } from '../api/vendaApi';
 import './Card.scss'
 
 export default function Index(props) {
+    const navigate = useNavigate();
 
     function format(data) {
         let ano = data.substr(0, 4), mes = data.substr(5, 2), dia = data.substr(8, 2);
         return `${dia}/${mes}/${ano}`;
     }
 
+    function goToDetalhada() {
+        navigate(`/card/${props.item.id}`);
+    }
 
     return (
-        <div className='layout-card'>
+        <div className='layout-card' onClick={goToDetalhada}>
             <div className='card-image'><img src={buscarImg(props.item.imagem)}  alt=''/></div>
             <div className='card-text'>
                 <li>ID: {props.item.id}</li>
