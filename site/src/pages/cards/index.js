@@ -13,6 +13,7 @@ export default function Index() {
     const [vendas, setVendas] = useState([]);
     const [inicio, setInicio] = useState('');
     const [fim, setFim] = useState('');
+    const [ganhos, setGanhos] = useState(0);
     
     const navigate = useNavigate();
 
@@ -49,7 +50,7 @@ export default function Index() {
 
     async function listarFiltrados() {
         try {
-            if (!inicio || !fim) throw new Error('Insira uma data válida');
+            if (!inicio || !fim) return;
 
             const resp = await filtrarDatas(inicio, fim);
             console.log(resp)
@@ -59,14 +60,29 @@ export default function Index() {
         }
     }
 
+    function refresh() {
+        setInicio('');
+        setFim('');
+    }
+
+    function calcularGanhos() {
+        let r = 0;
+        vendas.forEach(item => r += Number(item.preco));
+        setGanhos(r);
+    }
+
+    
     useEffect(() => {
         listarVendas()
     }, []);
 
     useEffect(() => {
-        listarFiltrados()
-    }, [fim])
-
+        calcularGanhos();
+    }, [vendas]);
+    
+    useEffect(() => {
+        listarFiltrados();
+    }, [inicio, fim])
 
     return (
         <div className='cards'>
@@ -76,29 +92,32 @@ export default function Index() {
             <main className='cards-content'>
                 <section className='card-top-bar'>
                     <div>
-                        <span>
-                            <input
-                                placeholder='Data inicial'
-                                value={inicio}
-                                onChange={e => setInicio(e.target.value)}
-                                onFocus={(e) => (e.target.type = "date")}
-                            />
-                        </span>
+                        <div className='card-top-bar-inputs'>
+                        <p>Filtrar</p>
+                            <span> 
+                                <input
+                                    placeholder='Data inicial'
+                                    value={inicio}
+                                    onChange={e => setInicio(e.target.value)}
+                                    onFocus={(e) => (e.target.type = "date")}
+                                />
+                            </span>
 
-                        <span>
-                            <input
-                                placeholder='Data final'
-                                value={fim}
-                                onChange={e => setFim(e.target.value)}
-                                onFocus={(e) => (e.target.type = "date")}
-                            />
-                        </span>
+                            <span>
+                                <input
+                                    placeholder='Data final'
+                                    value={fim}
+                                    onChange={e => setFim(e.target.value)}
+                                    onFocus={(e) => (e.target.type = "date")}
+                                />
+                            </span>
 
-                        <button onClick={listarFiltrados}><img src='/assets/Icons/search-icon.png' alt=''/></button>
+                            <img src='/assets/Icons/limpar-filtro.png' alt='' onClick={refresh}/>
+                        </div>
                     </div>
 
                     <span>
-                        <div>Ganhos totais: { }</div>
+                        <div>Ganhos totais: {ganhos }</div>
                     </span>
                 </section>
                 

@@ -78,7 +78,7 @@ server.put('/venda/imagem', upload.single('imagem'), async (req, res) => {
 
 server.get('/venda/periodo', async (req, res) => {
     try {
-        const { inicio, fim } = req.body;
+        const { inicio, fim } = req.query;
         const answer = await filtroDatas(inicio, fim);
 
         res.status(200).send(answer);

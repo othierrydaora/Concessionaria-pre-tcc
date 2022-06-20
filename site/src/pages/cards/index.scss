@@ -13,22 +13,37 @@
     overflow-y: scroll;
     margin-top: 3em;
     background-color: #F5F6FA;
+    padding-bottom: 5em;
 }
 
 .card-top-bar {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     width: 100%;
-    padding: 2.5em 3em;
+    padding: 17px 0;
+    background-color: #ffffff;
+    box-shadow: 0 0 5px 2px #0000003b;
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    
+    p {
+        font-size: 21px;
+        font-family: 'Roboto', sans-serif;
+        font-weight: 500;
+        color: #357AE2;
+        margin-bottom: 4px;
+        margin-right: 15px;
+    }
 
-    > div {
-        display: inline-flex;
-        width: 310px;
+    .card-top-bar-inputs{
+        display: flex;
+        width: 320px;
+        flex-direction: row;
+        align-items: center;
         justify-content: space-between;
-
-        > hr { transform: rotate(270deg); }
     
         > span {
             display: flex;
@@ -39,6 +54,7 @@
             height: 30px;
             padding: 5px 5px;
             border: .4px solid #818181;
+            margin-right: 5px;
 
             input {
                 outline: none;
@@ -50,7 +66,7 @@
             }
 
             div {
-                font-style: 'Roboto', sans serif;
+                font-style: 'Roboto', sans-serif;
             }
 
         }
@@ -65,7 +81,7 @@
     }
 
     > span > div {
-        font-style: 'Roboto', sans serif;
+        font-style: 'Roboto', sans-serif;
         border-radius: 30px;
         background-color: #ffffff;
         height: 30px;
@@ -82,5 +98,6 @@
     height: auto;
     flex-wrap: wrap;
     align-items: flex-start;
+    justify-content: space-evenly;
     width: 100%;
 }

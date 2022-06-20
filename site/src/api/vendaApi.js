@@ -72,9 +72,6 @@ export function buscarImg(imagem) {
 }
 
 export async function filtrarDatas(inicio, fim) {
-  const r = await api.get('/venda/periodo', {
-    inicio: inicio,
-    fim: fim
-  });
+  const r = await api.get(`/venda/periodo?inicio=${inicio}&fim=${fim}`);
   return r.data;
 }
