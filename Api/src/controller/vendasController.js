@@ -9,8 +9,8 @@ const upload = multer({ dest: 'storage/fotosCarros' });
 server.post('/venda', async (req, resp) => {
     try {
         const adicionarVenda = req.body;
-        if (!adicionarVenda.cliente ||!adicionarVenda.cliente.trim() ) throw new Error('O nome do cliente é obrigatório!');
-        if (!adicionarVenda.cpf ||!adicionarVenda.cpf.trim()) throw new Error('O CPF é obrigatório!');
+        if (!adicionarVenda.cliente || !adicionarVenda.cliente.trim()) throw new Error('O nome do cliente é obrigatório!');
+        if (!adicionarVenda.cpf || !adicionarVenda.cpf.trim()) throw new Error('O CPF é obrigatório!');
         if (!adicionarVenda.nascimento) throw new Error('A data de nascimento é obrigatória!');
         if (!adicionarVenda.email || !adicionarVenda.email.trim()) throw new Error('O email é obrigatório!');
         if (!adicionarVenda.endereco || !adicionarVenda.endereco.trim()) throw new Error('O endereço é obrigatório!');
@@ -20,12 +20,40 @@ server.post('/venda', async (req, resp) => {
         if (!adicionarVenda.preco) throw new Error('O preço é obrigatório!');
         if (!adicionarVenda.compra) throw new Error('A data da compra é obrigatória!');
         if (!adicionarVenda.usuario) throw new Error('O usuário não logado!');
-
+        
         const vendaInserida = await cadastrarVenda(adicionarVenda);
         resp.send(vendaInserida);
     } catch (err) {
         resp.status(400).send({
             erro: err.message
+        });
+    }
+});
+
+//alterar
+server.put('/venda/:id', async (req, res) => {
+    try {
+        const { id } = req.params;
+        const alterar = req.body;
+        if (!alterar.cliente || !adicionarVenda.cliente.trim()) throw new Error('O nome do cliente é obrigatório!');
+        if (!alterar.cpf || !adicionarVenda.cpf.trim()) throw new Error('O CPF é obrigatorio!');
+        if (!alterar.nascimento) throw new Error('A data de nascimento é obrigatória!');
+        if (!alterar.email || !adicionarVenda.email.trim()) throw new Error('O email é obrigatório!');
+        if (!alterar.endereco || !adicionarVenda.endereco.trim()) throw new Error('O endereço é obrigatório!');
+        if (!alterar.telefone || !adicionarVenda.telefone.trim()) throw new Error('O telefone é obrigatório!');
+        if (!alterar.modelo || !adicionarVenda.modelo.trim()) throw new Error('O modelo é obrigatório!');
+        if (!alterar.placa || !adicionarVenda.placa.trim()) throw new Error('A placa é obrigatória!');
+        if (!alterar.preco) throw new Error('O preco é obrigatório!');
+        if (!alterar.compra) throw new Error('A data da compra é obrigatória!');
+        if (!alterar.usuario) throw new Error('Usuario Não Logado!');
+        
+        const alterandoVenda = await alterarVenda(id, alterar);
+        if (alterandoVenda != 1) throw new Error('Não foi possível alterar a venda');
+        
+        res.status(204).send();
+    } catch (err) {
+        res.status(400).send({
+            error: err.message
         });
     }
 });
@@ -59,11 +87,12 @@ server.get('/venda', async (req, res) => {
     }
 });
 
-//adiocionar imagem
+//adicionar imagem
 server.put('/venda/imagem', upload.single('imagem'), async (req, res) => {
     try {
         const { id, usuario } = req.query;
         if (!usuario) throw new Error('O usuário precisa estar logado');
+        if (!req.file) throw new Error('Insira um arquivo');
 
         const imagem = req.file.path;
         const resposta = await alterarImagem(imagem, id);
@@ -96,34 +125,6 @@ server.get('/venda/:id', async (req, res) => {
         const venda = await consultarVenda(id);
         if (!venda) throw new Error('Não encontrado');
         res.send(venda);
-    } catch (err) {
-        res.status(400).send({
-            error: err.message
-        });
-    }
-});
-
-//alterar
-server.put('/venda/:id', async (req, res) => {
-    try {
-        const { id } = req.params;
-        const alterar = req.body;
-        if (!alterar.cliente) throw new Error('O nome do cliente é obrigatório!');
-        if (!alterar.cpf) throw new Error('O CPF é obrigatorio!');
-        if (!alterar.nascimento) throw new Error('A data de nascimento é obrigatória!');
-        if (!alterar.email) throw new Error('O email é obrigatório!');
-        if (!alterar.endereco) throw new Error('O endereço é obrigatório!');
-        if (!alterar.telefone) throw new Error('O telefone é obrigatório!');
-        if (!alterar.modelo) throw new Error('O modelo é obrigatório!');
-        if (!alterar.placa) throw new Error('A placa é obrigatória!');
-        if (!alterar.preco) throw new Error('O preco é obrigatório!');
-        if (!alterar.compra) throw new Error('A data da compra é obrigatória!');
-        if (!alterar.usuario) throw new Error('Usuario Não Logado!');
-        
-        const alterandoVenda = await alterarVenda(id, alterar);
-        if (alterandoVenda != 1) throw new Error('Não foi possível alterar a venda');
-        
-        res.status(204).send();
     } catch (err) {
         res.status(400).send({
             error: err.message

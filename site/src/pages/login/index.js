@@ -28,7 +28,7 @@ export default function Index() {
             storage('usuario-logado', r);        
             setTimeout(() => {
                 navigate('/admin');
-            }, 2000);
+            }, 1500);
             
         } catch (err) {
             ref.current.complete();

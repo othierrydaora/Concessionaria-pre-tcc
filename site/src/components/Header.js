@@ -59,7 +59,7 @@ export default function Header(props) {
     const cnt = props.contact;
     const logo = props.logo;
     const home = props.home;
-    const user = props.user;
+    const user = props.user && storage('usuario-logado');
 
     return (
         <div className='cm-header'>

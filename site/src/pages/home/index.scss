@@ -317,10 +317,10 @@ section {
 .hm-form-title {
     color: #526cff;
     font-family: 'Roboto', sans-serif;
-    font-size: 1em;
-    font-weight: 400;
+    font-size: 24px;
+    font-weight: 600;
     text-transform: uppercase;
-    margin-bottom: 10px;
+    margin-bottom: 30px;
 }
 
 .email{
@@ -500,7 +500,7 @@ section {
     }
 }
 
-@media screen and (min-width: 550px) and (max-width: 600px)  {
+@media screen and (max-width: 550px) {
     .inicial {
         height: 450px;
         background-size: cover;

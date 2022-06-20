@@ -206,6 +206,7 @@ export default function Index() {
                             <button id='button-contact' type='submit' className='contact-btn'>Enviar</button>
                         </form>
                     </section>
+
                 </main>
                 <Footer/>
             </div>
