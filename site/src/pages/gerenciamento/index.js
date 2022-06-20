@@ -77,8 +77,7 @@ export default function Index() {
                         <img src="/assets/Icons/search-icon.svg" style={{width: "17px", cursor: "pointer"}} alt="Pesquisar" onClick={filtrar}/>
                     </div>
                 </div>
-
-
+                
                 <table>
                     <thead>
                         <tr style={{userSelect: "none"}}>
