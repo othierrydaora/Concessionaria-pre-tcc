@@ -15,7 +15,7 @@ export default function Index(props) {
     }
 
     return (
-        <div className='layout-card' onClick={goToDetalhada}>
+        <div className='layout-card'>
             <div className='card-image'><img src={buscarImg(props.item.imagem)}  alt=''/></div>
             <div className='card-text'>
                 <li>ID: {props.item.id}</li>

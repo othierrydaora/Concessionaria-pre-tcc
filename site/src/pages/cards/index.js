@@ -63,7 +63,6 @@ export default function Index() {
     function refresh() {
         setInicio('');
         setFim('');
-        listarVendas();
     }
 
     function calcularGanhos() {
